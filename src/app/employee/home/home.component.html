@@ -1,0 +1,183 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidebar mode="over">
+        <div class="profile_card">
+            <div class="imgBox">
+                <img [src]="ImgUrl">
+            </div>
+            <button (click)="sidebar.toggle()">
+                <img src="../../../assets/icons/menu-close.png" alt="" width="30px">
+            </button>
+        </div>
+
+        <!-- ******************* sidebar *************** -->
+
+        <mat-nav-list>
+            <a mat-list-item (click)="sidebar.toggle()" [routerLink]="['/admin/dashboard']">
+                <img src="../../../assets/icons/dashboard.png" alt="" width="30px">
+                <span>Dashboard</span>
+            </a>
+
+            <div *ngFor="let role of role_permission">
+                <a *ngIf="role.PermissionName == 'Employee Management'" mat-list-item (click)="sidebar.toggle()"
+                    [routerLink]="['/admin/employee']">
+                    <img src="../../../assets/icons/user.png" alt="" width="30px">
+                    <span>Employee Management</span>
+                </a>
+
+                <a *ngIf="role.PermissionName == 'Client Management'" mat-list-item (click)="sidebar.toggle()"
+                    [routerLink]="['/admin/client']">
+                    <img src="../../../assets/icons/client.png" alt="" width="30px">
+                    <span>Client Management</span>
+                </a>
+
+
+
+                <!-- FOR LEAVE MANAGEMENT STRATR  -->
+                <span *ngIf="role.PermissionName == 'Leave Management'">
+                    <a mat-list-item (click)="LeaveMenu()">
+                        <img src="../../../assets/icons/leave-management.png" alt="" width="30px">
+                        <span>Leave Management</span>
+                        <mat-icon *ngIf="!onLeaveMenu">keyboard_arrow_right</mat-icon>
+                        <mat-icon *ngIf="onLeaveMenu">keyboard_arrow_down</mat-icon>
+                    </a>
+                    <span *ngIf="onLeaveMenu" class="SubMenu">
+                        <a mat-list-item (click)="LeaveMenu()" (click)="sidebar.toggle()"
+                            [routerLink]="['/admin/leavetype']">
+                            <img src="../../../assets/icons/leave-type.png" alt="" width="30px">
+                            <span>Pending Leave</span>
+                        </a>
+                    </span>
+
+                    <span *ngIf="onLeaveMenu" class="SubMenu">
+                        <a mat-list-item (click)="LeaveMenu()" (click)="sidebar.toggle()"
+                            [routerLink]="['/admin/assignedleave']">
+                            <img src="../../../assets/icons/assign-leave.png" alt="" width="30px">
+                            <span>Approved Leave</span>
+                        </a>
+                    </span>
+
+                    <span *ngIf="onLeaveMenu" class="SubMenu">
+                        <a mat-list-item (click)="LeaveMenu()" (click)="sidebar.toggle()"
+                            [routerLink]="['/admin/appliedleave']">
+                            <img src="../../../assets/icons/applied-leave.png" alt="" width="30px">
+                            <span>Reject Leave</span>
+                        </a>
+                    </span>
+
+                </span>
+
+                <!-- FOR LEAVE MANAGEMENT END -->
+
+
+                <!-- FOR PROJECT MANAGEMENT START -->
+                <span *ngIf="role.PermissionName == 'Project Management'">
+                    <a mat-list-item (click)="ProjectMenu()">
+                        <img src="../../../assets/icons/project-management.png" alt="" width="30px">
+                        <span>Project Management</span>
+                        <mat-icon *ngIf="!onProjectMenu">keyboard_arrow_right</mat-icon>
+                        <mat-icon *ngIf="onProjectMenu">keyboard_arrow_down</mat-icon>
+                    </a>
+                    <span *ngIf="onProjectMenu" class="SubMenu">
+                        <a mat-list-item (click)="ProjectMenu()" (click)="sidebar.toggle()"
+                            [routerLink]="['/admin/project']">
+                            <img src="../../../assets/icons/project.png" alt="" width="30px">
+                            <span>Runing Project </span>
+                        </a>
+                    </span>
+
+                    <span *ngIf="onProjectMenu" class="SubMenu">
+                        <a mat-list-item (click)="ProjectMenu()" (click)="sidebar.toggle()"
+                            [routerLink]="['assignedproject']">
+                            <img src="../../../assets/icons/assign-project.png" alt="" width="30px">
+                            <span>Assign Project</span>
+                        </a>
+                    </span>
+
+                </span>
+
+                <!-- FOR PROJECT MANAGEMENT END -->
+
+
+                <a *ngIf="role.PermissionName == 'Perfoma Invoice Management'" mat-list-item (click)="sidebar.toggle()"
+                    [routerLink]="['/admin/proformainvoice']">
+                    <img src="../../../assets/icons/proforma-invoice.png" alt="" width="30px">
+                    <span>Perfoma Invoice Management</span>
+                </a>
+
+                <a *ngIf="role.PermissionName == 'Quatation Management'" mat-list-item (click)="sidebar.toggle()"
+                    [routerLink]="['/admin/generatequatation']">
+                    <img src="../../../assets/icons/quotation.png" alt="" width="30px">
+                    <span>Quatation Management</span>
+                </a>
+
+
+
+
+                <a *ngIf="role.PermissionName == 'Purchase Order'" mat-list-item (click)="sidebar.toggle()"
+                    [routerLink]="['/admin/paymentlist']">
+                    <img src="../../../assets/icons/payment.png" alt="" width="30px">
+                    <span>Purchase Order</span>
+                </a>
+
+            </div>
+            <a mat-list-item (click)="sidebar.toggle()" [routerLink]="['/']">
+                <img src="../../../assets/icons/logout.png" alt="" width="30px">
+                <span>Logout</span>
+            </a>
+
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+    <!-- ******************* Header Footer Main *************** -->
+
+    <mat-sidenav-content>
+        <div class="content">
+            <div class="toolbar">
+                <mat-toolbar>
+                    <button mat-icon-button (click)="sidebar.toggle()">
+                        <img src="../../../assets/icons/menubar.png" alt="" width="30px">
+                    </button>
+                    <h2>hi! {{login_data.LoginResponse.EmployeeName}}</h2>
+                </mat-toolbar>
+            </div>
+            <div class="main">
+                <main>
+                    <router-outlet></router-outlet>
+                </main>
+            </div>
+            <div id="footer">
+                <mat-toolbar>
+                    <button mat-icon-button [routerLink]="['/admin']">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48"
+                            viewBox="0 0 48 48">
+                            <path fill="#E8EAF6" d="M42 39L6 39 6 23 24 6 42 23z"></path>
+                            <path fill="#C5CAE9" d="M39 21L34 16 34 9 39 9zM6 39H42V44H6z"></path>
+                            <path fill="#B71C1C" d="M24 4.3L4 22.9 6 25.1 24 8.4 42 25.1 44 22.9z"></path>
+                            <path fill="#D84315" d="M18 28H30V44H18z"></path>
+                            <path fill="#01579B" d="M21 17H27V23H21z"></path>
+                            <path fill="#FF8A65"
+                                d="M27.5,35.5c-0.3,0-0.5,0.2-0.5,0.5v2c0,0.3,0.2,0.5,0.5,0.5S28,38.3,28,38v-2C28,35.7,27.8,35.5,27.5,35.5z">
+                            </path>
+                        </svg>
+                        <mat-hint>Home</mat-hint>
+                    </button>
+
+                    <button mat-icon-button [routerLink]="['/admin/client']">
+                        <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEj0lEQVR4nO2dO6zcRBiFzUsIgYQipeBV0FAAEhISDdVFoiBil8TnGFOlosjlcqWkok7KdEBFRAsikNChQIloKOhAIjwLJBBQUPDIhZ1ZgtHs3dx4vd6H13Zm1nuO9Ev3sR6Pz+f/n7HXjyiSJEmSpBa0BzxggV1DfmSBrwxwxYUlvzfkBxZ4OUvTe9pYt5TT3tGj91nyTUMOLZnNCwP8bYDXsl7vkExsQcM47hvgj0UgpgL4wcbxk230aWPlSpAB/q0MI5ctwyR5yvd2dCkzrpbs+Z9b4OQgTR/Jjh+/04VJkkctecqSX0xBIf8cxPHDvrdn7ceMYpky5MAC29np0zfPWs79z8bxS6PPTi77Wba1deuN3YoOyQ3gUzDieGvZ5V2ZmoKSJC+22+sOT22nZlPAdtV2LLlTaOPLLIpuaqfXHZY7ziiOGfPK1CxlaXpLcUwxSfJ4O73usAz5YQHIyVXbGg/0+UH+lWZ7uwGy5Dd5E91satW2xrOvlabMCo48iAzwV96MLE3vWhWIW1bGstbOFU39oaYEhAJiO1TylCH0D0FA6N94AaF/swWE/g0WEPo3VUDo30gBoX/zBIT+DRMQ+jdJQOjfGAEJwAwbQOjUCf1DEBAuNsaQZ32c7VaGsFkoAsKwoAgIw4IiIAwLioCwxDzgE0teaBxKkrwgIKxoHPB+lqZ3jK4TA95qtN0TJ24TEFYqK6/nL/IbX7z39o2CoZLFgxLlbqHYKTPIXfRtgXdrALlQvHDc/T4AnhcQlo4XVwbkc/P22hqZcrGYGfm2ygb6jR7UDfCLTZInSgDc7YwryZT36mZGMdsMcEZAOKrr3w3Ih4ow/jl27EFLXi41dPlMmZsZJWPX2Y3OEEN+mvX7h4vrNknymCV/nLuXL4ZSCUYRyiYCOZ8dOXJ7cb1DoFe8TnmcSe9UKF9LlamZUIAzGwXEFKa11+Tu1jKAnbPsMplysUaJayzWAohx01pgt7gud4dWhb1yHpQgYKwFEDNjWuvKlitHFds7X1aS6pSpjQJiZk1re71DBvh4xXanMiWEzAgfCBZOa+u0XwrFN4xggZh501rgp4Y2fgJKCDCCBGLIn93Z2qWntfViNKb4HDOCB2L3obw60SawvcyTiVYKByIQGMECsftxquK0thMRLBADXK0xk1rbCBaI3dAQEPqHICD0b7yA0L/ZAkL/BgsI/ZsqIPRvpIBwA4EcPNkauGSBbw+ebL3/s/vbrvuMjkPYLpC9NL3fkOcMYBY14D5jyDfck011YMjmgQyT5GlD/lq1IUP+NiSfXbkjHZFtGogh/1u1sTrLRh2RbRqIr4g6IisgYakzQBQUEBvgjqAMoX8IAkL/xgsI/ZstIFxDIO6NOL47oeB1IBb4WoYwqIfxX/LdCQUnMmTyhS6KzGuGlL7ySJF5A+LkvvsQBIYDJAPuNcDvvjtjFdfPeg/JZ+q85VPB5jIkd+p4R1Dov2Tl5b6GVfliOEBGY0q/f9g9mWCZixwUbB/INbmrT8ZlzB08Xm7hljIFKwCRJEmSJEmSJEmSJEmSJEmSovXQ/4HL+5rJ77upAAAAAElFTkSuQmCC">
+                        <mat-hint>Project</mat-hint>
+                    </button>
+
+                    <button mat-icon-button [routerLink]="['/admin/employeeleavelist']">
+                        <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAACAUlEQVR4nO3YSyhEURgH8EuUhcJMyQrZsreRHUoY5NGgRFGyEvIor2KK7GahTDJ173AZQl53SCOhJmVFUSxmSh4bd3bK4tPMYpg5heEY9359//pvTtNXv8695zRXECgUSmREr3/0YwWNz/11JJ8fPlbrc38dAnMK7XCsAgYBPmvkTnz1++822rkE/mlohw30SAO9wwY6tADNKe3oGwgrr2sp2rkxAy8kh5cXONq5MQODRsoNvFNVDnooN3CndQ70UG5g0auCHsoNLEVcD1qt5sDHMzY4HxsLa2ANLfiuoog5We9MxXjB1zVlDPiq1oQXfFZfzYA95lq84OO2VgZ81NGOF+zu6WbA+/0DeMHK+AQD3pmcxgvess4w4A2bHS94TXIy4JXVbbxg566bAcuHZ3jBsueC/ZN/6cMLdtw8hWFf0xO4YTUJlnx+eMlICoHV7DT84OccYwh8n5uJHzw8K0LvlDXYkXkZP3hQ3gx9oRha2cUPdi2vw01THdw21sDe0hpusFuUAYxx7ye1MQ4OxUW84IfiAuYevi8pxAt+zM9jwIE1tGClpZkBK63NeMH9dicolWWgZqWCmpkCLlNpcA0tePLAw3w8D6yhBYteFSyuU+iyOYK1KCfBNbRg6Y9L4J/mv3eOdtj3x490fGJigx7KDSwIglknpVAoFAqFImg3b0ICopSF9acyAAAAAElFTkSuQmCC">
+                        <mat-hint>Leave</mat-hint>
+                    </button>
+
+
+                </mat-toolbar>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

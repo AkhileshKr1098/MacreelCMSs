@@ -1,0 +1,393 @@
+<div class="wrapper">
+    <div class="header">
+        <mat-toolbar>
+            <button mat-icon-button routerLink="/admin/employee">
+                <img src="../../../assets/icons/back.png" alt="" width="30">
+            </button>
+            <div>
+                <span>Employee Details</span>
+            </div>
+        </mat-toolbar>
+    </div>
+
+    <div class="container">
+        <mat-accordion>
+
+            <!-- *****************Employee Registration************************ -->
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <img src="../../../assets/icons/applied-leave.png" alt="" width="30px">
+                        <span>Employee Registration</span>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="dataRowImg">
+                    <img src="../../../assets/images/user-profile1.png" alt="" width="100px">
+                </div>
+                <div class="dataRow">
+                    <ul>
+                        <li>
+                            <img src="../../../assets/icons/code.png" alt="" width="30px">
+                            <span>{{emp_data.EmployeeCode}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/user.png" alt="" width="30px">
+                            <span>{{emp_data.EmployeeName}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/department.png" alt="" width="30px">
+                            <span>{{emp_data.Department}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/destination.png" alt="" width="30px">
+                            <span>{{emp_data.Designation}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/reports.png" alt="" width="30px">
+                            <span>{{emp_data.ReportingManager}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/email.png" alt="" width="30px">
+                            <span>{{emp_data.EmailId}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/aadhar-no.png" alt="" width="30px">
+                            <span>{{emp_data.adharno}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/pan-no.png" alt="" width="30px">
+                            <span>{{emp_data.PanNo}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/phone.png" alt="" width="30px">
+                            <span>{{emp_data.Mobile}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/from-date.png" alt="" width="30px">
+                            <span>{{emp_data.DOJ}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/passport.png" alt="" width="30px">
+                            <span>{{emp_data.Passport}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/user.png" alt="" width="30px">
+                            <span>{{emp_data.UserName}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/password.png" alt="" width="30px">
+                            <span>{{emp_data.Password}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </mat-expansion-panel>
+
+            <!-- *****************Bank Details************************ -->
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <img src="../../../assets/icons/bank.png" alt="" width="30px">
+                        <span> Bank Details </span>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="dataRow">
+                    <ul>
+                        <li>
+                            <img src="../../../assets/icons/bank-name.png" alt="" width="30px">
+                            <span>{{emp_data.BankName}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/number.png" alt="" width="30px">
+                            <span>{{emp_data.AccountNo}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/code.png" alt="" width="30px">
+                            <span>{{emp_data.IFSC}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/bank-name.png" alt="" width="30px">
+                            <span>{{emp_data.BankBranch}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </mat-expansion-panel>
+
+            <!-- *****************Health Data************************ -->
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <img src="../../../assets/icons/health.png" alt="" width="30px">
+                        <span> Health Data </span>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="dataRow">
+                    <ul>
+                        <li>
+                            <img src="../../../assets/icons/blood.png" alt="" width="30px">
+                            <span>{{emp_data.BloodGroup}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/mark.png" alt="" width="30px">
+                            <span>{{emp_data.IdMarks}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </mat-expansion-panel>
+
+            <!-- *****************Biographical Details************************ -->
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <img src="../../../assets/icons/assign-project-list.png" alt="" width="30px">
+                        <span> Biographical Details </span>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="dataRow">
+                    <ul>
+                        <li>
+                            <img src="../../../assets/icons/from-date.png" alt="" width="30px">
+                            <span>{{emp_data.DOB}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/age.png" alt="" width="30px">
+                            <span>{{emp_data.Age}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/user.png" alt="" width="30px">
+                            <span>{{emp_data.Sex}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/nationality.png" alt="" width="30px">
+                            <span>{{emp_data.Nationality}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/not-res.png" alt="" width="30px">
+                            <span>{{emp_data.Religion}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/user.png" alt="" width="30px">
+                            <span>{{emp_data.MaritalStatus}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </mat-expansion-panel>
+
+            <!-- *****************Present Address************************ -->
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <img src="../../../assets/icons/address.png" alt="" width="30px">
+                        <span> Present Address </span>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="dataRow">
+                    <ul>
+                        <li>
+                            <img src="../../../assets/icons/address.png" alt="" width="30px">
+                            <span>{{emp_data.PresentAddress}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/state.png" alt="" width="30px">
+                            <span>{{emp_data.State}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/city.png" alt="" width="30px">
+                            <span>{{emp_data.City}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/code.png" alt="" width="30px">
+                            <span>{{emp_data.Pin}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </mat-expansion-panel>
+
+            <!-- *****************In Case Emergency************************ -->
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <img src="../../../assets/icons/emergency.png" alt="" width="30px">
+                        <span> In Case Emergency </span>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="dataRow">
+                    <ul>
+                        <li>
+                            <img src="../../../assets/icons/user.png" alt="" width="30px">
+                            <span>{{emp_data.EmergencyContactPerson}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/phone.png" alt="" width="30px">
+                            <span>{{emp_data.EmergencyContactNumber}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/address.png" alt="" width="30px">
+                            <span>{{emp_data.EmergencyContectAddress}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </mat-expansion-panel>
+
+            <!-- *****************Refrences************************ -->
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <img src="../../../assets/icons/employee-performance.png" alt="" width="30px">
+                        <span> Refrences </span>
+
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="dataRow">
+                    <ul>
+                        <li>
+                            <img src="../../../assets/icons/user.png" alt="" width="30px">
+                            <span>{{emp_data.ReferencesName}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/phone.png" alt="" width="30px">
+                            <span>{{emp_data.ContactNo}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/company.png" alt="" width="30px">
+                            <span>{{emp_data.CompanyName}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/email.png" alt="" width="30px">
+                            <span>{{emp_data.CemailId}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </mat-expansion-panel>
+
+            <!-- ********************Last Three Employment Details************************ -->
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <img src="../../../assets/icons/employee.png" alt="" width="30px">
+                        <span> Last Three Employment Details </span>
+
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="dataRow">
+                    <ul>
+                        <li>
+                            <img src="../../../assets/icons/user.png" alt="" width="30px">
+                            <span>{{emp_data.PreviousEmployer}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/address.png" alt="" width="30px">
+                            <span>{{emp_data.From}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/state.png" alt="" width="30px">
+                            <span>{{emp_data.To}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </mat-expansion-panel>
+
+            <!-- ********************Professional Qualification************************ -->
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <img src="../../../assets/icons/Institution.png" alt="" width="30px">
+                        <span> Professional Qualification </span>
+
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="dataRow">
+                    <ul>
+                        <li>
+                            <img src="../../../assets/icons/leave-type.png" alt="" width="30px">
+                            <span>{{emp_data.Degree}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/Institution.png" alt="" width="30px">
+                            <span>{{emp_data.ProfessionalInstitution}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/year.png" alt="" width="30px">
+                            <span>{{emp_data.ProfessionalPassingYear}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/percentage.png" alt="" width="30px">
+                            <span>{{emp_data.ProfessionalSpecilization}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </mat-expansion-panel>
+
+            <!-- ********************Academic Qualification 10th************************ -->
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <img src="../../../assets/icons/10th.png" alt="" width="30px">
+                        <span> Academic Qualification 10th </span>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="dataRow">
+                    <ul>
+                        <li>
+                            <img src="../../../assets/icons/leave-type.png" alt="" width="30px">
+                            <span>{{emp_data.Board10}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/Institution.png" alt="" width="30px">
+                            <span>{{emp_data.Institution10}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/year.png" alt="" width="30px">
+                            <span>{{emp_data.PassingYear10}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/percentage.png" alt="" width="30px">
+                            <span>{{emp_data.Specilization10}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </mat-expansion-panel>
+
+            <!-- ********************Academic Qualification 12th************************ -->
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <img src="../../../assets/icons/12th.png" alt="" width="30px">
+                        <span> Academic Qualification 12th </span>
+
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="dataRow">
+                    <ul>
+                        <li>
+                            <img src="../../../assets/icons/leave-type.png" alt="" width="30px">
+                            <span>{{emp_data.Board12}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/Institution.png" alt="" width="30px">
+                            <span>{{emp_data.Institution12}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/year.png" alt="" width="30px">
+                            <span>{{emp_data.PassingYear12}}</span>
+                        </li>
+                        <li>
+                            <img src="../../../assets/icons/percentage.png" alt="" width="30px">
+                            <span>{{emp_data.Specilization12}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>

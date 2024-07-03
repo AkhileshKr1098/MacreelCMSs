@@ -1,0 +1,410 @@
+
+<mat-stepper orientation="vertical" #stepper>
+    <form [formGroup]="empReg">
+        <img src="../../../assets/icons/blood.png" alt="">
+
+        <!-- *****************Employee Registration************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>Employee Registration</ng-template>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Role</mat-label>
+                <mat-select formControlName="Role">
+                    <mat-option *ngFor="let role of RolePermission"
+                        [value]="role.Id">{{role.RoleName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>Employee Code</mat-label>
+                <input matInput placeholder="Enter employee code" formControlName="EmployeeCode">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Employee Name</mat-label>
+                <input matInput placeholder="Enter employee name" formControlName="EmployeeName">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Department</mat-label>
+                <mat-select formControlName="Department">
+                    <mat-option *ngFor="let department of department_data"
+                        [value]="department.department">{{department.department}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Designation</mat-label>
+                <mat-select formControlName="Designation">
+                    <mat-option *ngFor="let designation of designation_data"
+                        [value]="designation.designation">{{designation.designation}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Reporting Manager</mat-label>
+                <mat-select formControlName="ReportingManager">
+                    <mat-option *ngFor="let manager of ReportingManager"
+                        [value]="manager.EmpId">{{manager.UserName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <div class="imgBox">
+                <span>Profile Image</span><br>
+                <input type="file" formControlName="Image">
+            </div>
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email Id</mat-label>
+                <input matInput placeholder="Enter email id" formControlName="EmailId">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Aadhar No</mat-label>
+                <input matInput type="number" placeholder="Enter aadhar no" formControlName="AdharNo">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Pan No</mat-label>
+                <input matInput type="text" placeholder="Enter pan no" formControlName="PanNo">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Mobile No</mat-label>
+                <input matInput type="number" placeholder="Enter mobile no" formControlName="Mobile">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>DOJ</mat-label>
+                <input matInput type="date" placeholder="Enter DOJ" formControlName="DOJ">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Passport</mat-label>
+                <input matInput placeholder="Enter passport no" formControlName="Passport">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Salary</mat-label>
+                <input matInput placeholder="Enter Salary" formControlName="Salary">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>User Name</mat-label>
+                <input matInput placeholder="Enter user name" formControlName="UserName">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Enter password" formControlName="Password">
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+        <!-- *****************Bank Details************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>Bank Details</ng-template>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Bank Name</mat-label>
+                <input matInput placeholder="Enter bank name" formControlName="BankName">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Bank A/C No</mat-label>
+                <input matInput placeholder="Enter banc a/c no" formControlName="AccountNo">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Bank IFSC Code</mat-label>
+                <input matInput placeholder="Bank ifsc Code" formControlName="IFSC">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Bank Branch</mat-label>
+                <input matInput placeholder="Enter bank branch" formControlName="BankBranch">
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+        <!-- *****************Health Data************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>Health Data</ng-template>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Blood Group</mat-label>
+                <input matInput placeholder="Enter blood group" formControlName="BloodGroup">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Identification Mark</mat-label>
+                <input matInput placeholder="Enter identification mark" formControlName="IdMarks">
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+        <!-- *****************Biographical Details************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>Biographical Details</ng-template>
+
+            <mat-form-field appearance="outline">
+                <mat-label>DOB</mat-label>
+                <input matInput type="date" placeholder="Enter dob" formControlName="DOB">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Age</mat-label>
+                <input matInput placeholder="Enter age" formControlName="Age">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Sex</mat-label>
+                <input matInput placeholder="Enter sex" formControlName="Sex">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Nationality</mat-label>
+                <input matInput placeholder="Enter nationality" formControlName="Nationality">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Religion</mat-label>
+                <input matInput placeholder="Enter religion" formControlName="Religion">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Marital Status</mat-label>
+                <input matInput placeholder="Enter marital status" formControlName="MaritalStatus">
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+
+        </mat-step>
+
+        <!-- *****************Present Address************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>Present Address</ng-template>
+            <mat-form-field appearance="outline">
+                <mat-label>Present Address</mat-label>
+                <input matInput placeholder="Enter present address" formControlName="PresentAddress">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>State</mat-label>
+                <mat-select formControlName="State" (selectionChange)="get_city($event.value)">
+                    <mat-option  *ngFor="let state of state_data"
+                        [value]="state" (valueChange)="get_city(state)">{{state.State_Name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>City</mat-label>
+                <mat-select formControlName="City">
+                    <mat-option *ngFor="let city of city_data" [value]="city.City_Name">{{city.City_Name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Pin Code</mat-label>
+                <input matInput type="number" placeholder="Enter pin code" formControlName="Pin">
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+        <!-- *****************In Case Emergency************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>In Case Emergency</ng-template>
+            <mat-form-field appearance="outline">
+                <mat-label>Emergency Contact Person</mat-label>
+                <input matInput placeholder="Enter emergency contact person" formControlName="EmergencyContactPerson">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Emergency Contact No</mat-label>
+                <input matInput placeholder="Enter emergency contact no" formControlName="EmergencyContactNumber">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Address to whom to contact</mat-label>
+                <input matInput placeholder="Enter address to whom to contact"
+                    formControlName="EmergencyContectAddress">
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+        <!-- *****************Refrences************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>Refrences</ng-template>
+            <mat-form-field appearance="outline">
+                <mat-label>Refrence Name</mat-label>
+                <input matInput placeholder="Enter refrence name" formControlName="ReferencesName">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Contact No</mat-label>
+                <input matInput placeholder="Enter contact no" formControlName="ContactNo">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Company Name</mat-label>
+                <input matInput placeholder="Enter company name" formControlName="CompanyName">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email Id</mat-label>
+                <input matInput placeholder="Enter email id" formControlName="CemailId">
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+        <!-- ********************Last Three Employment Details************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>Last Employment Details</ng-template>
+            <mat-form-field appearance="outline">
+                <mat-label>Previous Employer</mat-label>
+                <input matInput placeholder="Enter previous employer" formControlName="PreviousEmployer">
+            </mat-form-field>
+
+       
+            
+            <mat-form-field appearance="outline">
+                <mat-label>From</mat-label>
+                <input matInput type="date"  formControlName="Fromt">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>To</mat-label>
+                <input matInput type="date"  formControlName="ToT">
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+        <!-- ********************Professional Qualification************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>Professional Qualification</ng-template>
+            <mat-form-field appearance="outline">
+                <mat-label>Type (Degree/Diploma/Other)</mat-label>
+                <input matInput placeholder="Enter type (Degree/Diploma/Other)" formControlName="Degree">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Name of Institution</mat-label>
+                <input matInput placeholder="Enter name of institution" formControlName="ProfessionalInstitution">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Passing Year</mat-label>
+                <input matInput placeholder="Enter passing year" formControlName="ProfessionalPassingYear">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Specilization</mat-label>
+                <input matInput placeholder="Enter specilization" formControlName="ProfessionalSpecilization">
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+        <!-- ********************Academic Qualification 10th************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>Academic Qualification 10th</ng-template>
+            <mat-form-field appearance="outline">
+                <mat-label>Board</mat-label>
+                <input matInput placeholder="Enter board" formControlName="Board10">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Name of Institution</mat-label>
+                <input matInput placeholder="Enter name of institution" formControlName="Institution10">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Passing Year</mat-label>
+                <input matInput placeholder="Enter passing year" formControlName="PassingYear10">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Percenttage</mat-label>
+                <input matInput placeholder="Enter specilization" formControlName="Specilization10">
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+        <!-- ********************Academic Qualification 12th************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>Academic Qualification 12th</ng-template>
+            <mat-form-field appearance="outline">
+                <mat-label>Board</mat-label>
+                <input matInput placeholder="Enter board" formControlName="Board12">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Name of Institution</mat-label>
+                <input matInput placeholder="Enter name of institution" formControlName="Institution12">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Passing Year</mat-label>
+                <input matInput placeholder="Enter passing year" formControlName="PassingYear12">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Percenttage</mat-label>
+                <input matInput placeholder="Enter specilization" formControlName="Specilization12">
+            </mat-form-field>
+            <div class="submitBtn">
+                <button mat-button (click)="onSubmit()">Submit</button>
+            </div>
+        </mat-step>
+    </form>
+</mat-stepper>

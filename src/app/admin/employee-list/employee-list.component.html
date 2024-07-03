@@ -1,0 +1,27 @@
+<mat-toolbar>
+    <div class="toobarchild1">Employee List </div>  
+    <div class="toobarchild2">
+        <form>
+            <label for="search">Search</label>
+            <input style="z-index: 2;" required="" pattern=".*\S.*" type="search" class="input" id="search" #search
+                (keyup)="empSearch(search.value)">
+            <span class="caret"></span>
+        </form>
+    </div>
+
+    <div class="toobarchild3">
+        <button (click)="AddEmp()" style="z-index: 1;" mat-icon-button><mat-icon style="font-size: 30px;"  >person_add</mat-icon>
+        </button>
+    </div>
+</mat-toolbar>
+
+<mat-card class="example-card" style="z-index: 0;" *ngFor="let staff of get_emp" (click)="viewDetails(staff)">
+    <mat-card-header>
+        <mat-card-title><mat-icon>person_outline</mat-icon> {{staff.EmployeeName}}</mat-card-title>
+        <mat-card-subtitle><mat-icon>work_outline</mat-icon> {{staff.Designation}}</mat-card-subtitle>
+        <mat-card-subtitle><mat-icon>call</mat-icon>{{staff.Mobile}}</mat-card-subtitle>
+        <!-- <a href="tel:9661647172" style="z-index: 1;"  (click)="onalert()">call</a> -->
+        <img [src]="staff.ImagePath != '' ? base_url+staff.ImagePath :profile_img" width="80px" height="80px"
+            style="border-radius: 100%;">
+    </mat-card-header>
+</mat-card>

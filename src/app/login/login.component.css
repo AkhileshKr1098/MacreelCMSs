@@ -1,0 +1,92 @@
+#wrapper {
+    width: 100%;
+    height: 100vh;
+    
+}
+
+#toparea {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.head_img {
+    width: 100%;
+    height: 170px;
+    position: relative;
+    top: -20PX;
+}
+
+.logo_img {
+    width: 250px;
+    height: 85px;
+    position: relative;
+    top: -50px;
+    margin: 0px auto;
+
+}
+
+#buttomarea {
+    width: 100%;
+    height: calc(100vh - 300px);
+    padding: 5px 20px;
+}
+
+.textboxarea {
+    width: 100%;
+    height: 60px;
+    margin: 20px 0px;
+    border-radius: 50px;
+    overflow: hidden;
+    border: 1PX solid rgb(156, 11, 11);
+}
+
+.textboxarea input {
+    width: calc(100% - 50px);
+    height: 100%;
+    float: left;
+    padding: 10px 20px;
+    border-top-left-radius: 20px;
+    background-color: #FFF;
+    outline: none;
+    border: 0PX;
+    font-size: 18px;
+}
+
+.icon8 {
+    width: 50px;
+    height: 100%;
+    float: right;
+    border-bottom-right-radius: 20PX;
+    display: flex;
+    align-items: center;
+}
+
+.loginBtn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.loginBtn button {
+    width: 100%;
+    height: 60px;
+    border-radius: 7px;
+    background-color: rgb(190 26 26);
+    outline: none;
+    border: none;
+    margin: 20px 0;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.forgotpassword {
+    cursor: pointer;
+    font-size: large;
+    color: rgb(190 26 26);
+    font-weight: bold;
+}

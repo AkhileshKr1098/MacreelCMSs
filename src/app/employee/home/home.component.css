@@ -1,0 +1,119 @@
+mat-nav-list {
+    display: inline;
+}
+
+mat-sidenav {
+    width: 280px;
+}
+
+a {
+    height: 50px;
+    width: 100%;
+    background-color: var(--color-2);
+    margin-top: 2px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 0.1px solid var(--color-3);
+}
+
+a span {
+    margin: 10px;
+    vertical-align: middle;
+    color: var(--color-3);
+}
+
+a img {
+    vertical-align: middle;
+}
+
+a mat-icon {
+    vertical-align: middle;
+    color: var(--color-3);
+}
+
+.SubMenu>a {
+    padding-left: 30px;
+}
+
+.profile_card {
+    width: 280px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px;
+    position: sticky;
+    top: 0px;
+    color: var(--color-2);
+    z-index: 5;
+    background-color: var(--color-1);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
+    vertical-align: middle;
+}
+
+.profile_card>button {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: none;
+    outline: none;
+}
+
+.profile_card>.imgBox {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.profile_card>.imgBox>img {
+    height: 50px;
+    background-color: var(--color-1);
+}
+
+mat-toolbar {
+    height: 60px;
+    justify-content: space-between;
+    z-index: 3;
+    background-color: var(--color-1);
+    color: var(--color-2);
+}
+
+.main {
+    width: 100%;
+    height: calc(100vh - 120px);
+    overflow-x: scroll;
+    z-index: 1;
+}
+
+#footer mat-toolbar {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
+    background-color: var(--color-2);
+    align-items: normal;
+}
+
+#footer button {
+    height: 65px;
+    white-space: pre-wrap;
+    line-height: 10px;
+    width: 60px;
+}
+
+#footer button img{
+    width: 30px;
+    height: 30px;
+}
+#footer button svg{
+    width: 30px;
+    height: 30px;
+}
+#footer>mat-toolbar>button>mat-hint {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--color-3);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3px;
+}
+

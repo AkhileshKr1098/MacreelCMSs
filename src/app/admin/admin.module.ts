@@ -27,6 +27,9 @@ import { AddClientComponent } from './Client/add-client/add-client.component';
 import { ClientListComponent } from './Client/client-list/client-list.component';
 import { ClientUpdateComponent } from './Client/client-update/client-update.component';
 import { ClientViewComponent } from './Client/client-view/client-view.component';
+import { AddLeadComponent } from './Lead/add-lead/add-lead.component';
+import { LeadListComponent } from './Lead/lead-list/lead-list.component';
+import { LeadViewComponent } from './Lead/lead-view/lead-view.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { ClientViewComponent } from './Client/client-view/client-view.component'
     AddClientComponent,
     ClientListComponent,
     ClientUpdateComponent,
-    ClientViewComponent
+    ClientViewComponent,
+    AddLeadComponent,
+    LeadListComponent,
+    LeadViewComponent
   ],
   imports: [
     CommonModule,

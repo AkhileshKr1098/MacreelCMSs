@@ -1,0 +1,54 @@
+<div class="wrppaer">
+    <div class="card_background">
+        <div class="text_header head">
+            <button mat-icon-button routerLink="/admin">
+                <img src="../../../assets/icons/back.png" alt="" width="30px">
+            </button>
+            <span>Lead List</span>
+            <button mat-icon-button (click)="onAdd()">
+                <img src="../../../assets/icons/add-form.png" alt="" width="30">
+            </button>
+        </div>
+
+        <div class="search_box head">
+            <input type="text" placeholder="Search..." #search>
+            <mat-icon>search</mat-icon>
+        </div>
+    </div>
+</div>
+
+<div id="containerBox">
+    <div class="container" routerLink="/admin/leadadd" *ngFor="let lead of lead_data">
+        <div class="dataRow">
+            <ul>
+                <li>
+                    <img src="../../../assets/icons/company.png" alt="" width="30">
+                    <span>l{{lead.ClientName}}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/person.png" alt="" width="30">
+                    <span>l{{lead.ContectPerson}}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/phone.png" alt="" width="30">
+                    <span>{{lead.MobileNo}}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/gmail.png" alt="" width="30">
+                    <span>{{lead.ClientEmail}}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/location.png" alt="" width="30">
+                    <span>{{lead.Address}}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/category.png" alt="" width="30">
+                    <span *ngIf="lead.LeadType == 'Hot'"
+                        style="color:darkred; font-weight: bold;">{{lead.LeadType}}</span>
+                    <span *ngIf="lead.LeadType != 'Hot'" style="color: darkgreen; font-weight: bold;">Cold</span>
+                    &nbsp; &nbsp; Status : {{lead.LeadStatus}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

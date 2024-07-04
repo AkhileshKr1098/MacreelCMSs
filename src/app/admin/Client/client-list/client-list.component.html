@@ -17,8 +17,9 @@
 
 <mat-card class="example-card" style="z-index: 0;" *ngFor="let client of client_data" (click)="viewDetails(client)">
     <mat-card-header>
-        <mat-card-title><mat-icon>person_outline</mat-icon> {{client.CompanyName}}</mat-card-title>
-        <mat-card-subtitle><mat-icon>work_outline</mat-icon> {{client.ContactPerson}}</mat-card-subtitle>
+        <mat-card-title><mat-icon>person_outline</mat-icon> {{client.CompanyName | titlecase }}</mat-card-title>
+        <mat-card-subtitle><mat-icon>work_outline</mat-icon> {{client.ContactPerson | titlecase}}</mat-card-subtitle>
+        <mat-card-subtitle><mat-icon> location_on</mat-icon> {{client.CityName | titlecase}}</mat-card-subtitle>
         <mat-card-subtitle><mat-icon>call</mat-icon>{{client.ContactNo}}</mat-card-subtitle>
 
     </mat-card-header>

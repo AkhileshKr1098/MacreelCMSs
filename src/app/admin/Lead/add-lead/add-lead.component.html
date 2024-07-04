@@ -1,0 +1,63 @@
+<div class="container">
+    <mat-toolbar>
+        <button mat-icon-button routerLink="/admin/lead">
+            <img src="../../../assets/icons/back.png" alt="" width="30">
+        </button>
+        <div>
+            <span>Lead Form</span>
+        </div>
+    </mat-toolbar>
+    <div id="wrapper">
+
+        <form [formGroup]="leadform">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Service</mat-label>
+                <mat-select formControlName="Service">
+                    <mat-option *ngFor="let servies of servies_data"
+                        [value]="servies.Name">{{servies.Name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>Company Name</mat-label>
+                <input matInput placeholder="Enter company name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Contact Person</mat-label>
+                <input matInput placeholder="Enter contact person">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Contact No</mat-label>
+                <input matInput placeholder="Enter contact no">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Contact Email</mat-label>
+                <input matInput placeholder="Enter email">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="Enter address">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Lead Description</mat-label>
+                <input matInput placeholder="Enter lead description">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Lead Type</mat-label>
+                <input matInput placeholder="Enter lead type">
+            </mat-form-field>
+
+        </form>
+        <div class="submit">
+            <button mat-raised-button color="primary">Add</button>
+        </div>
+    </div>
+</div>

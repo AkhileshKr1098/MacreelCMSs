@@ -17,9 +17,9 @@
 
 <mat-card class="example-card" style="z-index: 0;" *ngFor="let staff of get_emp" (click)="viewDetails(staff)">
     <mat-card-header>
-        <mat-card-title><mat-icon>person_outline</mat-icon> {{staff.EmployeeName}}</mat-card-title>
-        <mat-card-subtitle><mat-icon>work_outline</mat-icon> {{staff.Designation}}</mat-card-subtitle>
-        <mat-card-subtitle><mat-icon>call</mat-icon>{{staff.Mobile}}</mat-card-subtitle>
+        <mat-card-title><mat-icon>person_outline</mat-icon> {{staff.EmployeeName | titlecase}}</mat-card-title>
+        <mat-card-subtitle><mat-icon>work_outline</mat-icon> {{staff.Designation | titlecase }}</mat-card-subtitle>
+        <mat-card-subtitle><mat-icon>call</mat-icon>{{staff.Mobile | titlecase}}</mat-card-subtitle>
         <!-- <a href="tel:9661647172" style="z-index: 1;"  (click)="onalert()">call</a> -->
         <img [src]="staff.ImagePath != '' ? base_url+staff.ImagePath :profile_img" width="80px" height="80px"
             style="border-radius: 100%;">

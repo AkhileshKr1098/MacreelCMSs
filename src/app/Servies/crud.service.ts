@@ -49,7 +49,10 @@ export class CRUDService {
     return this._http.get<[]>(`${this.base_url}GetCityByStateId?id=${id}`)
   }
 
-
+  get_servies() {
+    return this._http.get(`${this.base_url}Service`)
+  }
+  
   //for employee registration
   post_emp_reg(data: any) {
     return this._http.post(`${this.base_url}Registration`, data)
@@ -73,6 +76,17 @@ export class CRUDService {
 
   ClientAdd(data: any, id: any) {
     return this._http.post(`${this.base_url}Client?login_id=${id}`, data)
+  }
+
+
+  // for lead crud 
+
+  get_lead_for_admin() {
+    return this._http.get(`${this.base_url}Lead`)
+  }
+
+  get_lead_for_emp(id: any) {
+    return this._http.get(`${this.base_url}Lead?created_by=${id}`)
   }
 
 

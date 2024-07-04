@@ -10,6 +10,9 @@ import { ClientListComponent } from './Client/client-list/client-list.component'
 import { AddClientComponent } from './Client/add-client/add-client.component';
 import { ClientViewComponent } from './Client/client-view/client-view.component';
 import { ClientUpdateComponent } from './Client/client-update/client-update.component';
+import { AddLeadComponent } from './Lead/add-lead/add-lead.component';
+import { LeadListComponent } from './Lead/lead-list/lead-list.component';
+import { LeadViewComponent } from './Lead/lead-view/lead-view.component';
 
 
 
@@ -27,6 +30,11 @@ const routes: Routes = [
       {path:'clientadd', component:AddClientComponent},
       {path:'clientview', component:ClientViewComponent },
       {path:'clientupdate', component:ClientUpdateComponent },
+      {path:'leadadd', component:AddLeadComponent},
+      {path:'leadlist', component:LeadListComponent},
+      {path:'leadview', component:LeadViewComponent},
+      
+
     ]
   },
  

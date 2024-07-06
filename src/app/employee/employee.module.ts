@@ -21,11 +21,37 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSliderModule} from '@angular/material/slider';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddClientComponent } from './Client/add-client/add-client.component';
+import { ClientListComponent } from './Client/client-list/client-list.component';
+import { ViewClientComponent } from './Client/view-client/view-client.component';
+import { ClientUpdateComponent } from './Client/client-update/client-update.component';
+import { AddLeadComponent } from './Lead/add-lead/add-lead.component';
+import { LeadListComponent } from './Lead/lead-list/lead-list.component';
+import { LeadUpdateComponent } from './Lead/lead-update/lead-update.component';
+import { AddEmpComponent } from './Employee/add-emp/add-emp.component';
+import { ListEmpComponent } from './Employee/list-emp/list-emp.component';
+import { EmpViewComponent } from './Employee/emp-view/emp-view.component';
+import { EmpUpdateComponent } from './Employee/emp-update/emp-update.component';
+import { AssignLeadComponent } from './Lead/assign-lead/assign-lead.component';
+import { MyLeadComponent } from './Lead/my-lead/my-lead.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    DashbordComponent
+    DashbordComponent,
+    AddClientComponent,
+    ClientListComponent,
+    ViewClientComponent,
+    ClientUpdateComponent,
+    AddLeadComponent,
+    LeadListComponent,
+    LeadUpdateComponent,
+    AddEmpComponent,
+    ListEmpComponent,
+    EmpViewComponent,
+    EmpUpdateComponent,
+    AssignLeadComponent,
+    MyLeadComponent
   ],
   imports: [
     CommonModule,

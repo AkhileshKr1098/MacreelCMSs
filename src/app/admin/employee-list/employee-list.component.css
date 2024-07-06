@@ -5,10 +5,11 @@ mat-toolbar {
     top: 0px;
     display: flex;
     justify-content: space-between;
+    margin: 2px 0px 15px 0px;
   }
   
   mat-card {
-    width: calc(100% -20px);
+    width: calc(100% - 20px);
     margin: 0px 10px 15px 10px;
   }
   
@@ -39,6 +40,17 @@ mat-toolbar {
   
   
   /* for search bar  */
+  .mat-icon {
+    -webkit-user-select: none;
+    user-select: none;
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+  }
+  
   
   .toobarchild1 {
     width: 60px;

@@ -1,393 +1,410 @@
-<div class="wrapper">
-    <div class="header">
-        <mat-toolbar>
-            <button mat-icon-button routerLink="/admin/employee">
-                <img src="../../../assets/icons/back.png" alt="" width="30">
-            </button>
-            <div>
-                <span>Employee Details</span>
+
+<mat-stepper orientation="vertical" #stepper>
+    <form [formGroup]="empReg">
+        <img src="../../../assets/icons/blood.png" alt="">
+
+        <!-- *****************Employee Registration************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>Employee Update</ng-template>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Role</mat-label>
+                <mat-select formControlName="Role">
+                    <mat-option *ngFor="let role of RolePermission"
+                        [value]="role.Id">{{role.RoleName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>Employee Code</mat-label>
+                <input matInput placeholder="Enter employee code" formControlName="EmployeeCode">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Employee Name</mat-label>
+                <input matInput placeholder="Enter employee name" formControlName="EmployeeName">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Department</mat-label>
+                <mat-select formControlName="Department">
+                    <mat-option *ngFor="let department of department_data"
+                        [value]="department.department">{{department.department}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Designation</mat-label>
+                <mat-select formControlName="Designation">
+                    <mat-option *ngFor="let designation of designation_data"
+                        [value]="designation.designation">{{designation.designation}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Reporting Manager</mat-label>
+                <mat-select formControlName="ReportingManager">
+                    <mat-option *ngFor="let manager of ReportingManager"
+                        [value]="manager.EmpId">{{manager.UserName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <div class="imgBox">
+                <span>Profile Image</span><br>
+                <input type="file" formControlName="Image">
             </div>
-        </mat-toolbar>
-    </div>
 
-    <div class="container">
-        <mat-accordion>
 
-            <!-- *****************Employee Registration************************ -->
+            <mat-form-field appearance="outline">
+                <mat-label>Email Id</mat-label>
+                <input matInput placeholder="Enter email id" formControlName="EmailId">
+            </mat-form-field>
 
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <img src="../../../assets/icons/applied-leave.png" alt="" width="30px">
-                        <span>Employee Registration</span>
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="dataRowImg">
-                    <img src="../../../assets/images/user-profile1.png" alt="" width="100px">
-                </div>
-                <div class="dataRow">
-                    <ul>
-                        <li>
-                            <img src="../../../assets/icons/code.png" alt="" width="30px">
-                            <span>{{emp_data.EmployeeCode}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/user.png" alt="" width="30px">
-                            <span>{{emp_data.EmployeeName}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/department.png" alt="" width="30px">
-                            <span>{{emp_data.Department}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/destination.png" alt="" width="30px">
-                            <span>{{emp_data.Designation}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/reports.png" alt="" width="30px">
-                            <span>{{emp_data.ReportingManager}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/email.png" alt="" width="30px">
-                            <span>{{emp_data.EmailId}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/aadhar-no.png" alt="" width="30px">
-                            <span>{{emp_data.adharno}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/pan-no.png" alt="" width="30px">
-                            <span>{{emp_data.PanNo}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/phone.png" alt="" width="30px">
-                            <span>{{emp_data.Mobile}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/from-date.png" alt="" width="30px">
-                            <span>{{emp_data.DOJ}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/passport.png" alt="" width="30px">
-                            <span>{{emp_data.Passport}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/user.png" alt="" width="30px">
-                            <span>{{emp_data.UserName}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/password.png" alt="" width="30px">
-                            <span>{{emp_data.Password}}</span>
-                        </li>
-                    </ul>
-                </div>
-            </mat-expansion-panel>
+            <mat-form-field appearance="outline">
+                <mat-label>Aadhar No</mat-label>
+                <input matInput type="number" placeholder="Enter aadhar no" formControlName="AdharNo">
+            </mat-form-field>
 
-            <!-- *****************Bank Details************************ -->
+            <mat-form-field appearance="outline">
+                <mat-label>Pan No</mat-label>
+                <input matInput type="text" placeholder="Enter pan no" formControlName="PanNo">
+            </mat-form-field>
 
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <img src="../../../assets/icons/bank.png" alt="" width="30px">
-                        <span> Bank Details </span>
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="dataRow">
-                    <ul>
-                        <li>
-                            <img src="../../../assets/icons/bank-name.png" alt="" width="30px">
-                            <span>{{emp_data.BankName}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/number.png" alt="" width="30px">
-                            <span>{{emp_data.AccountNo}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/code.png" alt="" width="30px">
-                            <span>{{emp_data.IFSC}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/bank-name.png" alt="" width="30px">
-                            <span>{{emp_data.BankBranch}}</span>
-                        </li>
-                    </ul>
-                </div>
-            </mat-expansion-panel>
+            <mat-form-field appearance="outline">
+                <mat-label>Mobile No</mat-label>
+                <input matInput type="number" placeholder="Enter mobile no" formControlName="Mobile">
+            </mat-form-field>
 
-            <!-- *****************Health Data************************ -->
+            <mat-form-field appearance="outline">
+                <mat-label>DOJ</mat-label>
+                <input matInput type="date" placeholder="Enter DOJ" formControlName="DOJ">
+            </mat-form-field>
 
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <img src="../../../assets/icons/health.png" alt="" width="30px">
-                        <span> Health Data </span>
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="dataRow">
-                    <ul>
-                        <li>
-                            <img src="../../../assets/icons/blood.png" alt="" width="30px">
-                            <span>{{emp_data.BloodGroup}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/mark.png" alt="" width="30px">
-                            <span>{{emp_data.IdMarks}}</span>
-                        </li>
-                    </ul>
-                </div>
-            </mat-expansion-panel>
+            <mat-form-field appearance="outline">
+                <mat-label>Passport</mat-label>
+                <input matInput placeholder="Enter passport no" formControlName="Passport">
+            </mat-form-field>
 
-            <!-- *****************Biographical Details************************ -->
+            <mat-form-field appearance="outline">
+                <mat-label>Salary</mat-label>
+                <input matInput placeholder="Enter Salary" formControlName="Salary">
+            </mat-form-field>
 
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <img src="../../../assets/icons/assign-project-list.png" alt="" width="30px">
-                        <span> Biographical Details </span>
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="dataRow">
-                    <ul>
-                        <li>
-                            <img src="../../../assets/icons/from-date.png" alt="" width="30px">
-                            <span>{{emp_data.DOB}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/age.png" alt="" width="30px">
-                            <span>{{emp_data.Age}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/user.png" alt="" width="30px">
-                            <span>{{emp_data.Sex}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/nationality.png" alt="" width="30px">
-                            <span>{{emp_data.Nationality}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/not-res.png" alt="" width="30px">
-                            <span>{{emp_data.Religion}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/user.png" alt="" width="30px">
-                            <span>{{emp_data.MaritalStatus}}</span>
-                        </li>
-                    </ul>
-                </div>
-            </mat-expansion-panel>
+            <mat-form-field appearance="outline">
+                <mat-label>User Name</mat-label>
+                <input matInput placeholder="Enter user name" formControlName="UserName">
+            </mat-form-field>
 
-            <!-- *****************Present Address************************ -->
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Enter password" formControlName="Password">
+            </mat-form-field>
 
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <img src="../../../assets/icons/address.png" alt="" width="30px">
-                        <span> Present Address </span>
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="dataRow">
-                    <ul>
-                        <li>
-                            <img src="../../../assets/icons/address.png" alt="" width="30px">
-                            <span>{{emp_data.PresentAddress}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/state.png" alt="" width="30px">
-                            <span>{{emp_data.State}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/city.png" alt="" width="30px">
-                            <span>{{emp_data.City}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/code.png" alt="" width="30px">
-                            <span>{{emp_data.Pin}}</span>
-                        </li>
-                    </ul>
-                </div>
-            </mat-expansion-panel>
+            <div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
 
-            <!-- *****************In Case Emergency************************ -->
+        <!-- *****************Bank Details************************ -->
 
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <img src="../../../assets/icons/emergency.png" alt="" width="30px">
-                        <span> In Case Emergency </span>
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="dataRow">
-                    <ul>
-                        <li>
-                            <img src="../../../assets/icons/user.png" alt="" width="30px">
-                            <span>{{emp_data.EmergencyContactPerson}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/phone.png" alt="" width="30px">
-                            <span>{{emp_data.EmergencyContactNumber}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/address.png" alt="" width="30px">
-                            <span>{{emp_data.EmergencyContectAddress}}</span>
-                        </li>
-                    </ul>
-                </div>
-            </mat-expansion-panel>
+        <mat-step>
+            <ng-template matStepLabel>Bank Details</ng-template>
 
-            <!-- *****************Refrences************************ -->
+            <mat-form-field appearance="outline">
+                <mat-label>Bank Name</mat-label>
+                <input matInput placeholder="Enter bank name" formControlName="BankName">
+            </mat-form-field>
 
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <img src="../../../assets/icons/employee-performance.png" alt="" width="30px">
-                        <span> Refrences </span>
+            <mat-form-field appearance="outline">
+                <mat-label>Bank A/C No</mat-label>
+                <input matInput placeholder="Enter banc a/c no" formControlName="AccountNo">
+            </mat-form-field>
 
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="dataRow">
-                    <ul>
-                        <li>
-                            <img src="../../../assets/icons/user.png" alt="" width="30px">
-                            <span>{{emp_data.ReferencesName}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/phone.png" alt="" width="30px">
-                            <span>{{emp_data.ContactNo}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/company.png" alt="" width="30px">
-                            <span>{{emp_data.CompanyName}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/email.png" alt="" width="30px">
-                            <span>{{emp_data.CemailId}}</span>
-                        </li>
-                    </ul>
-                </div>
-            </mat-expansion-panel>
+            <mat-form-field appearance="outline">
+                <mat-label>Bank IFSC Code</mat-label>
+                <input matInput placeholder="Bank ifsc Code" formControlName="IFSC">
+            </mat-form-field>
 
-            <!-- ********************Last Three Employment Details************************ -->
+            <mat-form-field appearance="outline">
+                <mat-label>Bank Branch</mat-label>
+                <input matInput placeholder="Enter bank branch" formControlName="BankBranch">
+            </mat-form-field>
 
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <img src="../../../assets/icons/employee.png" alt="" width="30px">
-                        <span> Last Three Employment Details </span>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
 
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="dataRow">
-                    <ul>
-                        <li>
-                            <img src="../../../assets/icons/user.png" alt="" width="30px">
-                            <span>{{emp_data.PreviousEmployer}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/address.png" alt="" width="30px">
-                            <span>{{emp_data.From}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/state.png" alt="" width="30px">
-                            <span>{{emp_data.To}}</span>
-                        </li>
-                    </ul>
-                </div>
-            </mat-expansion-panel>
+        <!-- *****************Health Data************************ -->
 
-            <!-- ********************Professional Qualification************************ -->
+        <mat-step>
+            <ng-template matStepLabel>Health Data</ng-template>
 
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <img src="../../../assets/icons/Institution.png" alt="" width="30px">
-                        <span> Professional Qualification </span>
+            <mat-form-field appearance="outline">
+                <mat-label>Blood Group</mat-label>
+                <input matInput placeholder="Enter blood group" formControlName="BloodGroup">
+            </mat-form-field>
 
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="dataRow">
-                    <ul>
-                        <li>
-                            <img src="../../../assets/icons/leave-type.png" alt="" width="30px">
-                            <span>{{emp_data.Degree}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/Institution.png" alt="" width="30px">
-                            <span>{{emp_data.ProfessionalInstitution}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/year.png" alt="" width="30px">
-                            <span>{{emp_data.ProfessionalPassingYear}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/percentage.png" alt="" width="30px">
-                            <span>{{emp_data.ProfessionalSpecilization}}</span>
-                        </li>
-                    </ul>
-                </div>
-            </mat-expansion-panel>
+            <mat-form-field appearance="outline">
+                <mat-label>Identification Mark</mat-label>
+                <input matInput placeholder="Enter identification mark" formControlName="IdMarks">
+            </mat-form-field>
 
-            <!-- ********************Academic Qualification 10th************************ -->
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
 
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <img src="../../../assets/icons/10th.png" alt="" width="30px">
-                        <span> Academic Qualification 10th </span>
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="dataRow">
-                    <ul>
-                        <li>
-                            <img src="../../../assets/icons/leave-type.png" alt="" width="30px">
-                            <span>{{emp_data.Board10}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/Institution.png" alt="" width="30px">
-                            <span>{{emp_data.Institution10}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/year.png" alt="" width="30px">
-                            <span>{{emp_data.PassingYear10}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/percentage.png" alt="" width="30px">
-                            <span>{{emp_data.Specilization10}}</span>
-                        </li>
-                    </ul>
-                </div>
-            </mat-expansion-panel>
+        <!-- *****************Biographical Details************************ -->
 
-            <!-- ********************Academic Qualification 12th************************ -->
+        <mat-step>
+            <ng-template matStepLabel>Biographical Details</ng-template>
 
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <img src="../../../assets/icons/12th.png" alt="" width="30px">
-                        <span> Academic Qualification 12th </span>
+            <mat-form-field appearance="outline">
+                <mat-label>DOB</mat-label>
+                <input matInput type="date" placeholder="Enter dob" formControlName="DOB">
+            </mat-form-field>
 
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="dataRow">
-                    <ul>
-                        <li>
-                            <img src="../../../assets/icons/leave-type.png" alt="" width="30px">
-                            <span>{{emp_data.Board12}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/Institution.png" alt="" width="30px">
-                            <span>{{emp_data.Institution12}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/year.png" alt="" width="30px">
-                            <span>{{emp_data.PassingYear12}}</span>
-                        </li>
-                        <li>
-                            <img src="../../../assets/icons/percentage.png" alt="" width="30px">
-                            <span>{{emp_data.Specilization12}}</span>
-                        </li>
-                    </ul>
-                </div>
-            </mat-expansion-panel>
-        </mat-accordion>
-    </div>
-</div>
+            <mat-form-field appearance="outline">
+                <mat-label>Age</mat-label>
+                <input matInput placeholder="Enter age" formControlName="Age">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Sex</mat-label>
+                <input matInput placeholder="Enter sex" formControlName="Sex">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Nationality</mat-label>
+                <input matInput placeholder="Enter nationality" formControlName="Nationality">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Religion</mat-label>
+                <input matInput placeholder="Enter religion" formControlName="Religion">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Marital Status</mat-label>
+                <input matInput placeholder="Enter marital status" formControlName="MaritalStatus">
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+
+        </mat-step>
+
+        <!-- *****************Present Address************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>Present Address</ng-template>
+            <mat-form-field appearance="outline">
+                <mat-label>Present Address</mat-label>
+                <input matInput placeholder="Enter present address" formControlName="PresentAddress">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>State</mat-label>
+                <mat-select formControlName="State" (selectionChange)="get_city($event.value)">
+                    <mat-option  *ngFor="let state of state_data"
+                        [value]="state" (valueChange)="get_city(state)">{{state.State_Name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>City</mat-label>
+                <mat-select formControlName="City">
+                    <mat-option *ngFor="let city of city_data" [value]="city.City_Name">{{city.City_Name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Pin Code</mat-label>
+                <input matInput type="number" placeholder="Enter pin code" formControlName="Pin">
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+        <!-- *****************In Case Emergency************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>In Case Emergency</ng-template>
+            <mat-form-field appearance="outline">
+                <mat-label>Emergency Contact Person</mat-label>
+                <input matInput placeholder="Enter emergency contact person" formControlName="EmergencyContactPerson">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Emergency Contact No</mat-label>
+                <input matInput placeholder="Enter emergency contact no" formControlName="EmergencyContactNumber">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Address to whom to contact</mat-label>
+                <input matInput placeholder="Enter address to whom to contact"
+                    formControlName="EmergencyContectAddress">
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+        <!-- *****************Refrences************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>Refrences</ng-template>
+            <mat-form-field appearance="outline">
+                <mat-label>Refrence Name</mat-label>
+                <input matInput placeholder="Enter refrence name" formControlName="ReferencesName">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Contact No</mat-label>
+                <input matInput placeholder="Enter contact no" formControlName="ContactNo">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Company Name</mat-label>
+                <input matInput placeholder="Enter company name" formControlName="CompanyName">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email Id</mat-label>
+                <input matInput placeholder="Enter email id" formControlName="CemailId">
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+        <!-- ********************Last Three Employment Details************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>Last Employment Details</ng-template>
+            <mat-form-field appearance="outline">
+                <mat-label>Previous Employer</mat-label>
+                <input matInput placeholder="Enter previous employer" formControlName="PreviousEmployer">
+            </mat-form-field>
+
+       
+            
+            <mat-form-field appearance="outline">
+                <mat-label>From</mat-label>
+                <input matInput type="date"  formControlName="Fromt">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>To</mat-label>
+                <input matInput type="date"  formControlName="ToT">
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+        <!-- ********************Professional Qualification************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>Professional Qualification</ng-template>
+            <mat-form-field appearance="outline">
+                <mat-label>Type (Degree/Diploma/Other)</mat-label>
+                <input matInput placeholder="Enter type (Degree/Diploma/Other)" formControlName="Degree">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Name of Institution</mat-label>
+                <input matInput placeholder="Enter name of institution" formControlName="ProfessionalInstitution">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Passing Year</mat-label>
+                <input matInput placeholder="Enter passing year" formControlName="ProfessionalPassingYear">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Specilization</mat-label>
+                <input matInput placeholder="Enter specilization" formControlName="ProfessionalSpecilization">
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+        <!-- ********************Academic Qualification 10th************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>Academic Qualification 10th</ng-template>
+            <mat-form-field appearance="outline">
+                <mat-label>Board</mat-label>
+                <input matInput placeholder="Enter board" formControlName="Board10">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Name of Institution</mat-label>
+                <input matInput placeholder="Enter name of institution" formControlName="Institution10">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Passing Year</mat-label>
+                <input matInput placeholder="Enter passing year" formControlName="PassingYear10">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Percenttage</mat-label>
+                <input matInput placeholder="Enter specilization" formControlName="Specilization10">
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+        <!-- ********************Academic Qualification 12th************************ -->
+
+        <mat-step>
+            <ng-template matStepLabel>Academic Qualification 12th</ng-template>
+            <mat-form-field appearance="outline">
+                <mat-label>Board</mat-label>
+                <input matInput placeholder="Enter board" formControlName="Board12">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Name of Institution</mat-label>
+                <input matInput placeholder="Enter name of institution" formControlName="Institution12">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Passing Year</mat-label>
+                <input matInput placeholder="Enter passing year" formControlName="PassingYear12">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Percenttage</mat-label>
+                <input matInput placeholder="Enter specilization" formControlName="Specilization12">
+            </mat-form-field>
+            <div class="submitBtn">
+                <button mat-button (click)="onSubmit()">Submit</button>
+            </div>
+        </mat-step>
+    </form>
+</mat-stepper>

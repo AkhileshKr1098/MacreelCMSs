@@ -62,6 +62,7 @@ role_permission : any
     this.onProjectMenu = false;
     this.onTaskReportMenu = false;
   }
+  
   TaskReportMenu() {
     this.onTaskReportMenu = !this.onTaskReportMenu;
     this.onProjectMenu = false;

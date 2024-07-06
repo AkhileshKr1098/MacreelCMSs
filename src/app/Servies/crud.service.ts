@@ -52,7 +52,7 @@ export class CRUDService {
   get_servies() {
     return this._http.get(`${this.base_url}Service`)
   }
-  
+
   //for employee registration
   post_emp_reg(data: any) {
     return this._http.post(`${this.base_url}Registration`, data)
@@ -87,6 +87,9 @@ export class CRUDService {
 
   get_lead_for_emp(id: any) {
     return this._http.get(`${this.base_url}Lead?created_by=${id}`)
+  }
+  leadAdd(data: any, id: any) {
+    return this._http.post(`${this.base_url}Lead?login_id=${id}`, data)
   }
 
 

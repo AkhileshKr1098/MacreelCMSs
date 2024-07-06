@@ -1,11 +1,12 @@
 <div class="container">
     <mat-toolbar>
-        <button mat-icon-button routerLink="/admin/lead">
+        <button mat-icon-button routerLink="/admin/leadlist">
             <img src="../../../assets/icons/back.png" alt="" width="30">
         </button>
         <div>
             <span>Lead Form</span>
         </div>
+        <button mat-icon-button ></button>
     </mat-toolbar>
     <div id="wrapper">
 
@@ -14,50 +15,53 @@
             <mat-form-field appearance="outline">
                 <mat-label>Service</mat-label>
                 <mat-select formControlName="Service">
-                    <mat-option *ngFor="let servies of servies_data"
-                        [value]="servies.Name">{{servies.Name}}</mat-option>
+                    <mat-option *ngFor="let service of services_data" [value]="service.Name">
+                        {{ service.Name }}
+                    </mat-option>
                 </mat-select>
             </mat-form-field>
 
 
             <mat-form-field appearance="outline">
                 <mat-label>Company Name</mat-label>
-                <input matInput placeholder="Enter company name">
+                <input matInput placeholder="Enter company name" formControlName="ClientName" >
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label>Contact Person</mat-label>
-                <input matInput placeholder="Enter contact person">
+                <input matInput placeholder="Enter contact person" formControlName="ContectPerson">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label>Contact No</mat-label>
-                <input matInput placeholder="Enter contact no">
+                <input matInput placeholder="Enter contact no" formControlName="MobileNo" >
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label>Contact Email</mat-label>
-                <input matInput placeholder="Enter email">
+                <input matInput placeholder="Enter email" formControlName="ClientEmail" >
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label>Address</mat-label>
-                <input matInput placeholder="Enter address">
+                <input matInput placeholder="Enter address" formControlName="Address">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label>Lead Description</mat-label>
-                <input matInput placeholder="Enter lead description">
+                <input matInput placeholder="Enter lead description" formControlName="LeadDescription" >
             </mat-form-field>
-
             <mat-form-field appearance="outline">
                 <mat-label>Lead Type</mat-label>
-                <input matInput placeholder="Enter lead type">
+                <mat-select formControlName="LeadType">
+                    <mat-option value="Hot" >Hot</mat-option>
+                    <mat-option value="Cold">Cold</mat-option>
+                </mat-select>
             </mat-form-field>
 
         </form>
         <div class="submit">
-            <button mat-raised-button color="primary">Add</button>
+            <button mat-raised-button color="primary" (click)="onSubmit()">Add</button>
         </div>
     </div>
 </div>

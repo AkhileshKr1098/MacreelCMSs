@@ -16,6 +16,8 @@ export class SharedService {
   base_img_url = new BehaviorSubject<string>('https://macreel.in/')
   emp_data = new BehaviorSubject<object>({})
 
+  lead_data = new BehaviorSubject<object>({})
+
 
   // for toast
 
@@ -50,7 +52,7 @@ export class SharedService {
         panelClass: ['tostError']
       });
   }
-  
+
   tostWarningTop(title: any) {
     this._snacker.open(title, '',
       {

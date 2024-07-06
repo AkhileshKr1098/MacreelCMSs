@@ -12,20 +12,20 @@
         <!-- ******************* sidebar *************** -->
 
         <mat-nav-list>
-            <a mat-list-item (click)="sidebar.toggle()" [routerLink]="['/admin/dashboard']">
+            <a mat-list-item (click)="sidebar.toggle()" [routerLink]="['/employee']">
                 <img src="../../../assets/icons/dashboard.png" alt="" width="30px">
                 <span>Dashboard</span>
             </a>
 
             <div *ngFor="let role of role_permission">
                 <a *ngIf="role.PermissionName == 'Employee Management'" mat-list-item (click)="sidebar.toggle()"
-                    [routerLink]="['/admin/employee']">
+                    [routerLink]="['/employee/emplist']">
                     <img src="../../../assets/icons/user.png" alt="" width="30px">
                     <span>Employee Management</span>
                 </a>
 
                 <a *ngIf="role.PermissionName == 'Client Management'" mat-list-item (click)="sidebar.toggle()"
-                    [routerLink]="['/admin/client']">
+                    [routerLink]="['/employee/clientlist']">
                     <img src="../../../assets/icons/client.png" alt="" width="30px">
                     <span>Client Management</span>
                 </a>
@@ -95,6 +95,33 @@
 
                 </span>
 
+
+
+                <!-- FOR Lead MANAGEMENT START -->
+                <span *ngIf="role.PermissionName == 'Lead Management'">
+                    <a mat-list-item (click)="LeadMenu()">
+                        <img src="../../../assets/icons/project-management.png" alt="" width="30px">
+                        <span>Lead Management</span>
+                        <mat-icon *ngIf="!onLeadMenu">keyboard_arrow_right</mat-icon>
+                        <mat-icon *ngIf="onLeadMenu">keyboard_arrow_down</mat-icon>
+                    </a>
+                    <span *ngIf="onLeadMenu" class="SubMenu">
+                        <a mat-list-item (click)="LeadMenu()" (click)="sidebar.toggle()"
+                            [routerLink]="['/employee/leadlist']">
+                            <img src="../../../assets/icons/project.png" alt="" width="30px">
+                            <span>Lead Add </span>
+                        </a>
+                    </span>
+
+                    <span *ngIf="onLeadMenu" class="SubMenu">
+                        <a mat-list-item (click)="LeadMenu()" (click)="sidebar.toggle()"
+                            [routerLink]="['assignedproject']">
+                            <img src="../../../assets/icons/assign-project.png" alt="" width="30px">
+                            <span>Assign Lead</span>
+                        </a>
+                    </span>
+
+                </span>
                 <!-- FOR PROJECT MANAGEMENT END -->
 
 

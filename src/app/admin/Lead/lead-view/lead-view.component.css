@@ -1,0 +1,32 @@
+.container {
+    width: 100%;
+}
+
+mat-toolbar {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-1);
+    color: var(--color-2);
+    margin-bottom: 20px;
+    margin-top: 2px;
+    font-size: 16px;
+    padding: 0px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+
+#wrapper{
+    padding: 20px;
+}
+mat-form-field {
+    width: 100%;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}

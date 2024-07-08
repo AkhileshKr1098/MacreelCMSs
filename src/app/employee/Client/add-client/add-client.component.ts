@@ -69,7 +69,8 @@ export class AddClientComponent {
     )
   }
   onAdd() {
-
+    console.log(this.myForm.value);
+    
     const formdata = new FormData()
     formdata.append('CompanyName', this.addClient.get('CompanyName')?.value)
     formdata.append('ContactPerson', this.addClient.get('ContactPerson')?.value)
@@ -93,9 +94,11 @@ export class AddClientComponent {
         },
         (error: any) => {
           console.log(error);
-          this._shared.tostErrorTop('Not Insert')
+          this._shared.tostErrorTop('Data not insert ')
         }
       )
+    }else{
+      this._shared.tostErrorTop('Plz fill all the required filds..')
     }
   }
 }

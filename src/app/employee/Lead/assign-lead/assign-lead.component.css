@@ -1,0 +1,35 @@
+#wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+mat-toolbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+button {
+    margin-left: 10%;
+}
+
+
+/* for tost */
+::ng-deep .redNoMatch {
+    color: white;
+    background: #429034 !important;
+    position: relative;
+    top: 50px;
+}
+
+::ng-deep .errredNoMatch {
+    color: white;
+    background: #823217 !important;
+    position: relative;
+    top: 50px;
+}

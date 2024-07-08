@@ -47,7 +47,10 @@
                     <span *ngIf="lead.LeadType == 'Hot'"
                         style="color:darkred; font-weight: bold;">{{lead.LeadType}}</span>
                     <span *ngIf="lead.LeadType != 'Hot'" style="color: darkgreen; font-weight: bold;">Cold</span>
-                    &nbsp; &nbsp; Status : {{lead.LeadStatus}}
+                    &nbsp;Status : {{lead.LeadStatus}}
+                    &nbsp; &nbsp;
+                    <button mat-mini-fab color="accent" (click)="OnAssign(lead); $event.stopPropagation();">
+                        <mat-icon>refresh</mat-icon></button>
                 </li>
             </ul>
         </div>

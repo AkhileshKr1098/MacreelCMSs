@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CRUDService } from 'src/app/Servies/crud.service';
 import { SharedService } from 'src/app/Servies/shared.service';
+import { AssignLeadComponent } from '../assign-lead/assign-lead.component';
 
 @Component({
   selector: 'app-lead-list',
@@ -14,7 +16,8 @@ export class LeadListComponent {
   constructor(
     private _crud: CRUDService,
     private _shared: SharedService,
-    private _router: Router
+    private _router: Router,
+    private _dilog: MatDialog
   ) { }
 
 
@@ -23,7 +26,7 @@ export class LeadListComponent {
       (res: any) => {
         console.log(res);
         this.lead_data = res
-        this.lead_filter_data =  res
+        this.lead_filter_data = res
       }
     )
   }
@@ -32,9 +35,22 @@ export class LeadListComponent {
     this._router.navigate(['/employee/leadadd'])
   }
 
-  onUpdate(lead:any){
+
+  onUpdate(lead: any) {
+
     this._shared.lead_data.next(lead)
     this._router.navigate(['/employee/leadupdate'])
+
+
+  }
+
+  OnAssign(data: any) {
+    this._dilog.open(AssignLeadComponent, {
+      width: '250px',
+      maxHeight: '400px',
+      data: data
+    })
+
   }
 
   OnSearch(filter: String) {

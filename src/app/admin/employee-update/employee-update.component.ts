@@ -163,6 +163,7 @@ export class EmployeeUpdateComponent implements AfterViewInit{
   onSubmit() {
     
     const formdata = new FormData()
+    formdata.append('Id', this.empReg.get('Id')?.value);
     formdata.append('Role', this.empReg.get('Role')?.value);
     formdata.append('EmployeeCode', this.empReg.get('EmployeeCode')?.value);
     formdata.append('EmployeeName', this.empReg.get('EmployeeName')?.value);
@@ -257,7 +258,7 @@ export class EmployeeUpdateComponent implements AfterViewInit{
 
   updateEmp() {
     const updatedata = new FormData();
-    updatedata.append('Id', this.empReg.get('Id')?.value);
+
     updatedata.append('EmployeeCode', this.empReg.get('EmployeeCode')?.value);
     updatedata.append('EmployeeName', this.empReg.get('EmployeeName')?.value);
     updatedata.append('Department', this.empReg.get('Department')?.value);

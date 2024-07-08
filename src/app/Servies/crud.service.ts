@@ -92,6 +92,10 @@ export class CRUDService {
     return this._http.post(`${this.base_url}Lead?login_id=${id}`, data)
   }
 
+  leadAssign(data:any, id:any){
+    return  this._http.post(`${this.base_url}AssignLead?login_id=${id}`, data)
+  }
+
 
 
 

@@ -8,16 +8,16 @@ import { SharedService } from 'src/app/Servies/shared.service';
   templateUrl: './client-list.component.html',
   styleUrls: ['./client-list.component.css']
 })
-export class ClientListComponent  implements OnInit{
+export class ClientListComponent implements OnInit {
 
   title_name = 'Employee List'
   client_data: any
   ImagePath: string = ''
   base_url: any;
   client_filter_data: any
-  profile_img :string ='../../../assets/icons/demoprofile.avif'
-  login:any
-  login_data:any
+  profile_img: string = '../../../assets/icons/demoprofile.avif'
+  login: any
+  login_data: any
   constructor(
     private _router: Router,
     private _crud: CRUDService,
@@ -27,7 +27,7 @@ export class ClientListComponent  implements OnInit{
     this.login_data = JSON.parse(this.login)
     console.log(this.login_data.LoginResponse);
   }
-  
+
 
   ngOnInit(): void {
     this._shared.base_img_url.subscribe(
@@ -35,7 +35,7 @@ export class ClientListComponent  implements OnInit{
         this.base_url = res
       }
     )
-    
+
     this._crud.get_client(this.login_data.LoginResponse.Type, this.login_data.EmpId).subscribe(
       (res: any) => {
         console.log(res);
@@ -45,9 +45,9 @@ export class ClientListComponent  implements OnInit{
       }
     )
 
-    
+
   }
- 
+
 
   viewDetails(data: any) {
     this._shared.emp_data.next(data);
@@ -55,7 +55,7 @@ export class ClientListComponent  implements OnInit{
     this._router.navigate(['/admin/clientview'])
   }
 
-  OnAdd(){
+  OnAdd() {
     this._router.navigate(['/admin/clientadd'])
   }
 
@@ -70,7 +70,13 @@ export class ClientListComponent  implements OnInit{
       }
       return false;
     }
-    );
+    )
+  }
+
+  OnUpdate(data: any) {
+    this._shared.client_data.next(data)
+    this._router.navigate(['/admin/clientupdate'])
+
   }
 
 }

@@ -17,7 +17,7 @@ export class SharedService {
   emp_data = new BehaviorSubject<object>({})
 
   lead_data = new BehaviorSubject<object>({})
-
+  client_data =  new BehaviorSubject<object>({})
 
   // for toast
 

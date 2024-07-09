@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CRUDService } from 'src/app/Servies/crud.service';
 import { SharedService } from 'src/app/Servies/shared.service';
 
@@ -21,6 +22,7 @@ export class AddClientComponent {
     private _fb: FormBuilder,
     private _crud: CRUDService,
     private _shared: SharedService,
+    private _routing: Router
   ) {
 
   }
@@ -89,7 +91,10 @@ export class AddClientComponent {
       this._crud.ClientAdd(formdata, this.login_data.LoginResponse.EmpId).subscribe(
         (res: any) => {
           console.log(res);
-          this._shared.tostSuccessTop('Save Successfully...')
+          if(res == 'Success'){
+            this._shared.tostSuccessTop('Save Successfully...')
+            this._routing.navigate(['/admin/clientlist'])
+          }
         },
         (error: any) => {
           console.log(error);
@@ -99,5 +104,8 @@ export class AddClientComponent {
     }
   }
 
+  onBack(){
+    this._routing.navigate(['/admin/clientlist'])
+  }
 
 }

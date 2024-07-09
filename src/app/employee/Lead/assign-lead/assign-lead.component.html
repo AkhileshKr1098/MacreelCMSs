@@ -17,22 +17,22 @@
 </div> -->
 
 
-<mat-toolbar><span>Launch </span><button mat-icon-button color="warn"
+<mat-toolbar><span>Assign Lead </span><button mat-icon-button color="warn"
         (click)="onClose()"><mat-icon>cancel</mat-icon></button> </mat-toolbar>
 <div id="wrapper">
-    <form >
+    <form>
         <input type="text" formControlName="id" readonly hidden>
         <span>
             <mat-form-field appearance="outline">
                 <mat-label>Assign to</mat-label>
-                <mat-select  (valueChange)="ValueGet($event)">
+                <mat-select (valueChange)="ValueGet($event)">
                     <mat-option *ngFor="let manager of ReportingManager"
                         [value]="manager">{{manager.UserName}}</mat-option>
                 </mat-select>
             </mat-form-field>
 
-           
-            <button (click)="OnSubmit()" mat-raised-button color="warn" style="width:80%;">Launch</button>
+
+            <button (click)="OnSubmit()" mat-raised-button color="warn" style="width:80%;">Assign</button>
         </span>
     </form>
 </div>

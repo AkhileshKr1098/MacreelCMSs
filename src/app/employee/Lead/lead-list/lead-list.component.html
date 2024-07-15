@@ -19,8 +19,9 @@
 
 
 <div id="containerBox">
-    <div class="container" routerLink="/admin/leadadd" *ngFor="let lead of lead_data" (click)="onUpdate(lead)">
+    <div class="container"  *ngFor="let lead of lead_data" (click)="onUpdate(lead)">
         <div class="dataRow">
+           
             <ul>
                 <li>
                     <img src="../../../assets/icons/company.png" alt="" width="30">
@@ -30,9 +31,13 @@
                     <img src="../../../assets/icons/person.png" alt="" width="30">
                     <span>{{lead.ContectPerson}}</span>
                 </li>
-                <li>
+                <li >
                     <img src="../../../assets/icons/phone.png" alt="" width="30">
                     <span>{{lead.MobileNo}}</span>
+
+                     
+            <button style="float: right; background-color: green;" mat-mini-fab color="accent" (click)="Flowup(lead); $event.stopPropagation();">
+                <mat-icon>call</mat-icon></button>
                 </li>
                 <li>
                     <img src="../../../assets/icons/gmail.png" alt="" width="30">
@@ -49,7 +54,7 @@
                     <span *ngIf="lead.LeadType != 'Hot'" style="color: darkgreen; font-weight: bold;">Cold</span>
                     &nbsp;Status : {{lead.LeadStatus}}
                     &nbsp; &nbsp;
-                    <button mat-mini-fab color="accent" (click)="OnAssign(lead); $event.stopPropagation();">
+                    <button style="float: right;" *ngIf="lead.created_by == this.loginData.LoginResponse.EmpId" mat-mini-fab color="accent" (click)="OnAssign(lead); $event.stopPropagation();">
                         <mat-icon>refresh</mat-icon></button>
                 </li>
             </ul>

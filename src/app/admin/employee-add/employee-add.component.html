@@ -1,3 +1,5 @@
+<label style="width: 90%; margin-left: 5%;">Profile Image</label>
+
 
 <mat-stepper orientation="vertical" #stepper>
     <form [formGroup]="empReg">
@@ -11,8 +13,7 @@
             <mat-form-field appearance="outline">
                 <mat-label>Role</mat-label>
                 <mat-select formControlName="Role">
-                    <mat-option *ngFor="let role of RolePermission"
-                        [value]="role.Id">{{role.RoleName}}</mat-option>
+                    <mat-option *ngFor="let role of RolePermission" [value]="role.Id">{{role.RoleName}}</mat-option>
                 </mat-select>
             </mat-form-field>
 
@@ -28,7 +29,7 @@
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-                <mat-label>Department</mat-label>
+                <mat-label>Department </mat-label>
                 <mat-select formControlName="Department">
                     <mat-option *ngFor="let department of department_data"
                         [value]="department.department">{{department.department}}</mat-option>
@@ -52,11 +53,16 @@
             </mat-form-field>
 
 
-            <div class="imgBox">
+            <!-- <div class="imgBox">
                 <span>Profile Image</span><br>
                 <input type="file" formControlName="Image">
-            </div>
+            </div> -->
 
+            <div class="user_image" (click)="profile.click()">
+                <img alt="image" [src]="profile_url">
+                <input hidden type="file" accept=".jpg,.png,.jpeg," #profile (change)="onProfile(profile.files)">
+            </div>
+            
 
             <mat-form-field appearance="outline">
                 <mat-label>Email Id</mat-label>
@@ -174,10 +180,13 @@
                 <mat-label>Age</mat-label>
                 <input matInput placeholder="Enter age" formControlName="Age">
             </mat-form-field>
-
+            
             <mat-form-field appearance="outline">
                 <mat-label>Sex</mat-label>
-                <input matInput placeholder="Enter sex" formControlName="Sex">
+                <mat-select formControlName="Sex">
+                    <mat-option value="Male">Male</mat-option>
+                    <mat-option value="Female">Female</mat-option>
+                </mat-select>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
@@ -190,9 +199,14 @@
                 <input matInput placeholder="Enter religion" formControlName="Religion">
             </mat-form-field>
 
+
+
             <mat-form-field appearance="outline">
                 <mat-label>Marital Status</mat-label>
-                <input matInput placeholder="Enter marital status" formControlName="MaritalStatus">
+                <mat-select formControlName="MaritalStatus">
+                    <mat-option value="Married">Married</mat-option>
+                    <mat-option value="Unmarried">Unmarried</mat-option>
+                </mat-select>
             </mat-form-field>
 
             <div>
@@ -214,8 +228,8 @@
             <mat-form-field appearance="outline">
                 <mat-label>State</mat-label>
                 <mat-select formControlName="State" (selectionChange)="get_city($event.value)">
-                    <mat-option  *ngFor="let state of state_data"
-                        [value]="state" (valueChange)="get_city(state)">{{state.State_Name}}</mat-option>
+                    <mat-option *ngFor="let state of state_data" [value]="state"
+                        (valueChange)="get_city(state)">{{state.State_Name}}</mat-option>
                 </mat-select>
             </mat-form-field>
 
@@ -301,16 +315,16 @@
                 <input matInput placeholder="Enter previous employer" formControlName="PreviousEmployer">
             </mat-form-field>
 
-       
-            
+
+
             <mat-form-field appearance="outline">
                 <mat-label>From</mat-label>
-                <input matInput type="date"  formControlName="Fromt">
+                <input matInput type="date" formControlName="Fromt">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label>To</mat-label>
-                <input matInput type="date"  formControlName="ToT">
+                <input matInput type="date" formControlName="ToT">
             </mat-form-field>
 
             <div>

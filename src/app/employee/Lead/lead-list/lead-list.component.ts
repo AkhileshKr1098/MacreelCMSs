@@ -13,28 +13,40 @@ import { AssignLeadComponent } from '../assign-lead/assign-lead.component';
 export class LeadListComponent {
   lead_data: any
   lead_filter_data: any
+  login: any
+  loginData: any
   constructor(
     private _crud: CRUDService,
     private _shared: SharedService,
     private _router: Router,
     private _dilog: MatDialog
-  ) { }
+  ) {
+    this.login = localStorage.getItem('logindata')
+    this.loginData = JSON.parse(this.login)
+    console.log(this.loginData.LoginResponse.EmpId)
+  }
 
 
   ngOnInit() {
-    this._crud.get_lead_for_admin().subscribe(
+    this._crud.get_lead_for_emp(this.loginData.LoginResponse.EmpId).subscribe(
       (res: any) => {
         console.log(res);
         this.lead_data = res
         this.lead_filter_data = res
       }
     )
+
+
   }
 
   OnAdd() {
     this._router.navigate(['/employee/leadadd'])
   }
 
+  Flowup(data: any) {
+    this._shared.LeadFlowup.next(data)
+    this._router.navigate(['/employee/leadflowup'])
+  }
 
   onUpdate(lead: any) {
 
@@ -46,8 +58,10 @@ export class LeadListComponent {
 
   OnAssign(data: any) {
     this._dilog.open(AssignLeadComponent, {
-      width: '250px',
-      maxHeight: '400px',
+      maxWidth: '80vw',
+      maxHeight: '50vh',
+      height: '50%',
+      width: '80%',
       data: data
     })
 

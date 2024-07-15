@@ -39,20 +39,22 @@ export class LoginComponent {
     this._crud.login(fromdata).subscribe(
       (res:any)=>{
         console.log(res);
-        localStorage.setItem('logindata',JSON.stringify(res))
-        console.log(res.LoginResponse.Type);
         if (res.LoginResponse.Type == 'Admin') {
             this._router.navigate(['admin'])
+            localStorage.setItem('logindata',JSON.stringify(res))
             this._shared.tostSuccessTop('Login Success')
-        }
-       if (res.LoginResponse.Type > 0) {
+        } else if (res.LoginResponse.Type > 0) {
           this._router.navigate(['employee'])
+          localStorage.setItem('logindata',JSON.stringify(res))
           this._shared.tostSuccessTop('Login Success')
+        } else {
+          this._shared.tostErrorTop('Username or Password incorrect')
 
-       }else{
-        this._shared.tostErrorTop('Username or Password incorrect')
-
-       }
+        }
+      
+      }, (error: any) => {
+        console.error('Login error:', error);
+        this._shared.tostErrorTop('Login failed');
       }
     )
 

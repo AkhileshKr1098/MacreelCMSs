@@ -1,24 +1,4 @@
-<!-- <div id="wrapper">
-    <mat-toolbar color="primary">
-
-    </mat-toolbar>
-
-    <mat-form-field appearance="outline">
-        <mat-label>Assign to</mat-label>
-        <mat-select formControlName="ReportingManager"  (valueChange)="ValueGet($event)"> 
-            <mat-option *ngFor="let manager of ReportingManager"
-                [value]="manager">{{manager.UserName}}</mat-option>
-        </mat-select>
-    </mat-form-field>
-
-    <br>
-    <br>
-    <button mat-raised-button color="primary" (click)="OnSubmit()">Submit</button>
-</div> -->
-
-
-<mat-toolbar><span>Assign Lead </span><button mat-icon-button color="warn"
-        (click)="onClose()"><mat-icon>cancel</mat-icon></button> </mat-toolbar>
+<mat-toolbar><span>Assign Lead </span><button mat-icon-button color="warn" mat-dialog-close ><mat-icon>cancel</mat-icon></button> </mat-toolbar>
 <div id="wrapper">
     <form>
         <input type="text" formControlName="id" readonly hidden>

@@ -1,0 +1,61 @@
+<mat-toolbar>
+    <div class="toobarchild1">Applyed Leave Request</div>
+    <div class="toobarchild2">
+        <form>
+            <label for="search">Search</label>
+            <input style="z-index: 2;" required="" pattern=".*\S.*" type="search" class="input" id="search" #search
+                (keyup)="OnSearch(search.value)">
+            <span class="caret"></span>
+        </form>
+    </div>
+
+   
+</mat-toolbar>
+
+
+
+<div id="containerBox">
+    <div class="container"  *ngFor="let Leave of leaveData" >
+        <div class="dataRow">
+           
+            <ul>
+            
+                <li>
+                    <img src="../../../assets/icons/person.png" alt="" width="30">
+                    <span>{{Leave.EmployeeName}}</span>
+                </li>
+                <li >
+                    <img src="../../../assets/icons/date.png" alt="" width="30">
+                    <span>{{Leave.FromDate}} to {{Leave.ToDate}}</span>
+
+                </li>
+
+                <li >
+                    <img src="../../../assets/icons/day.png" alt="" width="30">
+                    <span>{{Leave.LeaveType}} &nbsp; 
+                        <button mat-mini-fab color="warn" aria-label="Example icon button with a home icon">
+                            <b style="font-size: large;">{{Leave.LeaveCount}}</b>
+                          </button>
+                          </span>
+
+                </li>
+
+             
+                <li >
+                    <img src="../../../assets/icons/description.png" alt="" width="30">
+                    <span>{{Leave.Description}}</span>
+
+                </li>
+             
+                <li>
+                    <img src="../../../assets/icons/status.png" alt="" width="30">
+                    <span *ngIf="Leave.Status == 'Pending'" style="color:darkred; font-weight: bold;">{{Leave.Status}}</span>
+                    <span *ngIf="Leave.Status == 'Approved'" style="color: darkgreen; font-weight: bold;">{{Leave.Status}}</span>
+                    
+                 
+               
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

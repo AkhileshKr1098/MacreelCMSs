@@ -32,41 +32,7 @@
 
 
 
-                <!-- FOR LEAVE MANAGEMENT STRATR  -->
-                <span *ngIf="role.PermissionName == 'Leave Management'">
-                    <a mat-list-item (click)="LeaveMenu()">
-                        <img src="../../../assets/icons/leave-management.png" alt="" width="30px">
-                        <span>Leave Management</span>
-                        <mat-icon *ngIf="!onLeaveMenu">keyboard_arrow_right</mat-icon>
-                        <mat-icon *ngIf="onLeaveMenu">keyboard_arrow_down</mat-icon>
-                    </a>
-                    <span *ngIf="onLeaveMenu" class="SubMenu">
-                        <a mat-list-item (click)="LeaveMenu()" (click)="sidebar.toggle()"
-                            [routerLink]="['/admin/leavetype']">
-                            <img src="../../../assets/icons/leave-type.png" alt="" width="30px">
-                            <span>Pending Leave</span>
-                        </a>
-                    </span>
 
-                    <span *ngIf="onLeaveMenu" class="SubMenu">
-                        <a mat-list-item (click)="LeaveMenu()" (click)="sidebar.toggle()"
-                            [routerLink]="['/admin/assignedleave']">
-                            <img src="../../../assets/icons/assign-leave.png" alt="" width="30px">
-                            <span>Approved Leave</span>
-                        </a>
-                    </span>
-
-                    <span *ngIf="onLeaveMenu" class="SubMenu">
-                        <a mat-list-item (click)="LeaveMenu()" (click)="sidebar.toggle()"
-                            [routerLink]="['/admin/appliedleave']">
-                            <img src="../../../assets/icons/applied-leave.png" alt="" width="30px">
-                            <span>Reject Leave</span>
-                        </a>
-                    </span>
-
-                </span>
-
-                <!-- FOR LEAVE MANAGEMENT END -->
 
 
                 <!-- FOR PROJECT MANAGEMENT START -->
@@ -109,13 +75,13 @@
                         <a mat-list-item (click)="LeadMenu()" (click)="sidebar.toggle()"
                             [routerLink]="['/employee/leadlist']">
                             <img src="../../../assets/icons/project.png" alt="" width="30px">
-                            <span>Lead Add </span>
+                            <span>My Lead </span>
                         </a>
                     </span>
 
                     <span *ngIf="onLeadMenu" class="SubMenu">
                         <a mat-list-item (click)="LeadMenu()" (click)="sidebar.toggle()"
-                            [routerLink]="['assignedproject']">
+                            [routerLink]="['/employee/assigedlist']">
                             <img src="../../../assets/icons/assign-project.png" alt="" width="30px">
                             <span>Assign Lead</span>
                         </a>
@@ -146,7 +112,45 @@
                     <span>Purchase Order</span>
                 </a>
 
+
+
             </div>
+
+            <!-- FOR LEAVE MANAGEMENT STRATR  -->
+            <span>
+                <a mat-list-item (click)="LeaveMenu()">
+                    <img src="../../../assets/icons/leave-management.png" alt="" width="30px">
+                    <span>Leave Management</span>
+                    <mat-icon *ngIf="!onLeaveMenu">keyboard_arrow_right</mat-icon>
+                    <mat-icon *ngIf="onLeaveMenu">keyboard_arrow_down</mat-icon>
+                </a>
+                <span *ngIf="onLeaveMenu" class="SubMenu">
+                    <a mat-list-item (click)="LeaveMenu()" (click)="sidebar.toggle()"
+                        [routerLink]="['/employee/levaeadd']">
+                        <img src="../../../assets/icons/leave-type.png" alt="" width="30px">
+                        <span>Apply Leave</span>
+                    </a>
+                </span>
+
+                <span *ngIf="onLeaveMenu" class="SubMenu">
+                    <a mat-list-item (click)="LeaveMenu()" (click)="sidebar.toggle()"
+                        [routerLink]="['/employee/myleavelist']">
+                        <img src="../../../assets/icons/assign-leave.png" alt="" width="30px">
+                        <span>My Leave</span>
+                    </a>
+                </span>
+
+                <span *ngIf="onLeaveMenu" class="SubMenu">
+                    <a mat-list-item (click)="LeaveMenu()" (click)="sidebar.toggle()"
+                        [routerLink]="['/employee/applyLeaveRequst']">
+                        <img src="../../../assets/icons/applied-leave.png" alt="" width="30px">
+                        <span>Applyed Leave Request</span>
+                    </a>
+                </span>
+
+            </span>
+
+            <!-- FOR LEAVE MANAGEMENT END -->
             <a mat-list-item (click)="sidebar.toggle()" [routerLink]="['/']">
                 <img src="../../../assets/icons/logout.png" alt="" width="30px">
                 <span>Logout</span>
@@ -175,7 +179,7 @@
             </div>
             <div id="footer">
                 <mat-toolbar>
-                    <button mat-icon-button [routerLink]="['/admin']">
+                    <button mat-icon-button [routerLink]="['/employee']">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48"
                             viewBox="0 0 48 48">
                             <path fill="#E8EAF6" d="M42 39L6 39 6 23 24 6 42 23z"></path>
@@ -196,7 +200,7 @@
                         <mat-hint>Project</mat-hint>
                     </button>
 
-                    <button mat-icon-button [routerLink]="['/admin/employeeleavelist']">
+                    <button mat-icon-button [routerLink]="['/employee/myleavelist']">
                         <img
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAACAUlEQVR4nO3YSyhEURgH8EuUhcJMyQrZsreRHUoY5NGgRFGyEvIor2KK7GahTDJ173AZQl53SCOhJmVFUSxmSh4bd3bK4tPMYpg5heEY9359//pvTtNXv8695zRXECgUSmREr3/0YwWNz/11JJ8fPlbrc38dAnMK7XCsAgYBPmvkTnz1++822rkE/mlohw30SAO9wwY6tADNKe3oGwgrr2sp2rkxAy8kh5cXONq5MQODRsoNvFNVDnooN3CndQ70UG5g0auCHsoNLEVcD1qt5sDHMzY4HxsLa2ANLfiuoog5We9MxXjB1zVlDPiq1oQXfFZfzYA95lq84OO2VgZ81NGOF+zu6WbA+/0DeMHK+AQD3pmcxgvess4w4A2bHS94TXIy4JXVbbxg566bAcuHZ3jBsueC/ZN/6cMLdtw8hWFf0xO4YTUJlnx+eMlICoHV7DT84OccYwh8n5uJHzw8K0LvlDXYkXkZP3hQ3gx9oRha2cUPdi2vw01THdw21sDe0hpusFuUAYxx7ye1MQ4OxUW84IfiAuYevi8pxAt+zM9jwIE1tGClpZkBK63NeMH9dicolWWgZqWCmpkCLlNpcA0tePLAw3w8D6yhBYteFSyuU+iyOYK1KCfBNbRg6Y9L4J/mv3eOdtj3x490fGJigx7KDSwIglknpVAoFAqFImg3b0ICopSF9acyAAAAAElFTkSuQmCC">
                         <mat-hint>Leave</mat-hint>

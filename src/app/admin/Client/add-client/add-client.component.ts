@@ -71,6 +71,7 @@ export class AddClientComponent {
     )
   }
   onAdd() {
+    console.log(this.myForm.value);
 
     const formdata = new FormData()
     formdata.append('CompanyName', this.addClient.get('CompanyName')?.value)
@@ -91,7 +92,7 @@ export class AddClientComponent {
       this._crud.ClientAdd(formdata, this.login_data.LoginResponse.EmpId).subscribe(
         (res: any) => {
           console.log(res);
-          if(res == 'Success'){
+          if (res == 'Success') {
             this._shared.tostSuccessTop('Save Successfully...')
             this._routing.navigate(['/admin/clientlist'])
           }
@@ -104,7 +105,7 @@ export class AddClientComponent {
     }
   }
 
-  onBack(){
+  onBack() {
     this._routing.navigate(['/admin/clientlist'])
   }
 

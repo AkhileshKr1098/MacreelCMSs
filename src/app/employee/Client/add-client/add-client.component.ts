@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CRUDService } from 'src/app/Servies/crud.service';
 import { SharedService } from 'src/app/Servies/shared.service';
 
@@ -21,6 +22,7 @@ export class AddClientComponent {
     private _fb: FormBuilder,
     private _crud: CRUDService,
     private _shared: SharedService,
+    private _router: Router
   ) {
 
   }
@@ -69,8 +71,8 @@ export class AddClientComponent {
     )
   }
   onAdd() {
-    console.log(this.myForm.value);
-    
+    console.log(this.addClient.value);
+
     const formdata = new FormData()
     formdata.append('CompanyName', this.addClient.get('CompanyName')?.value)
     formdata.append('ContactPerson', this.addClient.get('ContactPerson')?.value)
@@ -90,15 +92,22 @@ export class AddClientComponent {
       this._crud.ClientAdd(formdata, this.login_data.LoginResponse.EmpId).subscribe(
         (res: any) => {
           console.log(res);
-          this._shared.tostSuccessTop('Save Successfully...')
+          if (res == 'Success') {
+            this._shared.tostSuccessTop('Save Successfully...')
+            this.onBack()
+          }
         },
         (error: any) => {
           console.log(error);
           this._shared.tostErrorTop('Data not insert ')
         }
       )
-    }else{
+    } else {
       this._shared.tostErrorTop('Plz fill all the required filds..')
     }
+  }
+
+  onBack() {
+    this._router.navigate(['/employee/clientlist'])
   }
 }

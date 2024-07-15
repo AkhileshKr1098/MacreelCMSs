@@ -9,6 +9,10 @@
             <ng-template matStepLabel>Employee Update</ng-template>
 
             <mat-form-field appearance="outline">
+                <input matInput readonly="" formControlName="Id">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
                 <mat-label>Role</mat-label>
                 <mat-select formControlName="Role">
                     <mat-option *ngFor="let role of RolePermission"
@@ -52,10 +56,14 @@
             </mat-form-field>
 
 
-            <div class="imgBox">
-                <span>Profile Image</span><br>
-                <input type="file" formControlName="Image">
+           
+
+            
+            <div class="user_image" (click)="profile.click()">
+                <img alt="image" [src]="profile_url">
+                <input hidden type="file" accept=".jpg,.png,.jpeg," #profile (change)="onProfile(profile.files)">
             </div>
+            
 
 
             <mat-form-field appearance="outline">

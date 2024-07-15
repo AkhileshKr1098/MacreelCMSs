@@ -1,0 +1,54 @@
+<mat-toolbar>
+    <div class="toobarchild1">Lead List </div>
+    <div class="toobarchild2">
+        <form>
+            <label for="search">Search</label>
+            <input style="z-index: 2;" required="" pattern=".*\S.*" type="search" class="input" id="search" #search
+                (keyup)="OnSearch(search.value)">
+            <span class="caret"></span>
+        </form>
+    </div>
+
+   
+</mat-toolbar>
+
+
+
+<div id="containerBox">
+    <div class="container" *ngFor="let lead of lead_data" >
+        <div class="dataRow">
+            <ul>
+                <li>
+                    <img src="../../../assets/icons/company.png" alt="" width="30">
+                    <span style="font-weight: bold;">{{lead.ClientName}}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/person.png" alt="" width="30">
+                    <span>{{lead.ContectPerson}}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/phone.png" alt="" width="30">
+                    <span>{{lead.MobileNo}}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/gmail.png" alt="" width="30">
+                    <span>{{lead.ClientEmail}}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/location.png" alt="" width="30">
+                    <span>{{lead.Address}}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/category.png" alt="" width="30">
+                    <span *ngIf="lead.LeadType == 'Hot'"
+                        style="color:darkred; font-weight: bold;">{{lead.LeadType}}</span>
+                    <span *ngIf="lead.LeadType != 'Hot'" style="color: darkgreen; font-weight: bold;">Cold</span>
+                    &nbsp;Status : {{lead.LeadStatus}}
+                    &nbsp; &nbsp;
+                    <button  mat-mini-fab color="accent" (click)="OnAssign(lead); $event.stopPropagation();">
+                        <mat-icon>refresh</mat-icon></button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

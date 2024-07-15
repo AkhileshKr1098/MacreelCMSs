@@ -34,6 +34,13 @@ import { EmpViewComponent } from './Employee/emp-view/emp-view.component';
 import { EmpUpdateComponent } from './Employee/emp-update/emp-update.component';
 import { AssignLeadComponent } from './Lead/assign-lead/assign-lead.component';
 import { MyLeadComponent } from './Lead/my-lead/my-lead.component';
+import { AssignedListComponent } from './Lead/assigned-list/assigned-list.component';
+import { AddleaveComponent } from './Leave/addleave/addleave.component';
+import { MyLeaveComponent } from './Leave/my-leave/my-leave.component';
+import { ApprovedLeaveComponent } from './Leave/approved-leave/approved-leave.component';
+import { ApplyLeaveRequstComponent } from './Leave/apply-leave-requst/apply-leave-requst.component';
+import { LeadFlowupComponent } from './Lead/lead-flowup/lead-flowup.component';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +58,14 @@ import { MyLeadComponent } from './Lead/my-lead/my-lead.component';
     EmpViewComponent,
     EmpUpdateComponent,
     AssignLeadComponent,
-    MyLeadComponent
+    MyLeadComponent,
+    AssignedListComponent,
+    AddleaveComponent,
+    MyLeaveComponent,
+    ApprovedLeaveComponent,
+    ApplyLeaveRequstComponent,
+    LeadFlowupComponent,
+  
   ],
   imports: [
     CommonModule,

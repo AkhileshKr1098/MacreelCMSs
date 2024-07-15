@@ -15,9 +15,9 @@ export class ClientListComponent {
   ImagePath: string = ''
   base_url: any;
   client_filter_data: any
-  profile_img :string ='../../../assets/icons/demoprofile.avif'
-  login:any
-  login_data:any
+  profile_img: string = '../../../assets/icons/demoprofile.avif'
+  login: any
+  login_data: any
   constructor(
     private _router: Router,
     private _crud: CRUDService,
@@ -27,7 +27,7 @@ export class ClientListComponent {
     this.login_data = JSON.parse(this.login)
     console.log(this.login_data.LoginResponse);
   }
-  
+
 
   ngOnInit(): void {
     this._shared.base_img_url.subscribe(
@@ -35,8 +35,8 @@ export class ClientListComponent {
         this.base_url = res
       }
     )
-    
-    this._crud.get_client(this.login_data.LoginResponse.Type, this.login_data.EmpId).subscribe(
+
+    this._crud.get_client(this.login_data.LoginResponse.Type, this.login_data.LoginResponse.EmpId).subscribe(
       (res: any) => {
         console.log(res);
         this.client_data = res;
@@ -44,19 +44,17 @@ export class ClientListComponent {
         this.ImagePath = res.ImagePath;
       }
     )
-
-    
   }
- 
+
 
   viewDetails(data: any) {
     this._shared.emp_data.next(data);
     console.log(data);
-    this._router.navigate(['/admin/clientview'])
+    this._router.navigate(['/employee/clientupdate'])
   }
 
-  OnAdd(){
-    this._router.navigate(['/admin/clientadd'])
+  OnAdd() {
+    this._router.navigate(['/employee/clientadd'])
   }
 
 
@@ -65,11 +63,23 @@ export class ClientListComponent {
       if (data.CompanyName.toString().toLowerCase().indexOf(filter.toLowerCase()) !== -1) {
         return true;
       }
-      if (data.Designation.toString().toLowerCase().indexOf(filter.toLowerCase()) !== -1) {
+      if (data.ContactPerson.toString().toLowerCase().indexOf(filter.toLowerCase()) !== -1) {
+        return true;
+      }
+      if (data.ContactNo.toString().toLowerCase().indexOf(filter.toLowerCase()) !== -1) {
+        return true;
+      }
+      if (data.Address.toString().toLowerCase().indexOf(filter.toLowerCase()) !== -1) {
         return true;
       }
       return false;
     }
-    );
+    )
+  }
+
+  OnUpdate(data: any) {
+    this._shared.client_data.next(data)
+    this._router.navigate(['/employee/clientupdate'])
+
   }
 }

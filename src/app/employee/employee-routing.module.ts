@@ -10,6 +10,14 @@ import { ClientListComponent } from './Client/client-list/client-list.component'
 import { EmpUpdateComponent } from './Employee/emp-update/emp-update.component';
 import { ListEmpComponent } from './Employee/list-emp/list-emp.component';
 import { AddEmpComponent } from './Employee/add-emp/add-emp.component';
+import { ClientUpdateComponent } from './Client/client-update/client-update.component';
+import { AssignLeadComponent } from './Lead/assign-lead/assign-lead.component';
+import { AssignedListComponent } from './Lead/assigned-list/assigned-list.component';
+import { AddleaveComponent } from './Leave/addleave/addleave.component';
+import { LeadFlowupComponent } from './Lead/lead-flowup/lead-flowup.component';
+import { MyLeaveComponent } from './Leave/my-leave/my-leave.component';
+import { ApplyLeaveRequstComponent } from './Leave/apply-leave-requst/apply-leave-requst.component';
+
 
 const routes: Routes = [
   {
@@ -19,11 +27,20 @@ const routes: Routes = [
       { path: 'leadlist', component: LeadListComponent },
       { path: 'leadadd', component: AddLeadComponent },
       { path: 'leadupdate', component: LeadUpdateComponent },
+      { path: 'leadflowup', component: LeadFlowupComponent },
+      { path: 'assigedlist', component: AssignedListComponent },
       { path: 'clientadd', component: AddClientComponent },
       { path: 'clientlist', component: ClientListComponent },
+      { path: 'clientupdate', component: ClientUpdateComponent },
       { path: 'emplist', component: ListEmpComponent },
       { path: 'empadd', component: AddEmpComponent },
       { path: 'empupdate', component: EmpUpdateComponent },
+
+      // for leave 
+      {path:'levaeadd', component: AddleaveComponent },
+      {path:'myleavelist', component: MyLeaveComponent },
+      {path:'applyLeaveRequst', component: ApplyLeaveRequstComponent },
+      
 
     ]
   }

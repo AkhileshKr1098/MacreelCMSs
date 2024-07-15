@@ -65,7 +65,13 @@ export class ClientListComponent implements OnInit {
       if (data.CompanyName.toString().toLowerCase().indexOf(filter.toLowerCase()) !== -1) {
         return true;
       }
-      if (data.Designation.toString().toLowerCase().indexOf(filter.toLowerCase()) !== -1) {
+      if (data.ContactPerson.toString().toLowerCase().indexOf(filter.toLowerCase()) !== -1) {
+        return true;
+      }
+      if (data.ContactNo.toString().toLowerCase().indexOf(filter.toLowerCase()) !== -1) {
+        return true;
+      }
+      if (data.Address.toString().toLowerCase().indexOf(filter.toLowerCase()) !== -1) {
         return true;
       }
       return false;

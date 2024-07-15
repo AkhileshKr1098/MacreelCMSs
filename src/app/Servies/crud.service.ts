@@ -54,7 +54,7 @@ export class CRUDService {
   }
 
   //for employee registration
-  post_emp_reg(data: any) {
+  addEmployee(data: any) {
     return this._http.post(`${this.base_url}Registration`, data)
   }
 
@@ -71,8 +71,12 @@ export class CRUDService {
   // for client crud 
 
   get_client(roletype: any, id: any) {
+    console.log('roletyope' + roletype);
+    console.log('id' + id);
+
     return this._http.get(`${this.base_url}Client?Roletype=${roletype}&created_by=${id}`)
   }
+
 
   ClientAdd(data: any, id: any) {
     return this._http.post(`${this.base_url}Client?login_id=${id}`, data)
@@ -88,18 +92,38 @@ export class CRUDService {
   get_lead_for_emp(id: any) {
     return this._http.get(`${this.base_url}Lead?created_by=${id}`)
   }
+
   leadAdd(data: any, id: any) {
     return this._http.post(`${this.base_url}Lead?login_id=${id}`, data)
   }
 
-  leadAssign(data:any, id:any){
-    return  this._http.post(`${this.base_url}AssignLead?login_id=${id}`, data)
+  leadAssigned(data: any, id: any) {
+    return this._http.post(`${this.base_url}AssignLead?login_id=${id}`, data)
+  }
+
+  getAssinedLead(id: any) {
+    return this._http.get(`${this.base_url}AssignLead?login_id=${id}`)
   }
 
 
+  // for leave 
 
+  getAssignLeave(id: any) {
+    return this._http.get(`${this.base_url}AssignLeave?employeeId=${id}`)
+  }
+  getLeaveType(id: any) {
+    return this._http.get(`${this.base_url}LeaveManagement?employeeId=${id}`)
+  }
+  ApplyLeave(data: any) {
+    return this._http.post(`${this.base_url}ApplyLeave`, data)
+  }
 
+  getApplyLeave(id: any) {
+    return this._http.get(`${this.base_url}ApplyLeave?empId=${id}`)
+  }
 
-
-
+  applyleaverequest(){
+    
+  }
+  
 }

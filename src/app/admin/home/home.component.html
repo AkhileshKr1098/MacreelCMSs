@@ -111,17 +111,11 @@
                 <span *ngIf="onLeadMenu" class="SubMenu">
                     <a mat-list-item (click)="LeadMenu()" (click)="sidebar.toggle()" [routerLink]="['/admin/leadlist']">
                         <img src="../../../assets/icons/lead.png" alt="" width="30px">
-                        <span>Lead</span>
-                    </a>
+                        <span>All Lead</span>
+                    </a> 
                 </span>
 
-                <span *ngIf="onLeadMenu" class="SubMenu">
-                    <a mat-list-item (click)="LeadMenu()" (click)="sidebar.toggle()"
-                        [routerLink]="['/admin/assignedlead']">
-                        <img src="../../../assets/icons/assign-lead.png" alt="" width="30px">
-                        <span>Assigned Lead</span>
-                    </a>
-                </span>
+             
             </span>
 
             <a mat-list-item (click)="sidebar.toggle()" [routerLink]="['/admin/generatequatation']">

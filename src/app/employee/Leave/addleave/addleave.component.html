@@ -1,0 +1,59 @@
+<div id="wrapper">      
+
+    <table>
+        <thead>
+          <tr>
+            <th colspan="3">Leave Assign</th>
+          </tr>
+          <tr>
+            <th>Type</th>
+            <th>Assign</th>
+            <th>Remain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let assign of leaveAssign">
+            <td>{{ assign.LeaveType }}</td>
+            <td>{{ assign.NoOfLeave }}</td>
+            <td>{{ assign.Remain }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br><br>
+    <form [formGroup]="leave_form">
+
+      <!-- <mat-form-field appearance="outline">
+        <mat-label>From Date</mat-label>
+        <input matInput [type]="actiontext" formControlName="start_date" #fromdate (change)="fromDate(todate,$event)" min="{{curDate | date:'yyyy-MM-dd'}}" [readonly]="actionredonly" #fromd>
+      </mat-form-field> -->
+      <mat-form-field appearance="outline">
+        <mat-label>From Date</mat-label>
+        <input matInput type="date" formControlName="FormDate"   min="{{curDate | date:'yyyy-MM-dd'}}" >
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>To Date</mat-label>
+        <input matInput  type="date" formControlName="ToDate"  min="{{curDate | date:'yyyy-MM-dd'}}" >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Leave Type</mat-label>
+        <mat-select formControlName="LeaveType">
+            <mat-option *ngFor="let leave of leaveType" [value]="leave.Text">{{leave.Text}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+   
+  
+
+      <mat-form-field appearance="outline" >
+        <mat-label>Description</mat-label>
+        <textarea matInput type="text" formControlName="Description" placeholder="Description" ></textarea>
+      </mat-form-field>
+
+     
+    </form>
+    <div style="width: 100%; display: flex; justify-content: center; padding-bottom: 20px;">
+      <button mat-raised-button color="primary" (click)="onSubmit()">Apply</button>
+    </div>
+
+  </div>

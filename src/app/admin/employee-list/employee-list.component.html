@@ -1,5 +1,5 @@
 <mat-toolbar>
-    <div class="toobarchild1">Employee List </div>  
+    <div class="toobarchild1">Employee List </div>
     <div class="toobarchild2">
         <form>
             <label for="search">Search</label>
@@ -10,18 +10,38 @@
     </div>
 
     <div class="toobarchild3">
-        <button (click)="AddEmp()" style="z-index: 1;" mat-icon-button><mat-icon style="font-size: 30px;"  >person_add</mat-icon>
+        <button (click)="AddEmp()" style="z-index: 1;" mat-icon-button><mat-icon
+                style="font-size: 30px;">person_add</mat-icon>
         </button>
     </div>
 </mat-toolbar>
 
-<mat-card class="example-card" style="z-index: 0;" *ngFor="let staff of get_emp" (click)="viewDetails(staff)">
-    <mat-card-header>
-        <mat-card-title><mat-icon>person_outline</mat-icon> {{staff.EmployeeName | titlecase}}</mat-card-title>
-        <mat-card-subtitle><mat-icon>work_outline</mat-icon> {{staff.Designation | titlecase }}</mat-card-subtitle>
-        <mat-card-subtitle><mat-icon>call</mat-icon>{{staff.Mobile | titlecase}}</mat-card-subtitle>
-        <!-- <a href="tel:9661647172" style="z-index: 1;"  (click)="onalert()">call</a> -->
-        <img [src]="staff.ImagePath != '' ? base_url+staff.ImagePath :profile_img" width="80px" height="80px"
-            style="border-radius: 100%;">
-    </mat-card-header>
-</mat-card>
+
+
+<div id="containerBox">
+    <div class="container" routerLink="/admin/leadadd" *ngFor="let staff of get_emp" (click)="viewDetails(staff)">
+
+        <div class="imgRow">
+            <img id="profile_pic" [src]="staff.ImagePath != '' ? base_url+staff.ImagePath :profile_img" width="80px"
+                height="80px" style="border-radius: 100%;">
+        </div>
+        <div class="dataRow">
+            <ul>
+                <li>
+                    <img src="../../../assets/icons/person.png" alt="" width="30">
+                    <span style="font-weight: bold;">{{staff.EmployeeName | titlecase}}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/description.png" alt="" width="30">
+                    <span>{{staff.Designation | titlecase }}</span>
+                </li>
+
+                <li>
+                    <img src="../../../assets/icons/phone.png" alt="" width="30">
+                    <span>{{staff.Mobile | titlecase}}</span>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>

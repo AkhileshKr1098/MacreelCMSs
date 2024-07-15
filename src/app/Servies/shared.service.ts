@@ -18,6 +18,7 @@ export class SharedService {
 
   lead_data = new BehaviorSubject<object>({})
   client_data =  new BehaviorSubject<object>({})
+  LeadFlowup =  new BehaviorSubject<object>({})
 
   // for toast
 

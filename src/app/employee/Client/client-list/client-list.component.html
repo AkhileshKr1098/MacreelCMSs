@@ -1,5 +1,6 @@
+
 <mat-toolbar>
-    <div class="toobarchild1">Client List </div>  
+    <div class="toobarchild1">Client List </div>
     <div class="toobarchild2">
         <form>
             <label for="search">Search</label>
@@ -10,17 +11,37 @@
     </div>
 
     <div class="toobarchild3">
-        <button (click)="OnAdd()" style="z-index: 1;" mat-icon-button><mat-icon style="font-size: 30px;"  >person_add</mat-icon>
+        <button (click)="OnAdd()" style="z-index: 1;" mat-icon-button><mat-icon
+                style="font-size: 30px;">person_add</mat-icon>
         </button>
     </div>
 </mat-toolbar>
 
-<mat-card class="example-card" style="z-index: 0;" *ngFor="let client of client_data" (click)="viewDetails(client)">
-    <mat-card-header>
-        <mat-card-title><mat-icon>person_outline</mat-icon> {{client.CompanyName | titlecase }}</mat-card-title>
-        <mat-card-subtitle><mat-icon>work_outline</mat-icon> {{client.ContactPerson | titlecase}}</mat-card-subtitle>
-        <mat-card-subtitle><mat-icon> location_on</mat-icon> {{client.CityName | titlecase}}</mat-card-subtitle>
-        <mat-card-subtitle><mat-icon>call</mat-icon>{{client.ContactNo}}</mat-card-subtitle>
 
-    </mat-card-header>
-</mat-card>
+
+<div id="containerBox">
+    <div class="container" routerLink="/admin/leadadd" *ngFor="let client of client_data" (click)="OnUpdate(client)">
+        <div class="dataRow">
+            <ul>
+                <li>
+                    <img src="../../../assets/icons/company.png" alt="" width="30">
+                    <span style="font-weight: bold;">{{client.CompanyName | titlecase }}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/person.png" alt="" width="30">
+                    <span>{{client.ContactPerson | titlecase}}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/phone.png" alt="" width="30">
+                    <span>{{client.ContactNo}}</span>
+                </li>
+               
+                <li *ngIf="client.Address">
+                    <img src="../../../assets/icons/location.png" alt="" width="30">
+                    <span>{{client.Address }}</span>
+                </li>
+               
+            </ul>
+        </div>
+    </div>
+</div>

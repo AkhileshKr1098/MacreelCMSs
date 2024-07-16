@@ -35,9 +35,11 @@
                     <img src="../../../assets/icons/phone.png" alt="" width="30">
                     <span>{{lead.MobileNo}}</span>
 
-                     
+                    <button style="float: right; margin-left: 5px;" mat-mini-fab color="accent" (click)="StatusUpdate(lead); $event.stopPropagation();">
+                        <mat-icon>closed_caption</mat-icon></button> &nbsp; &nbsp;
             <button style="float: right; background-color: green;" mat-mini-fab color="accent" (click)="Flowup(lead); $event.stopPropagation();">
                 <mat-icon>call</mat-icon></button>
+            
                 </li>
                 <li>
                     <img src="../../../assets/icons/gmail.png" alt="" width="30">

@@ -38,7 +38,7 @@
                     <img src="../../../assets/icons/day.png" alt="" width="30">
                     <span>{{Leave.LeaveType}} &nbsp; 
                         <button mat-mini-fab color="warn" aria-label="Example icon button with a home icon">
-                            <b style="font-size: large;">{{Leave.LeaveCount}}</b>
+                            <b style="font-size: large;">{{Leave.LeaveCount?Leave.LeaveCount : 0}}</b>
                           </button>
                           </span>
 

@@ -105,6 +105,18 @@ export class CRUDService {
     return this._http.get(`${this.base_url}AssignLead?login_id=${id}`)
   }
 
+  LeadFlowup(data: any, id: any) {
+    return this._http.post(`${this.base_url}FollowUp?login_id=${id}`, data)
+  }
+  
+  LeadFlowupStatus(data: any) {
+    return this._http.post(`${this.base_url}FollowUp`, data)
+  }
+
+  getLeadeFlowup(id: any) {
+    return this._http.get(`${this.base_url}FollowUp?leadId=${id}`)
+  }
+
 
   // for leave 
 
@@ -122,8 +134,13 @@ export class CRUDService {
     return this._http.get(`${this.base_url}ApplyLeave?empId=${id}`)
   }
 
-  applyleaverequest(){
-    
+  getLeaveRepManager(id: any) {
+    return this._http.get(`${this.base_url}ViewAppliedLeave?EmpId=${id}`)
   }
-  
+
+  UpdateLeave(data: any) {
+    return this._http.post(`${this.base_url}ViewAppliedLeave`, data)
+
+  }
+
 }

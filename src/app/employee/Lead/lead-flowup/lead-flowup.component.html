@@ -1,5 +1,58 @@
-<div id="wrapper">
-    <div id="header">
-        
+<div class="container">
+    <div id="up">
+        <mat-toolbar>
+            <button mat-icon-button routerLink="/employee/leadlist">
+                <img src="../../../assets/icons/back.png" alt="" width="30">
+            </button>
+            <div>
+                <span>Lead Flow Up</span>
+            </div>
+            <button mat-icon-button></button>
+        </mat-toolbar>
+        <div id="wrapper">
+            <h1> Client Name:{{leadData.ClientName}}</h1>
+            <form [formGroup]="leadform">
+    
+                <mat-form-field appearance="outline">
+                    <mat-label>Response</mat-label>
+                    <input matInput placeholder="Enter company name" formControlName="response">
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline">
+                    <mat-label>Nextfollow_up_date</mat-label>
+                    <input matInput type="date" formControlName="nextfollow_up_date">
+                </mat-form-field>
+    
+            </form>
+    
+            <div class="submit">
+                <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+            </div>
+        </div>
     </div>
+
+    <div id="down">
+        <table>
+            <thead>
+              <tr>
+                <th colspan="4">Lead Flow Up</th>
+              </tr>
+              <tr>
+                <th>Response</th>
+                <th>Date</th>
+                <th>Next Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let flowup of flowupdata">
+                <td>{{ flowup.response }}</td>
+                <td>{{ flowup.followUp_Date }}</td>
+                <td>{{ flowup.nextfollow_up_date }}</td>
+                <td>{{ flowup.status }}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+ 
 </div>

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CRUDService } from 'src/app/Servies/crud.service';
 import { SharedService } from 'src/app/Servies/shared.service';
 import { AssignLeadComponent } from '../assign-lead/assign-lead.component';
+import { StatusUpdateLeadComponent } from '../status-update-lead/status-update-lead.component';
 
 @Component({
   selector: 'app-lead-list',
@@ -54,6 +55,16 @@ export class LeadListComponent {
     this._router.navigate(['/employee/leadupdate'])
 
 
+  }
+
+  StatusUpdate(data:any){
+    this._dilog.open(StatusUpdateLeadComponent, {
+      maxWidth: '80vw',
+      maxHeight: '50vh',
+      height: '50%',
+      width: '80%',
+      data: data
+    })
   }
 
   OnAssign(data: any) {

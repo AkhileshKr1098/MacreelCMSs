@@ -1,0 +1,19 @@
+<mat-toolbar><span>Lead Status </span><button mat-icon-button color="warn"
+        mat-dialog-close><mat-icon>cancel</mat-icon></button> </mat-toolbar>
+<div id="wrapper">
+    <form>
+        <span>
+            <mat-form-field appearance="outline">
+                <mat-label> Status</mat-label>
+                <mat-select #val (valueChange)="ValueGet(val.value)">
+                    <mat-option value="Pending">Pending</mat-option>
+                    <mat-option value="Completed">Completed</mat-option>
+                    <mat-option value="Loss">Loss</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <button (click)="OnSubmit()" mat-raised-button color="warn" style="width:80%;">Update</button>
+        </span>
+    </form>
+</div>

@@ -40,7 +40,7 @@ export class AddleaveComponent {
 
   ngOnInit(): void {
     this.leave_form = this.fb.group({
-      FormDate: ['', Validators.required],
+      FromDate: ['', Validators.required],
       ToDate: ['', Validators.required],
       Description: ['',],
       LeaveType: ['', Validators.required],
@@ -69,7 +69,7 @@ export class AddleaveComponent {
       return
     } else {
       const fromdata = new FormData()
-      fromdata.append('FormDate', this.leave_form.get('FormDate')?.value)
+      fromdata.append('FromDate', this.leave_form.get('FromDate')?.value)
       fromdata.append('ToDate', this.leave_form.get('ToDate')?.value)
       fromdata.append('LeaveType', this.leave_form.get('LeaveType')?.value)
       fromdata.append('Description', this.leave_form.get('Description')?.value)
@@ -80,8 +80,8 @@ export class AddleaveComponent {
         (res: any) => {
           console.log(res);
           if (res == "Leave Appply") {
-              this.router.navigate([''])
-             this._shared.tostSuccessTop('Leave Appply Success')
+            this.router.navigate(['/employee/myleavelist'])
+            this._shared.tostSuccessTop('Leave Appply Success')
           }
         }
       )

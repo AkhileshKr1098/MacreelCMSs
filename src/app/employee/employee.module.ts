@@ -40,6 +40,8 @@ import { MyLeaveComponent } from './Leave/my-leave/my-leave.component';
 import { ApprovedLeaveComponent } from './Leave/approved-leave/approved-leave.component';
 import { ApplyLeaveRequstComponent } from './Leave/apply-leave-requst/apply-leave-requst.component';
 import { LeadFlowupComponent } from './Lead/lead-flowup/lead-flowup.component';
+import { UpdateLeaveComponent } from './Leave/update-leave/update-leave.component';
+import { StatusUpdateLeadComponent } from './Lead/status-update-lead/status-update-lead.component';
 
 
 @NgModule({
@@ -65,6 +67,8 @@ import { LeadFlowupComponent } from './Lead/lead-flowup/lead-flowup.component';
     ApprovedLeaveComponent,
     ApplyLeaveRequstComponent,
     LeadFlowupComponent,
+    UpdateLeaveComponent,
+    StatusUpdateLeadComponent,
   
   ],
   imports: [

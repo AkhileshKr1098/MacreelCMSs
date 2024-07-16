@@ -1,0 +1,52 @@
+<div id="wrapper">
+    <form [formGroup]="leave_form">
+        <br>
+        <input type="text" formControlName="Id" readonly  hidden>
+        <mat-form-field appearance="outline">
+            <mat-label>From Date</mat-label>
+            <input matInput type="text" formControlName="FromDate" readonly>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>To Date</mat-label>
+            <input matInput type="text" formControlName="ToDate" readonly="">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>LeaveType</mat-label>
+            <input matInput type="text" formControlName="LeaveType" readonly="">
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput type="text" formControlName="Description" placeholder="Description"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>No. of Leave</mat-label>
+            <input matInput type="text" formControlName="LeaveCount" readonly="">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="Status">
+
+                <mat-option  value="Approved">Approved</mat-option>
+                <mat-option  value="Reject">Reject</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Remark</mat-label>
+            <textarea matInput type="text" formControlName="Remark" placeholder="Remark"></textarea>
+        </mat-form-field>
+    </form>
+
+
+    <div style="width: 100%; display: flex; justify-content: center; padding-bottom: 20px;">
+        <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+    </div>
+
+</div>

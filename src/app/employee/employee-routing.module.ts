@@ -17,6 +17,7 @@ import { AddleaveComponent } from './Leave/addleave/addleave.component';
 import { LeadFlowupComponent } from './Lead/lead-flowup/lead-flowup.component';
 import { MyLeaveComponent } from './Leave/my-leave/my-leave.component';
 import { ApplyLeaveRequstComponent } from './Leave/apply-leave-requst/apply-leave-requst.component';
+import { UpdateLeaveComponent } from './Leave/update-leave/update-leave.component';
 
 
 const routes: Routes = [
@@ -37,10 +38,12 @@ const routes: Routes = [
       { path: 'empupdate', component: EmpUpdateComponent },
 
       // for leave 
-      {path:'levaeadd', component: AddleaveComponent },
-      {path:'myleavelist', component: MyLeaveComponent },
-      {path:'applyLeaveRequst', component: ApplyLeaveRequstComponent },
-      
+      { path: 'levaeadd', component: AddleaveComponent },
+      { path: 'myleavelist', component: MyLeaveComponent },
+      { path: 'applyLeaveRequst', component: ApplyLeaveRequstComponent },
+      { path: 'updateleave', component: UpdateLeaveComponent },
+
+
 
     ]
   }

@@ -13,39 +13,46 @@ import { ClientUpdateComponent } from './Client/client-update/client-update.comp
 import { AddLeadComponent } from './Lead/add-lead/add-lead.component';
 import { LeadListComponent } from './Lead/lead-list/lead-list.component';
 import { LeadViewComponent } from './Lead/lead-view/lead-view.component';
+import { LeavelistComponent } from './Leave/leavelist/leavelist.component';
+import { LeaveUpdateComponent } from './Leave/leave-update/leave-update.component';
+import { AttendanceComponent } from './attendance/attendance.component';
 
 
 
 
 
 const routes: Routes = [
-  {path:'', component: HomeComponent, 
-    children :[
-      {path:'', component: DashbordComponent},
-      {path:'emplist', component: EmployeeListComponent},
-      {path:'empadd', component: EmployeeAddComponent},
-      {path:'empupdate', component: EmployeeUpdateComponent},
-      {path:'empview', component: EmpViewComponent},
-      {path:'clientlist', component:ClientListComponent},
-      {path:'clientadd', component:AddClientComponent},
-      {path:'clientview', component:ClientViewComponent },
-      {path:'clientupdate', component:ClientUpdateComponent },
-      {path:'leadadd', component:AddLeadComponent},
-      {path:'leadlist', component:LeadListComponent},
-      {path:'leadview', component:LeadViewComponent},
-      
+  {
+    path: '', component: HomeComponent,
+    children: [
+      { path: '', component: DashbordComponent },
+      { path: 'emplist', component: EmployeeListComponent },
+      { path: 'empadd', component: EmployeeAddComponent },
+      { path: 'empupdate', component: EmployeeUpdateComponent },
+      { path: 'empview', component: EmpViewComponent },
+      { path: 'clientlist', component: ClientListComponent },
+      { path: 'clientadd', component: AddClientComponent },
+      { path: 'clientview', component: ClientViewComponent },
+      { path: 'clientupdate', component: ClientUpdateComponent },
+      { path: 'leadadd', component: AddLeadComponent },
+      { path: 'leadlist', component: LeadListComponent },
+      { path: 'leadview', component: LeadViewComponent },
+      { path: 'leavelist', component: LeavelistComponent },
+      { path: 'leaveupdaet', component: LeaveUpdateComponent },
+      { path: 'attendance', component: AttendanceComponent },
+
 
     ]
   },
- 
+
 ];
 
 @NgModule({
   imports: [
     RouterModule.forChild(routes),
- 
+
   ],
   exports: [
-    RouterModule,  ]
+    RouterModule,]
 })
 export class AdminRoutingModule { }

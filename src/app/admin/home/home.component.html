@@ -12,14 +12,14 @@
         <!-- ******************* sidebar *************** -->
 
         <mat-nav-list>
-            <a mat-list-item (click)="sidebar.toggle()" [routerLink]="['/admin/dashboard']">
+            <a mat-list-item (click)="sidebar.toggle()" [routerLink]="['/admin']">
                 <img src="../../../assets/icons/dashboard.png" alt="" width="30px">
                 <span>Dashboard</span>
             </a>
 
              
 
-            <a mat-list-item (click)="sidebar.toggle()" [routerLink]="['/admin/employee']">
+            <a mat-list-item (click)="sidebar.toggle()" [routerLink]="['/admin/emplist']">
                 <img src="../../../assets/icons/user.png" alt="" width="30px">
                 <span>Employee Management</span>
             </a>
@@ -66,33 +66,17 @@
                 </a>
                 <span *ngIf="onLeaveMenu" class="SubMenu">
                     <a mat-list-item (click)="LeaveMenu()" (click)="sidebar.toggle()"
-                        [routerLink]="['/admin/leavetype']">
+                        [routerLink]="['/admin/leavelist']">
                         <img src="../../../assets/icons/leave-type.png" alt="" width="30px">
-                        <span>Leave Type</span>
-                    </a>
-                </span>
-
-                <span *ngIf="onLeaveMenu" class="SubMenu">
-                    <a mat-list-item (click)="LeaveMenu()" (click)="sidebar.toggle()"
-                        [routerLink]="['/admin/assignedleave']">
-                        <img src="../../../assets/icons/assign-leave.png" alt="" width="30px">
-                        <span>Assign Leave</span>
-                    </a>
-                </span>
-
-                <span *ngIf="onLeaveMenu" class="SubMenu">
-                    <a mat-list-item (click)="LeaveMenu()" (click)="sidebar.toggle()"
-                        [routerLink]="['/admin/appliedleave']">
-                        <img src="../../../assets/icons/applied-leave.png" alt="" width="30px">
                         <span>Applied Leave</span>
                     </a>
-                </span>
+                </span>              
 
                 <span *ngIf="onLeaveMenu" class="SubMenu">
                     <a mat-list-item (click)="LeaveMenu()" (click)="sidebar.toggle()"
                         [routerLink]="['employeeleavelist']">
                         <img src="../../../assets/icons/all_emp-leave.png" alt="" width="30px">
-                        <span>Employee Leave</span>
+                        <span>All Employee Leave</span>
                     </a>
                 </span>
             </span>
@@ -141,9 +125,9 @@
                 <span>Purchase Order</span>
             </a> -->
 
-            <a mat-list-item (click)="sidebar.toggle()" [routerLink]="['/admin/paymentlist']">
+            <a mat-list-item (click)="sidebar.toggle()" [routerLink]="['/admin/attendance']">
                 <img src="../../../assets/icons/payment.png" alt="" width="30px">
-                <span>Payment</span>
+                <span>Attendance</span>
             </a>
 
             <a mat-list-item (click)="sidebar.toggle()" [routerLink]="['/admin/reports']">
@@ -196,7 +180,7 @@
                         <mat-hint>Project</mat-hint>
                     </button>
 
-                    <button mat-icon-button [routerLink]="['/admin/employeeleavelist']">
+                    <button mat-icon-button [routerLink]="['/admin/leavelist']">
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAACAUlEQVR4nO3YSyhEURgH8EuUhcJMyQrZsreRHUoY5NGgRFGyEvIor2KK7GahTDJ173AZQl53SCOhJmVFUSxmSh4bd3bK4tPMYpg5heEY9359//pvTtNXv8695zRXECgUSmREr3/0YwWNz/11JJ8fPlbrc38dAnMK7XCsAgYBPmvkTnz1++822rkE/mlohw30SAO9wwY6tADNKe3oGwgrr2sp2rkxAy8kh5cXONq5MQODRsoNvFNVDnooN3CndQ70UG5g0auCHsoNLEVcD1qt5sDHMzY4HxsLa2ANLfiuoog5We9MxXjB1zVlDPiq1oQXfFZfzYA95lq84OO2VgZ81NGOF+zu6WbA+/0DeMHK+AQD3pmcxgvess4w4A2bHS94TXIy4JXVbbxg566bAcuHZ3jBsueC/ZN/6cMLdtw8hWFf0xO4YTUJlnx+eMlICoHV7DT84OccYwh8n5uJHzw8K0LvlDXYkXkZP3hQ3gx9oRha2cUPdi2vw01THdw21sDe0hpusFuUAYxx7ye1MQ4OxUW84IfiAuYevi8pxAt+zM9jwIE1tGClpZkBK63NeMH9dicolWWgZqWCmpkCLlNpcA0tePLAw3w8D6yhBYteFSyuU+iyOYK1KCfBNbRg6Y9L4J/mv3eOdtj3x490fGJigx7KDSwIglknpVAoFAqFImg3b0ICopSF9acyAAAAAElFTkSuQmCC">
                         <mat-hint>Leave</mat-hint>
                     </button>

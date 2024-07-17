@@ -1,0 +1,74 @@
+<div id="wrapper">
+    <div id="header1">
+
+            <form [formGroup]="form">
+                <mat-form-field appearance="outline">
+                    <mat-label>Employee</mat-label>
+                    <mat-select #emp (valueChange)="getEmpBy(emp.value)" formControlName="empcode">
+                        <mat-option *ngFor="let emp of employee_data " [value]="emp.EmployeeCode">
+                            {{ emp.EmployeeName }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form>
+    </div>
+    <div id="header">
+
+        <form [formGroup]="form">
+            <form [formGroup]="form">
+                <mat-form-field appearance="outline">
+                    <mat-label>Month</mat-label>
+                    <mat-select formControlName="month" #mon (valueChange)="getMonthBy(mon.value)">
+                        <mat-option *ngFor="let month of months; let i = index" [value]="i+1">
+                            {{ month }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Year</mat-label>
+                    <mat-select formControlName="year" #year (valueChange)="getYearBy(year.value)">
+                        <mat-option [value]="pri_year">
+                            {{ pri_year }}
+                        </mat-option>
+
+                        <mat-option [value]="cur_year">
+                            {{cur_year}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form>
+        </form>
+    </div>
+
+    <div id="mainarea">
+        <div >
+            <table >
+              <thead>
+                <tr>
+                  <th colspan="6"> Attendance List</th>
+                </tr>
+                <tr>
+                  <th>SL</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>In Time</th>
+                  <th>Out Time</th>
+                  <th>Total Hours</th>
+                </tr>
+              </thead>
+              <tbody  >
+                <tr *ngFor="let flowup of attendanceData; let i = index" >
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ flowup.FormattedDate }}</td>
+                  <td>{{ flowup.Status }}</td>
+                  <td>{{ flowup.FormattedInTime }}</td>
+                  <td>{{ flowup.FormattedOutTime }}</td>
+                  <td>{{ flowup.FormattedTotalHours }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+    </div>
+</div>

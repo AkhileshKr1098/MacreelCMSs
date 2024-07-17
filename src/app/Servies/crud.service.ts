@@ -108,7 +108,7 @@ export class CRUDService {
   LeadFlowup(data: any, id: any) {
     return this._http.post(`${this.base_url}FollowUp?login_id=${id}`, data)
   }
-  
+
   LeadFlowupStatus(data: any) {
     return this._http.post(`${this.base_url}FollowUp`, data)
   }
@@ -137,10 +137,19 @@ export class CRUDService {
   getLeaveRepManager(id: any) {
     return this._http.get(`${this.base_url}ViewAppliedLeave?EmpId=${id}`)
   }
+  getLeaveAdmin() {
+    return this._http.get(`${this.base_url}ViewAppliedLeave`)
+  }
 
   UpdateLeave(data: any) {
     return this._http.post(`${this.base_url}ViewAppliedLeave`, data)
 
   }
+
+  attendance(data:any) {
+    return this._http.post(`${this.base_url}Attendance`, data)
+  }
+
+
 
 }

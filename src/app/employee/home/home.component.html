@@ -150,6 +150,12 @@
 
             </span>
 
+           
+            <a mat-list-item (click)="sidebar.toggle()" [routerLink]="['/employee/attendance']">
+                <img src="../../../assets/icons/payment.png" alt="" width="30px">
+                <span>My Attendance</span>
+            </a>
+
             <!-- FOR LEAVE MANAGEMENT END -->
             <a mat-list-item (click)="sidebar.toggle()" [routerLink]="['/']">
                 <img src="../../../assets/icons/logout.png" alt="" width="30px">

@@ -42,6 +42,7 @@ import { ApplyLeaveRequstComponent } from './Leave/apply-leave-requst/apply-leav
 import { LeadFlowupComponent } from './Lead/lead-flowup/lead-flowup.component';
 import { UpdateLeaveComponent } from './Leave/update-leave/update-leave.component';
 import { StatusUpdateLeadComponent } from './Lead/status-update-lead/status-update-lead.component';
+import { AttendanceComponent } from './attendance/attendance.component';
 
 
 @NgModule({
@@ -69,6 +70,7 @@ import { StatusUpdateLeadComponent } from './Lead/status-update-lead/status-upda
     LeadFlowupComponent,
     UpdateLeaveComponent,
     StatusUpdateLeadComponent,
+    AttendanceComponent,
   
   ],
   imports: [

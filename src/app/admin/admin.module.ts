@@ -30,6 +30,10 @@ import { ClientViewComponent } from './Client/client-view/client-view.component'
 import { AddLeadComponent } from './Lead/add-lead/add-lead.component';
 import { LeadListComponent } from './Lead/lead-list/lead-list.component';
 import { LeadViewComponent } from './Lead/lead-view/lead-view.component';
+import { LeavelistComponent } from './Leave/leavelist/leavelist.component';
+import { AllEmpLeaveComponent } from './Leave/all-emp-leave/all-emp-leave.component';
+import { LeaveUpdateComponent } from './Leave/leave-update/leave-update.component';
+import { AttendanceComponent } from './attendance/attendance.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import { LeadViewComponent } from './Lead/lead-view/lead-view.component';
     ClientViewComponent,
     AddLeadComponent,
     LeadListComponent,
-    LeadViewComponent
+    LeadViewComponent,
+    LeavelistComponent,
+    AllEmpLeaveComponent,
+    LeaveUpdateComponent,
+    AttendanceComponent
   ],
   imports: [
     CommonModule,

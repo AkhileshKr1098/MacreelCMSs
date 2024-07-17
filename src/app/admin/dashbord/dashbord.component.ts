@@ -1,5 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Chart, registerables } from 'chart.js';
+import { Component } from '@angular/core';
+import { CRUDService } from 'src/app/Servies/crud.service';
 
 @Component({
   selector: 'app-dashbord',
@@ -7,29 +7,39 @@ import { Chart, registerables } from 'chart.js';
   styleUrls: ['./dashbord.component.css']
 })
 export class DashbordComponent {
-  @ViewChild('visitorColumnChart', { static: true }) visitorColumnChart!: ElementRef;
-  constructor() {
-      
+  totalEmp = 0
+  total_lead = 0
+  total_client = 0
+  login: any
+  login_data: any
+  constructor(
+    private _crud: CRUDService
+  ) {
+    this.login = localStorage.getItem('logindata')
+    this.login_data = JSON.parse(this.login)
+    console.log(this.login_data.LoginResponse);
   }
-  ngOnInit(): void {
-    this.createColumnChart();
+  ngOnInit() {
+    this._crud.get_employee().subscribe(
+      (res: any) => {
+        console.log(res);
+        this.totalEmp = res.length
+      }
+    )
+    this._crud.get_lead_for_admin().subscribe(
+      (res: any) => {
+        this.total_lead = res.length
+        console.log(res);
+
+      }
+    )
+
+    this._crud.ClientAdd(this.login_data.LoginResponse.Type, this.login_data.EmpId).subscribe(
+      (res: any) => {
+        console.log(res);
+        this.total_client = res.length
+      }
+    )
   }
 
-  createColumnChart(): void {
-    const ctxColumn = this.visitorColumnChart.nativeElement.getContext('2d');
-    Chart.register(...registerables);
-    new Chart(ctxColumn, {
-      type: 'bar',
-      data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        datasets: [{
-          label: 'Visitors',
-          data: [100, 200, 150, 300, 280, 600, 350, 200, 450, 600, 550, 700],
-          backgroundColor: '#0163aa',
-          borderColor: '#0163aa',
-          borderWidth: 1
-        }]
-      },
-    });
-  }
 }

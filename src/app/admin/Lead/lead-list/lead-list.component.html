@@ -22,16 +22,7 @@
     <div class="container" routerLink="/admin/leadadd" *ngFor="let lead of lead_data" (click)="onUpdate(lead)">
         <div class="dataRow">
             <ul>
-                <li>
-                    <img *ngIf="lead.AssignBy" src="../../../assets/icons/person.png" alt="" width="15">
-                    <span style="font-size: 15px;">{{lead.AssignBy}}</span>
-                    <span style="font-size: 10px;">
-                       
-                      {{lead.created_date}}	<mat-icon style="font-size: 15px; position: relative; top: 20px;">keyboard_arrow_right</mat-icon>
-                    </span>
-                    <img *ngIf="lead.AssignTo" src="../../../assets/icons/person.png" alt="" width="15">
-                    <span style="font-size: 15px;">{{lead.AssignTo}}</span>
-                </li>
+
                 <li>
                     <img src="../../../assets/icons/company.png" alt="" width="30">
                     <span style="font-weight: bold;">{{lead.ClientName}}</span>
@@ -44,14 +35,12 @@
                     <img src="../../../assets/icons/phone.png" alt="" width="30">
                     <span>{{lead.MobileNo}}</span>
                 </li>
-                <li>
-                    <img src="../../../assets/icons/gmail.png" alt="" width="30">
-                    <span>{{lead.ClientEmail}}</span>
-                </li>
+
                 <li>
                     <img src="../../../assets/icons/location.png" alt="" width="30">
                     <span>{{lead.Address}}</span>
                 </li>
+
                 <li>
                     <img src="../../../assets/icons/category.png" alt="" width="30">
                     <span *ngIf="lead.LeadType == 'Hot'"

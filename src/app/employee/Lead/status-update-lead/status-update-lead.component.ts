@@ -44,7 +44,7 @@ export class StatusUpdateLeadComponent {
         console.log(res);
         if (res == 'Status updated successfully') {
           this._shared.tostSuccessTop('Status updated successfully.')
-          this.dilogRef.close()
+          this.dilogRef.close(this.data)
         }
       }
     )

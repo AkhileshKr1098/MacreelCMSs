@@ -29,6 +29,11 @@ export class LeadListComponent {
 
 
   ngOnInit() {
+    
+this.get_data()
+
+  }
+  get_data(){
     this._crud.get_lead_for_emp(this.loginData.LoginResponse.EmpId).subscribe(
       (res: any) => {
         console.log(res);
@@ -36,8 +41,6 @@ export class LeadListComponent {
         this.lead_filter_data = res
       }
     )
-
-
   }
 
   OnAdd() {
@@ -57,23 +60,35 @@ export class LeadListComponent {
 
   }
 
-  StatusUpdate(data:any){
-    this._dilog.open(StatusUpdateLeadComponent, {
+  StatusUpdate(data: any) {
+    const dialogRef = this._dilog.open(StatusUpdateLeadComponent, {
       maxWidth: '80vw',
-      maxHeight: '50vh',
-      height: '50%',
+      maxHeight: '100vh',
+      height: '30%',
       width: '80%',
       data: data
+    })
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+
     })
   }
 
   OnAssign(data: any) {
-    this._dilog.open(AssignLeadComponent, {
+    const dialogRef = this._dilog.open(AssignLeadComponent, {
       maxWidth: '80vw',
-      maxHeight: '50vh',
-      height: '50%',
+      maxHeight: '100vh',
+      height: '30%',
       width: '80%',
       data: data
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      this.get_data()
+
     })
 
   }

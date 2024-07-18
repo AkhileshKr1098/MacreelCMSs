@@ -1,4 +1,4 @@
-<mat-toolbar><span>Assign Lead </span><button mat-icon-button color="warn" mat-dialog-close ><mat-icon>cancel</mat-icon></button> </mat-toolbar>
+<mat-toolbar><span>Assign Lead </span><button mat-icon-button color="warn" [mat-dialog-close]="data" cdkFocusInitial ><mat-icon>cancel</mat-icon></button> </mat-toolbar>
 <div id="wrapper">
     <form>
         <input type="text" formControlName="id" readonly hidden>

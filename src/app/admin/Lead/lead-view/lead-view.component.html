@@ -1,66 +1,55 @@
-<div class="container">
-    <mat-toolbar>
-        <button mat-icon-button routerLink="/admin/leadlist">
-            <img src="../../../assets/icons/back.png" alt="" width="30">
-        </button>
-        <div>
-            <span>Lead Form</span>
-        </div>
-        <button mat-icon-button ></button>
-    </mat-toolbar>
-    <div id="wrapper">
+<div id="containerBox">
+    <div class="container">
+        <div class="dataRow">
+            <ul>
+                <li>
+                    <img src="../../../assets/icons/company.png" alt="" width="30">
+                    <span style="font-weight: bold;">{{lead.ClientName}}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/person.png" alt="" width="30">
+                    <span>{{lead.ContectPerson}}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/phone.png" alt="" width="30">
+                    <span>{{lead.MobileNo}}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/email.png" alt="" width="30">
+                    <span>{{lead.ClientEmail}}</span>
+                </li>
 
-        <form [formGroup]="leadform">
+                <li>
+                    <img src="../../../assets/icons/location.png" alt="" width="30">
+                    <span>{{lead.Address}}</span>
+                </li>
 
-            <mat-form-field appearance="outline">
-                <mat-label>Service</mat-label>
-                <mat-select formControlName="Service">
-                    <mat-option *ngFor="let servies of servies_data"
-                        [value]="servies.Name">{{servies.Name}}</mat-option>
-                </mat-select>
-            </mat-form-field>
+                <li>
+                    <img src="../../../assets/icons/category.png" alt="" width="30">
+                    <span *ngIf="lead.LeadType == 'Hot'"
+                        style="color:darkred; font-weight: bold;">{{lead.LeadType}}</span>
+                    <span *ngIf="lead.LeadType != 'Hot'" style="color: darkgreen; font-weight: bold;">Cold</span>
+                    &nbsp; &nbsp; Status : {{lead.LeadStatus}}
+                </li>
 
-
-            <mat-form-field appearance="outline">
-                <mat-label>Company Name</mat-label>
-                <input matInput placeholder="Enter company name" formControlName="ClientName" >
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>Contact Person</mat-label>
-                <input matInput placeholder="Enter contact person" formControlName="ContectPerson">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>Contact No</mat-label>
-                <input matInput placeholder="Enter contact no" formControlName="MobileNo" >
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>Contact Email</mat-label>
-                <input matInput placeholder="Enter email" formControlName="ClientEmail" >
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>Address</mat-label>
-                <input matInput placeholder="Enter address" formControlName="Address">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>Lead Description</mat-label>
-                <input matInput placeholder="Enter lead description" formControlName="LeadDescription" >
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Lead Type</mat-label>
-                <mat-select formControlName="LeadType">
-                    <mat-option value="Hot" >Hot</mat-option>
-                    <mat-option value="Cold">Cold</mat-option>
-                </mat-select>
-            </mat-form-field>
-
-        </form>
-        <div class="submit">
-            <button mat-raised-button color="primary" (click)="onSubmit()">Add</button>
+                <li *ngIf="lead.Service">
+                    <span> <b>Service</b> : {{lead.Service}}</span>
+                </li>
+                
+                <li *ngIf="lead.AssignBy" >
+                    <span> <b>Assign By</b> : {{lead.AssignBy}}</span>
+                </li>
+                
+                <li *ngIf="lead.AssignTo" >
+                    <span><b>Assign To</b> : {{lead.AssignTo}}</span>
+                </li>
+                <li>
+                    <span><b>Created Date</b>  : {{lead.created_date}}</span>
+                </li>
+                <li>
+                    <span> <b>Description</b>  : {{lead.LeadDescription}}</span>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

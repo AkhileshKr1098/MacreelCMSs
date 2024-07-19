@@ -81,6 +81,14 @@
 
                     <span *ngIf="onLeadMenu" class="SubMenu">
                         <a mat-list-item (click)="LeadMenu()" (click)="sidebar.toggle()"
+                            [routerLink]="['/employee/todayleadflow']">
+                            <img src="../../../assets/icons/project.png" alt="" width="30px">
+                            <span>Today Lead Flow Up </span>
+                        </a>
+                    </span>
+
+                    <span *ngIf="onLeadMenu" class="SubMenu">
+                        <a mat-list-item (click)="LeadMenu()" (click)="sidebar.toggle()"
                             [routerLink]="['/employee/assigedlist']">
                             <img src="../../../assets/icons/assign-project.png" alt="" width="30px">
                             <span>Assign Lead</span>
@@ -150,7 +158,7 @@
 
             </span>
 
-           
+
             <a mat-list-item (click)="sidebar.toggle()" [routerLink]="['/employee/attendance']">
                 <img src="../../../assets/icons/payment.png" alt="" width="30px">
                 <span>My Attendance</span>

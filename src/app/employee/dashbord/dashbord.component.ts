@@ -1,34 +1,32 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Chart, registerables } from 'chart.js';
+import { Component } from '@angular/core';
+import { CRUDService } from 'src/app/Servies/crud.service';
+import { SharedService } from 'src/app/Servies/shared.service';
 @Component({
   selector: 'app-dashbord',
   templateUrl: './dashbord.component.html',
   styleUrls: ['./dashbord.component.css']
 })
 export class DashbordComponent {
-  @ViewChild('visitorColumnChart', { static: true }) visitorColumnChart!: ElementRef;
-  constructor() {
-      
+  dashboard_data: any
+  login: any
+  login_data: any
+
+  TodayFollowup: any = 0
+  constructor(
+    private _shared: SharedService,
+    private _crud: CRUDService
+  ) {
+    this.login = localStorage.getItem('logindata')
+    this.login_data = JSON.parse(this.login)
+    console.log(this.login_data.LoginResponse);
   }
   ngOnInit(): void {
-    this.createColumnChart();
-  }
-
-  createColumnChart(): void {
-    const ctxColumn = this.visitorColumnChart.nativeElement.getContext('2d');
-    Chart.register(...registerables);
-    new Chart(ctxColumn, {
-      type: 'bar',
-      data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        datasets: [{
-          label: 'Visitors',
-          data: [100, 200, 150, 300, 280, 600, 350, 200, 450, 600, 550, 700],
-          backgroundColor: '#0163aa',
-          borderColor: '#0163aa',
-          borderWidth: 1
-        }]
-      },
-    });
+    this._crud.getDasboard(this.login_data.LoginResponse.EmpId).subscribe(
+      (res: any) => {
+        console.log(res);
+        this.dashboard_data = res
+      }
+    )
   }
 }
+

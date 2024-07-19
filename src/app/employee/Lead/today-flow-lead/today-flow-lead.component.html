@@ -1,6 +1,25 @@
+<mat-toolbar>
+    <div class="toobarchild1">Today Flow-up Lead List </div>
+    <div class="toobarchild2">
+        <form>
+            <label for="search">Search</label>
+            <input style="z-index: 2;" required="" pattern=".*\S.*" type="search" class="input" id="search" #search
+                (keyup)="OnSearch(search.value)">
+            <span class="caret"></span>
+        </form>
+    </div>
+
+    <div class="toobarchild3">
+       
+    </div>
+</mat-toolbar>
+
+
+
 <div id="containerBox">
-    <div class="container">
+    <div class="container" *ngFor="let lead of lead_data">
         <div class="dataRow">
+
             <ul>
                 <li>
                     <img src="../../../assets/icons/company.png" alt="" width="30">
@@ -13,44 +32,31 @@
                 <li>
                     <img src="../../../assets/icons/phone.png" alt="" width="30">
                     <span>{{lead.MobileNo}}</span>
+
+                    <button style="float: right; margin-left: 5px;" mat-mini-fab color="accent"
+                        (click)="StatusUpdate(lead); $event.stopPropagation();">
+                        <mat-icon>closed_caption</mat-icon></button> &nbsp; &nbsp;
+                    <button style="float: right; background-color: green;" mat-mini-fab color="accent"
+                        (click)="Flowup(lead); $event.stopPropagation();">
+                        <mat-icon>call</mat-icon></button>
+
                 </li>
-                <li *ngIf="lead.ClientEmail">
-                    <img src="../../../assets/icons/email.png" alt="" width="30">
+                <li>
+                    <img src="../../../assets/icons/gmail.png" alt="" width="30">
                     <span>{{lead.ClientEmail}}</span>
                 </li>
-
                 <li>
                     <img src="../../../assets/icons/location.png" alt="" width="30">
                     <span>{{lead.Address}}</span>
                 </li>
-
                 <li>
                     <img src="../../../assets/icons/category.png" alt="" width="30">
                     <span *ngIf="lead.LeadType == 'Hot'"
                         style="color:darkred; font-weight: bold;">{{lead.LeadType}}</span>
                     <span *ngIf="lead.LeadType != 'Hot'" style="color: darkgreen; font-weight: bold;">Cold</span>
-                    &nbsp; &nbsp; Status : {{lead.LeadStatus}}
-                </li>
-
-                <li *ngIf="lead.Service">
-                    <span> <b>Service</b> : {{lead.Service}}</span>
-                </li>
-
-                <li *ngIf="lead.AssignBy">
-                    <span> <b>Assign By</b> : {{lead.AssignBy}}</span>
-                </li>
-
-                <li *ngIf="lead.AssignTo">
-                    <span><b>Assign To</b> : {{lead.AssignTo}}</span>
-                </li>
-                <li *ngIf="lead.AssignDate">
-                    <span><b>Assign Date</b> : {{lead.AssignDate}}</span>
-                </li>
-                <li *ngIf="lead.created_date">
-                    <span><b>Created Date</b> : {{lead.created_date}}</span>
-                </li>
-                <li *ngIf="lead.LeadDescription">
-                    <span> <b>Description</b> : {{lead.LeadDescription}}</span>
+                    &nbsp;Status : {{lead.LeadStatus}}
+                   
+              
                 </li>
             </ul>
         </div>

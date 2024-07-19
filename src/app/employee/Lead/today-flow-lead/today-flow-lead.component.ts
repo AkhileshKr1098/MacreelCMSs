@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { AssignLeadComponent } from 'src/app/employee/Lead/assign-lead/assign-lead.component';
 import { CRUDService } from 'src/app/Servies/crud.service';
 import { SharedService } from 'src/app/Servies/shared.service';
+import { StatusUpdateLeadComponent } from '../status-update-lead/status-update-lead.component';
 
 @Component({
-  selector: 'app-lead-list',
-  templateUrl: './lead-list.component.html',
-  styleUrls: ['./lead-list.component.css']
+  selector: 'app-today-flow-lead',
+  templateUrl: './today-flow-lead.component.html',
+  styleUrls: ['./today-flow-lead.component.css']
 })
-export class LeadListComponent implements OnInit {
-
+export class TodayFlowLeadComponent {
   lead_data: any
   lead_filter_data: any
   login: any
@@ -22,7 +21,6 @@ export class LeadListComponent implements OnInit {
     private _router: Router,
     private _dilog: MatDialog
   ) {
-
     this.login = localStorage.getItem('logindata')
     this.loginData = JSON.parse(this.login)
     console.log(this.loginData.LoginResponse.EmpId)
@@ -30,10 +28,13 @@ export class LeadListComponent implements OnInit {
 
 
   ngOnInit() {
+
     this.get_data()
+
   }
+  
   get_data() {
-    this._crud.get_lead_for_admin().subscribe(
+    this._crud.getTodayFollowupList(this.loginData.LoginResponse.EmpId).subscribe(
       (res: any) => {
         console.log(res);
         this.lead_data = res
@@ -43,21 +44,29 @@ export class LeadListComponent implements OnInit {
   }
 
   OnAdd() {
-    this._router.navigate(['/admin/leadadd'])
+    this._router.navigate(['/employee/leadadd'])
   }
 
   Flowup(data: any) {
     this._shared.LeadFlowup.next(data)
-    this._router.navigate(['/admin/leadflowup'])
+    this._router.navigate(['/employee/leadflowup'])
   }
 
   onUpdate(lead: any) {
-    this._shared.lead_data.next(lead)
-    this._router.navigate(['/admin/leadview'])
+    if (lead.AssignBy != '') {
+      console.log('nhii')
+      return
+    } else {
+      this._shared.lead_data.next(lead)
+      this._router.navigate(['/employee/leadupdate'])
+
+    }
+
+
   }
 
-  OnAssign(data: any) {
-    const dialogRef = this._dilog.open(AssignLeadComponent, {
+  StatusUpdate(data: any) {
+    const dialogRef = this._dilog.open(StatusUpdateLeadComponent, {
       maxWidth: '80vw',
       maxHeight: '100vh',
       height: '30%',
@@ -65,13 +74,13 @@ export class LeadListComponent implements OnInit {
       data: data
     })
 
+
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
       this.get_data()
-
     })
-
   }
+
 
   OnSearch(filter: String) {
     this.lead_data = this.lead_filter_data.filter((data: any) => {

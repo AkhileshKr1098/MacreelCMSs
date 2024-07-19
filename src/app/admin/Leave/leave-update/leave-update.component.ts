@@ -14,7 +14,7 @@ export class LeaveUpdateComponent {
   update_data: any
   loginas: any
   login_data: any
-
+  Leave: any
 
   constructor(
     private fb: FormBuilder,
@@ -47,8 +47,9 @@ export class LeaveUpdateComponent {
     this._shared.leaveUpdatedata.subscribe(
       (res: any) => {
         this.leave_form.patchValue(res)
+        this.Leave = res
         console.log(res);
-
+        this.leave_form.get('Remark')?.setValue(res.AdminDescription)
       }
     )
 
@@ -59,6 +60,14 @@ export class LeaveUpdateComponent {
 
   onSubmit() {
     console.log(this.leave_form.value);
+    if (this.leave_form.get('Status')?.value == 'Reject') {
+      if (this.leave_form.get('Remark')?.value == '') {
+        this._shared.tostErrorTop('Please fill all required fields')
+        return
+      }
+
+
+    }
 
     if (!this.leave_form.valid) {
       this._shared.tostErrorTop('Please fill all required fields')
@@ -68,7 +77,7 @@ export class LeaveUpdateComponent {
       console.log(this.leave_form.get('Status')?.value);
       console.log(this.leave_form.get('LeaveCount')?.value);
       console.log(this.leave_form.get('Remark')?.value);
-      
+
       const fromdata = new FormData()
       fromdata.append('Id', this.leave_form.get('Id')?.value)
       fromdata.append('Status', this.leave_form.get('Status')?.value)
@@ -78,9 +87,13 @@ export class LeaveUpdateComponent {
       this._crud.UpdateLeave(fromdata).subscribe(
         (res: any) => {
           console.log(res);
-         if (res == 'Sucess') {
+          if (res == 'Sucess') {
             this._shared.tostSuccessTop(`Leave Update Success`)
-         }
+            this.router.navigate(['/admin/leavelist'])
+          }
+        }, (error: any) => {
+          console.error(error); // Log the error for debugging
+          this._shared.tostErrorTop('An error occurred while updating leave');
         }
       )
     }

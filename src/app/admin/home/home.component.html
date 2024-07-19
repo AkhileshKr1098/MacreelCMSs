@@ -79,6 +79,14 @@
                         <span>All Employee Leave</span>
                     </a>
                 </span>
+
+                <span *ngIf="onLeaveMenu" class="SubMenu">
+                    <a mat-list-item (click)="LeaveMenu()" (click)="sidebar.toggle()"
+                        [routerLink]="['todayleave']">
+                        <img src="../../../assets/icons/all_emp-leave.png" alt="" width="30px">
+                        <span>Today Leave List</span>
+                    </a>
+                </span>
             </span>
 
         

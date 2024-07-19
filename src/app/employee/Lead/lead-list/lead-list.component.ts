@@ -53,10 +53,15 @@ this.get_data()
   }
 
   onUpdate(lead: any) {
-
-    this._shared.lead_data.next(lead)
-    this._router.navigate(['/employee/leadupdate'])
-
+    if (lead.AssignBy != '') {
+        console.log('nhii')
+        return
+    }else{
+      this._shared.lead_data.next(lead)
+      this._router.navigate(['/employee/leadupdate'])
+  
+    }
+ 
 
   }
 
@@ -72,7 +77,7 @@ this.get_data()
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
-
+      this.get_data()
     })
   }
 

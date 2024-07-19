@@ -7,11 +7,9 @@ import { CRUDService } from 'src/app/Servies/crud.service';
   styleUrls: ['./dashbord.component.css']
 })
 export class DashbordComponent {
-  totalEmp = 0
-  total_lead = 0
-  total_client = 0
   login: any
   login_data: any
+  dashboard_data :any
   constructor(
     private _crud: CRUDService
   ) {
@@ -20,24 +18,15 @@ export class DashbordComponent {
     console.log(this.login_data.LoginResponse);
   }
   ngOnInit() {
-    this._crud.get_employee().subscribe(
-      (res: any) => {
-        console.log(res);
-        this.totalEmp = res.length
-      }
-    )
-    this._crud.get_lead_for_admin().subscribe(
-      (res: any) => {
-        this.total_lead = res.length
-        console.log(res);
+    this.get_data()
+  }
 
-      }
-    )
-
-    this._crud.ClientAdd(this.login_data.LoginResponse.Type, this.login_data.EmpId).subscribe(
+  get_data() {
+    this._crud.getDasboardAdmin().subscribe(
       (res: any) => {
         console.log(res);
-        this.total_client = res.length
+        console.log(res.TodayLeave);
+        this.dashboard_data =  res
       }
     )
   }

@@ -146,10 +146,27 @@ export class CRUDService {
 
   }
 
-  attendance(data:any) {
+  attendance(data: any) {
     return this._http.post(`${this.base_url}Attendance`, data)
   }
 
 
+  // get data for dashboard 
+
+  getDasboardAdmin() {
+    return this._http.get(`${this.base_url}Dashboard`)
+  }
+
+  getDasboard(id: Number) {
+    return this._http.get(`${this.base_url}UserDashboard?EmpId=${id}`)
+  }
+
+  getTodayLeaveList() {
+    return this._http.get(`${this.base_url}TodayLeaveList`)
+  }
+
+  getTodayFollowupList(id: Number) {
+    return this._http.get(`${this.base_url}TodayFollowupList?EmpId=${id}`)
+  }
 
 }

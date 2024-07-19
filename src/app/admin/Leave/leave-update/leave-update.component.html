@@ -1,32 +1,48 @@
 <div id="wrapper">
+
+    <div id="containerBox">
+        <div class="container" >
+            <div class="dataRow">
+                <ul>
+                    <li>
+                        <img src="../../../assets/icons/person.png" alt="" width="30">
+                        <span>{{Leave.EmployeeName}}</span>
+                    </li>
+                    <li>
+                        <img src="../../../assets/icons/date.png" alt="" width="30">
+                        <span>{{Leave.FromDate}} to {{Leave.ToDate}}</span>
+                    </li>
+                    <li>
+                        <img src="../../../assets/icons/day.png" alt="" width="30">
+                        <span>{{Leave.LeaveType}} &nbsp;
+                            <button mat-mini-fab color="warn" aria-label="Example icon button with a home icon">
+                                <b style="font-size: large;">{{Leave.LeaveCount?Leave.LeaveCount : 0}}</b>
+                            </button>
+                        </span>
+                    </li>
+                    <li>
+                        <img src="../../../assets/icons/description.png" alt="" width="30">
+                        <span>{{Leave.Description}}</span>
+                    </li>
+                    <li>
+                        <img src="../../../assets/icons/status.png" alt="" width="30">
+                        <span *ngIf="Leave.Status == 'Pending'"
+                            style="color:rgb(126, 108, 4); font-weight: bold;">{{Leave.Status}}</span>
+                        <span *ngIf="Leave.Status == 'Reject'"
+                            style="color:darkred; font-weight: bold;">{{Leave.Status}}</span>
+                        <span *ngIf="Leave.Status == 'Approved'"
+                            style="color: darkgreen; font-weight: bold;">{{Leave.Status}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <form [formGroup]="leave_form">
         <br>
         <input type="text" formControlName="Id" readonly  hidden>
-        <mat-form-field appearance="outline">
-            <mat-label>From Date</mat-label>
-            <input matInput type="text" formControlName="FromDate" readonly>
-        </mat-form-field>
+        <input matInput type="text" formControlName="LeaveCount" readonly="" hidden>
 
-        <mat-form-field appearance="outline">
-            <mat-label>To Date</mat-label>
-            <input matInput type="text" formControlName="ToDate" readonly="">
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-            <mat-label>LeaveType</mat-label>
-            <input matInput type="text" formControlName="LeaveType" readonly="">
-        </mat-form-field>
-
-
-        <mat-form-field appearance="outline">
-            <mat-label>Description</mat-label>
-            <textarea matInput type="text" formControlName="Description" placeholder="Description"></textarea>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-            <mat-label>No. of Leave</mat-label>
-            <input matInput type="text" formControlName="LeaveCount" readonly="">
-        </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label>Status</mat-label>
@@ -38,7 +54,7 @@
         </mat-form-field>
 
         
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" *ngIf="leave_form.get('Status')?.value == 'Reject'">
             <mat-label>Remark</mat-label>
             <textarea matInput type="text" formControlName="Remark" placeholder="Remark"></textarea>
         </mat-form-field>

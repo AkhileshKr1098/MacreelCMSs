@@ -19,6 +19,7 @@ import { MyLeaveComponent } from './Leave/my-leave/my-leave.component';
 import { ApplyLeaveRequstComponent } from './Leave/apply-leave-requst/apply-leave-requst.component';
 import { UpdateLeaveComponent } from './Leave/update-leave/update-leave.component';
 import { AttendanceComponent } from './attendance/attendance.component';
+import { TodayFlowLeadComponent } from './Lead/today-flow-lead/today-flow-lead.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: 'leadlist', component: LeadListComponent },
       { path: 'leadadd', component: AddLeadComponent },
       { path: 'leadupdate', component: LeadUpdateComponent },
+      {path:'todayleadflow', component : TodayFlowLeadComponent},
       { path: 'leadflowup', component: LeadFlowupComponent },
       { path: 'assigedlist', component: AssignedListComponent },
       { path: 'clientadd', component: AddClientComponent },

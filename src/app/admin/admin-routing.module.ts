@@ -16,6 +16,8 @@ import { LeadViewComponent } from './Lead/lead-view/lead-view.component';
 import { LeavelistComponent } from './Leave/leavelist/leavelist.component';
 import { LeaveUpdateComponent } from './Leave/leave-update/leave-update.component';
 import { AttendanceComponent } from './attendance/attendance.component';
+import { TodayLeaveComponent } from './Leave/today-leave/today-leave.component';
+import { FlowupleadComponent } from './Lead/flowuplead/flowuplead.component';
 
 
 
@@ -37,8 +39,10 @@ const routes: Routes = [
       { path: 'leadadd', component: AddLeadComponent },
       { path: 'leadlist', component: LeadListComponent },
       { path: 'leadview', component: LeadViewComponent },
+      { path: 'leadflowup', component: FlowupleadComponent },
       { path: 'leavelist', component: LeavelistComponent },
       { path: 'leaveupdaet', component: LeaveUpdateComponent },
+      { path: 'todayleave', component: TodayLeaveComponent },
       { path: 'attendance', component: AttendanceComponent },
 
 

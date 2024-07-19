@@ -1,4 +1,3 @@
-
 <mat-stepper orientation="vertical" #stepper>
     <form [formGroup]="empReg">
         <img src="../../../assets/icons/blood.png" alt="">
@@ -15,8 +14,7 @@
             <mat-form-field appearance="outline">
                 <mat-label>Role</mat-label>
                 <mat-select formControlName="Role">
-                    <mat-option *ngFor="let role of RolePermission"
-                        [value]="role.Id">{{role.RoleName}}</mat-option>
+                    <mat-option *ngFor="let role of RolePermission" [value]="role.Id">{{role.RoleName}}</mat-option>
                 </mat-select>
             </mat-form-field>
 
@@ -56,14 +54,14 @@
             </mat-form-field>
 
 
-           
 
-            
+
+
             <div class="user_image" (click)="profile.click()">
                 <img alt="image" [src]="profile_url">
                 <input hidden type="file" accept=".jpg,.png,.jpeg," #profile (change)="onProfile(profile.files)">
             </div>
-            
+
 
 
             <mat-form-field appearance="outline">
@@ -103,7 +101,7 @@
 
             <mat-form-field appearance="outline">
                 <mat-label>User Name</mat-label>
-                <input matInput placeholder="Enter user name" formControlName="UserName">
+                <input matInput placeholder="Enter user name" formControlName="UserName" readonly>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
@@ -222,8 +220,8 @@
             <mat-form-field appearance="outline">
                 <mat-label>State</mat-label>
                 <mat-select formControlName="State" (selectionChange)="get_city($event.value)">
-                    <mat-option  *ngFor="let state of state_data"
-                        [value]="state" (valueChange)="get_city(state)">{{state.State_Name}}</mat-option>
+                    <mat-option *ngFor="let state of state_data" [value]="state"
+                        (valueChange)="get_city(state)">{{state.State_Name}}</mat-option>
                 </mat-select>
             </mat-form-field>
 
@@ -309,16 +307,16 @@
                 <input matInput placeholder="Enter previous employer" formControlName="PreviousEmployer">
             </mat-form-field>
 
-       
-            
+
+
             <mat-form-field appearance="outline">
                 <mat-label>From</mat-label>
-                <input matInput type="date"  formControlName="Fromt">
+                <input matInput type="date" formControlName="Fromt">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label>To</mat-label>
-                <input matInput type="date"  formControlName="ToT">
+                <input matInput type="date" formControlName="ToT">
             </mat-form-field>
 
             <div>

@@ -61,7 +61,7 @@ export class AddClientComponent {
   }
 
   get_city(data: any) {
-    console.log(data.Id);
+    console.log(data);
 
     this._crud.get_city_by_state_id(data.Id).subscribe(
       (res: any) => {
@@ -71,7 +71,11 @@ export class AddClientComponent {
     )
   }
   onAdd() {
-    console.log(this.myForm.value);
+
+    console.log('state name', this.addClient.get('State')?.value?.State_Name);
+    console.log('state id', this.addClient.get('State')?.value?.Id);
+    console.log('city id', this.addClient.get('City')?.value?.Id);
+    console.log('city name', this.addClient.get('City')?.value?.City_Name);
 
     const formdata = new FormData()
     formdata.append('CompanyName', this.addClient.get('CompanyName')?.value)
@@ -82,10 +86,13 @@ export class AddClientComponent {
     formdata.append('Pincode', this.addClient.get('Pincode')?.value)
     formdata.append('GSTNo', this.addClient.get('GSTNo')?.value)
     formdata.append('PanNo', this.addClient.get('PanNo')?.value)
-    formdata.append('State', this.addClient.get('State')?.value?.State_Name)
-    formdata.append('City', this.addClient.get('City')?.value)
+    formdata.append('StateName', this.addClient.get('State')?.value?.State_Name)
+    formdata.append('CityName', this.addClient.get('City')?.value?.City_Name)
     formdata.append('Address', this.addClient.get('Address')?.value)
     formdata.append('Statecode', this.addClient.get('Statecode')?.value)
+    formdata.append('State', this.addClient.get('State')?.value?.Id)
+    formdata.append('City', this.addClient.get('City')?.value?.Id)
+
 
 
     if (this.addClient.valid) {

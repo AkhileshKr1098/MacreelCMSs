@@ -58,7 +58,7 @@
 
 
             <div class="user_image" (click)="profile.click()">
-                <img alt="image" [src]="profile_url">
+                <img alt="image" [src]="emp_data.ImagePath != '' ? base_url+emp_data.ImagePath :profile_img">
                 <input hidden type="file" accept=".jpg,.png,.jpeg," #profile (change)="onProfile(profile.files)">
             </div>
 

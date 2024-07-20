@@ -21,7 +21,8 @@ export class EmployeeUpdateComponent implements AfterViewInit {
   RolePermission: any;
   profile_img: any
   profile_url: any = "../../../assets/icons/demoprofile.avif";
-
+  emp_data: any
+  base_url: any
   constructor(
     private _router: Router,
     private _fb: FormBuilder,
@@ -29,7 +30,11 @@ export class EmployeeUpdateComponent implements AfterViewInit {
     ,
     private _shared: SharedService,
   ) {
-
+    this._shared.base_img_url.subscribe(
+      (res: any) => {
+        this.base_url = res
+      }
+    )
 
     this._crud.get_department().subscribe(
       (res: any) => {
@@ -59,6 +64,12 @@ export class EmployeeUpdateComponent implements AfterViewInit {
       }
     )
 
+    this._shared.emp_data.subscribe(
+      (res: any) => {
+        this.emp_data = res
+
+      }
+    )
   }
 
   ngAfterViewInit() {

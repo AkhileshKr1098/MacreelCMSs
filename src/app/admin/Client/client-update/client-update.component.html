@@ -63,7 +63,7 @@
             <mat-form-field appearance="outline">
                 <mat-label>City</mat-label>
                 <mat-select formControlName="City">
-                    <mat-option *ngFor="let city of city_data" [value]="city.City_Name">{{city.City_Name}}</mat-option>
+                    <mat-option *ngFor="let city of city_data" [value]="city">{{city.City_Name}}</mat-option>
                 </mat-select>
             </mat-form-field>
 

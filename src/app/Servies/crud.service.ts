@@ -169,4 +169,7 @@ export class CRUDService {
     return this._http.get(`${this.base_url}TodayFollowupList?EmpId=${id}`)
   }
 
+  getEmpProfile(id:Number){
+    return  this._http.get(`${this.base_url}Registration?id=${id}`)
+  }
 }

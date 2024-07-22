@@ -1,0 +1,41 @@
+<div class="wrapper">
+    <div class="headBox">
+        <button mat-icon-button routerLink="/employee">
+            <mat-icon style="color: white;">arrow_back</mat-icon>
+        </button>
+        <div class="details_box">
+            <div class="card_profile_img">
+                <img id="imagebox" [src]="ProfileImg" alt="stdProfile" width="100" height="100">
+                <h2>{{this.login_data?.LoginResponse?.EmployeeName | titlecase}}</h2>
+                <p>Emp Code : {{this.login_data?.LoginResponse?.EmployeeCode}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="dataRow">
+        <p>
+            <img src="../../../assets/icons/role.png" alt="">
+            <span>User Name : {{emp_data?.UserName}} </span>
+        </p>
+        <p>
+            <img src="../../../assets/icons/department.png">
+            <span>Department : {{emp_data?.Department}} </span>
+        </p>
+        <p>
+            <img src="../../../assets/icons/destination.png" alt="">
+            <span>Designation : {{emp_data?.Designation}} </span>
+        </p>
+        <p>
+            <img src="../../../assets/icons/gmail.png" alt="">
+            <span>Email Id : {{emp_data?.EmailId}} </span>
+        </p>
+        <p>
+            <img src="../../../assets/icons/phone.png" alt="">
+            <span>Mobile : {{emp_data?.Mobile}} </span>
+        </p>
+        <p>
+            <img src="../../../assets/icons/user.png" alt="">
+            <span>Reporting Manager : {{emp_data?.reportmanager}} </span>
+        </p>
+    </div>
+</div>

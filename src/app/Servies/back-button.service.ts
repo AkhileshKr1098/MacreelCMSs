@@ -28,11 +28,10 @@ export class BackButtonService {
   back(url: any) {
     this.platform.ready().then(() => {
       App.addListener('backButton', () => {
-        if (this.router.url != "/") {
-          window.location.replace(this.previousUrl)
-          window.location.href = this.previousUrl;
-          // alert(this.previousUrl) 
-        }
+        // if (this.router.url != "/") {
+        //   window.location.replace(this.previousUrl)
+        //   window.location.href = this.previousUrl;
+        // }
         if (this.router.url == "/") {
           this.showExitConfirmation()
 
@@ -43,12 +42,11 @@ export class BackButtonService {
         let urlObject = new URL(window.location.href);
         let pathname = urlObject.pathname;
         let trimmedPathname = pathname.startsWith('/') ? pathname.substr(1) : pathname;
-        if (trimmedPathname == "admin") {
+        if (trimmedPathname == "admin" || "employee") {
           this.showExitConfirmation()
         }
-        if (trimmedPathname == "employee") {
-          this.showExitConfirmation()
-        }
+
+     
 
         // for after exam 
         // if (trimmedPathname == "mcqList") {

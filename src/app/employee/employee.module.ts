@@ -44,6 +44,10 @@ import { UpdateLeaveComponent } from './Leave/update-leave/update-leave.componen
 import { StatusUpdateLeadComponent } from './Lead/status-update-lead/status-update-lead.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { TodayFlowLeadComponent } from './Lead/today-flow-lead/today-flow-lead.component';
+import { AboutComponent } from './Profile/about/about.component';
+import { ProfilePageComponent } from './Profile/profile-page/profile-page.component';
+import { TermandCondationComponent } from './Profile/termand-condation/termand-condation.component';
+import { ProfileDeatilsComponent } from './Profile/profile-deatils/profile-deatils.component';
 
 
 
@@ -74,6 +78,10 @@ import { TodayFlowLeadComponent } from './Lead/today-flow-lead/today-flow-lead.c
     StatusUpdateLeadComponent,
     AttendanceComponent,
     TodayFlowLeadComponent,
+    AboutComponent,
+    ProfilePageComponent,
+    TermandCondationComponent,
+    ProfileDeatilsComponent,
 
   
   ],

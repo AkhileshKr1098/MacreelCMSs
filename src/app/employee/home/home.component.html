@@ -214,10 +214,9 @@
                         <mat-hint>Project</mat-hint>
                     </button>
 
-                    <button mat-icon-button [routerLink]="['/employee/myleavelist']">
-                        <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAACAUlEQVR4nO3YSyhEURgH8EuUhcJMyQrZsreRHUoY5NGgRFGyEvIor2KK7GahTDJ173AZQl53SCOhJmVFUSxmSh4bd3bK4tPMYpg5heEY9359//pvTtNXv8695zRXECgUSmREr3/0YwWNz/11JJ8fPlbrc38dAnMK7XCsAgYBPmvkTnz1++822rkE/mlohw30SAO9wwY6tADNKe3oGwgrr2sp2rkxAy8kh5cXONq5MQODRsoNvFNVDnooN3CndQ70UG5g0auCHsoNLEVcD1qt5sDHMzY4HxsLa2ANLfiuoog5We9MxXjB1zVlDPiq1oQXfFZfzYA95lq84OO2VgZ81NGOF+zu6WbA+/0DeMHK+AQD3pmcxgvess4w4A2bHS94TXIy4JXVbbxg566bAcuHZ3jBsueC/ZN/6cMLdtw8hWFf0xO4YTUJlnx+eMlICoHV7DT84OccYwh8n5uJHzw8K0LvlDXYkXkZP3hQ3gx9oRha2cUPdi2vw01THdw21sDe0hpusFuUAYxx7ye1MQ4OxUW84IfiAuYevi8pxAt+zM9jwIE1tGClpZkBK63NeMH9dicolWWgZqWCmpkCLlNpcA0tePLAw3w8D6yhBYteFSyuU+iyOYK1KCfBNbRg6Y9L4J/mv3eOdtj3x490fGJigx7KDSwIglknpVAoFAqFImg3b0ICopSF9acyAAAAAElFTkSuQmCC">
-                        <mat-hint>Leave</mat-hint>
+                    <button mat-icon-button [routerLink]="['/employee/profile']">
+                        <img src="{{ sex == 'Male' ? '../../../../../assets/icons/maleprofile.png' : '../../../../../assets/icons/femaleprofile.png' }}">
+                        <mat-hint>profile</mat-hint>
                     </button>
 
 

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CRUDService } from 'src/app/Servies/crud.service';
 
 @Component({
   selector: 'app-home',
@@ -6,21 +7,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-login:any;
-login_data :any
-role_permission : any
+  login: any;
+  login_data: any
+  role_permission: any
+  sex: string = 'Male'
   constructor(
+    private _crud: CRUDService
   ) {
     this.get_role()
   }
 
-  get_role(){
-    this.login =  localStorage.getItem('logindata')
-    this.login_data =  JSON.parse(this.login)
+
+  get_role() {
+    this.login = localStorage.getItem('logindata')
+    this.login_data = JSON.parse(this.login)
     console.log(this.login_data);
-    console.log(this.login_data.RolePermissions);
     this.role_permission = this.login_data.RolePermissions
-    
+    this.getProfile(this.login_data.LoginResponse.EmpId)
+
   }
   ImgUrl: string = '../assets/images/macreel.png'
   onProjectMenu: boolean = false
@@ -31,6 +35,16 @@ role_permission : any
 
   onProfile() {
 
+  }
+
+  getProfile(id: Number) {
+    this._crud.getEmpProfile(id).subscribe(
+      (res: any) => {
+        console.log(res);
+        console.log(res[0].Sex);
+        this.sex = res[0].Sex
+      }
+    )
   }
 
   ProjectMenu() {
@@ -47,7 +61,7 @@ role_permission : any
     this.onLeadMenu = false;
     this.onTaskReportMenu = false;
   }
-  
+
   TaskMenu() {
     this.onTaskMenu = !this.onTaskMenu;
     this.onLeaveMenu = false;
@@ -62,7 +76,7 @@ role_permission : any
     this.onProjectMenu = false;
     this.onTaskReportMenu = false;
   }
-  
+
   TaskReportMenu() {
     this.onTaskReportMenu = !this.onTaskReportMenu;
     this.onProjectMenu = false;

@@ -1,0 +1,43 @@
+#containerBox {
+    width: 100%;
+    height: calc(100vh - 120px);
+    margin-top: 20px;
+    padding: 0px 20px 0px 20px;
+    overflow: scroll;
+  }
+  
+  
+  .container {
+    width: 100%;
+    height: auto;
+    background-color: var(--color-2);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: scroll;
+  }
+  
+  .dataRow>ul>li {
+    list-style: none;
+    padding: 10px;
+    font-weight: 500;
+    width: 320px;
+    overflow: hidden;
+  }
+  
+  .dataRow {
+    width: 100%;
+  }
+  
+  .dataRow>ul>li>span {
+    padding: 10px;
+    font-weight: 400;
+  }
+  
+  .dataRow>ul>li>img {
+    vertical-align: middle;
+  }

@@ -21,6 +21,7 @@ import { UpdateLeaveComponent } from './Leave/update-leave/update-leave.componen
 import { AttendanceComponent } from './attendance/attendance.component';
 import { TodayFlowLeadComponent } from './Lead/today-flow-lead/today-flow-lead.component';
 import { ProfilePageComponent } from './Profile/profile-page/profile-page.component';
+import { ViewClientComponent } from './Client/view-client/view-client.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,7 @@ const routes: Routes = [
       { path: 'clientadd', component: AddClientComponent },
       { path: 'clientlist', component: ClientListComponent },
       { path: 'clientupdate', component: ClientUpdateComponent },
+      { path: 'clientview', component: ViewClientComponent },
       { path: 'emplist', component: ListEmpComponent },
       { path: 'empadd', component: AddEmpComponent },
       { path: 'empupdate', component: EmpUpdateComponent },

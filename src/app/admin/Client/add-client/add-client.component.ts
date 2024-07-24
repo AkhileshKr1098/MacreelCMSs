@@ -70,12 +70,9 @@ export class AddClientComponent {
       }
     )
   }
-  onAdd() {
 
-    console.log('state name', this.addClient.get('State')?.value?.State_Name);
-    console.log('state id', this.addClient.get('State')?.value?.Id);
-    console.log('city id', this.addClient.get('City')?.value?.Id);
-    console.log('city name', this.addClient.get('City')?.value?.City_Name);
+  onAdd() {
+    console.log(this.addClient.get('CompanyName')?.value);
 
     const formdata = new FormData()
     formdata.append('CompanyName', this.addClient.get('CompanyName')?.value)
@@ -100,15 +97,17 @@ export class AddClientComponent {
         (res: any) => {
           console.log(res);
           if (res == 'Success') {
-            this._shared.tostSuccessTop('Save Successfully...')
+            this._shared.tostSuccessTop('Saved Successfully...');
             this._routing.navigate(['/admin/clientlist'])
           }
         },
         (error: any) => {
           console.log(error);
-          this._shared.tostErrorTop('Not Insert')
+          this._shared.tostErrorTop('Not Inserted')
         }
       )
+    } else {
+      this._shared.tostErrorTop('Please fill all the required fields')
     }
   }
 

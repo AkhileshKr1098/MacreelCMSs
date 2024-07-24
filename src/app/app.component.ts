@@ -30,12 +30,12 @@ export class AppComponent implements OnInit {
 
     if (this.login_data) {
       if (this.location.path() == '') {
-        if(this.login_data.LoginResponse.Type == 'Admin'){
+        if (this.login_data.LoginResponse.Type == 'Admin') {
           this._router.navigate(['/admin'])
         }
 
-        if(this.login_data.LoginResponse.Type > 0){
-          this._router.navigate(['/admin'])
+        if (this.login_data.LoginResponse.Type > 0) {
+          this._router.navigate(['/employee'])
         }
       } else {
 

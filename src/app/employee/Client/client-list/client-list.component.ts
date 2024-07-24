@@ -50,7 +50,7 @@ export class ClientListComponent {
   viewDetails(data: any) {
     this._shared.emp_data.next(data);
     console.log(data);
-    this._router.navigate(['/employee/clientupdate'])
+    this._router.navigate(['/employee/clientview'])
   }
 
   OnAdd() {
@@ -79,7 +79,7 @@ export class ClientListComponent {
 
   OnUpdate(data: any) {
     this._shared.client_data.next(data)
-    this._router.navigate(['/employee/clientupdate'])
+    this._router.navigate(['/employee/clientview'])
 
   }
 }

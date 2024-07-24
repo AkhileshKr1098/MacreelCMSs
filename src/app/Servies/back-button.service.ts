@@ -25,34 +25,20 @@ export class BackButtonService {
     });
   }
 
-  back(url: any) {
+  back(url: any) {         
+    
     this.platform.ready().then(() => {
-      App.addListener('backButton', () => {
-        // if (this.router.url != "/") {
-        //   window.location.replace(this.previousUrl)
-        //   window.location.href = this.previousUrl;
-        // }
-        if (this.router.url == "/") {
-          this.showExitConfirmation()
-
-        }
-
-
+      App.addListener('backButton', () => { 
         // for home page back 
         let urlObject = new URL(window.location.href);
         let pathname = urlObject.pathname;
         let trimmedPathname = pathname.startsWith('/') ? pathname.substr(1) : pathname;
-        if (trimmedPathname == "admin" || "employee") {
-          this.showExitConfirmation()
+        if (trimmedPathname == "admin" || trimmedPathname == "employee" || trimmedPathname == '') {
+          this.showExitConfirmation();
+        } else {
+          window.location.replace(this.previousUrl);
+          window.location.href = this.previousUrl;
         }
-
-     
-
-        // for after exam 
-        // if (trimmedPathname == "mcqList") {
-        //   this.showExitConfirmationmcq()
-        // }
-
 
       })
     })
@@ -69,5 +55,5 @@ export class BackButtonService {
     }
   }
 
-  
+
 }

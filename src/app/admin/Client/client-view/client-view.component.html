@@ -1,1 +1,55 @@
-<p>client-view works!</p>
+<div id="containerBox">
+    <div class="container" routerLink="/admin/leadadd" (click)="OnUpdate(client)">
+        <div class="dataRow">
+            <ul>
+                <li>
+                    <img src="../../../assets/icons/company.png" alt="" width="30">
+                    <span style="font-weight: bold;">{{client?.CompanyName | titlecase }}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/person.png" alt="" width="30">
+                    <span>{{client?.ContactPerson | titlecase}}</span>
+                </li>
+                <li *ngIf="client?.Designation">
+                    <img src="../../../assets/icons/person.png" alt="" width="30">
+                    <span>{{client?.Designation | titlecase}}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/phone.png" alt="" width="30">
+                    <span>{{client?.ContactNo}}</span>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/gmail.png" alt="" width="30">
+                    <span>{{client?.EmailId}}</span>
+                </li>
+                <li *ngIf="client?.GSTNo">
+                    <b>GST No :</b>
+                    <span>{{client?.GSTNo}}</span>
+                </li>
+                <li *ngIf="client?.PanNo">
+                    <b>PAN No :</b>
+                    <span>{{client?.PanNo}}</span>
+                </li>
+
+                <li *ngIf="client.StateName" >
+                    <img src="../../../assets/icons/location.png" alt="" width="30">
+                    <span >{{client?.StateName }}</span>
+                </li>
+                <li *ngIf="client.CityName" >
+                    <b>City : </b>
+                    <span >{{client?.CityName }}</span>
+                </li>
+                <li *ngIf="client.Pincode" >
+                    <b>Pin Code : </b>
+                    <span >{{client?.Pincode }}</span>
+                </li>
+
+                <li *ngIf="client.Address">
+                    <b> Address : </b>
+                    <span >{{client?.Address }}</span>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>

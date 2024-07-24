@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CRUDService } from 'src/app/Servies/crud.service';
@@ -19,24 +19,15 @@ export class ClientUpdateComponent implements OnInit, AfterViewInit {
   login: any
   login_data: any
   update_data: any
+  stateName: any
+  cityName: any
   constructor(
     private _fb: FormBuilder,
     private _crud: CRUDService,
     private _shared: SharedService,
     private _routing: Router
   ) {
-
-  }
-
-  ngAfterViewInit() {
-    this._shared.client_data.subscribe(
-      (res: any) => {
-        console.log(res);
-        this.addClient.patchValue(res)
-        this.update_data = res
-      }
-    )
-
+    this.get_adr_data()
   }
 
   ngOnInit(): void {
@@ -55,34 +46,73 @@ export class ClientUpdateComponent implements OnInit, AfterViewInit {
       Statecode: ['', Validators.required],
     })
 
-    this.get_adr_data()
     this.login = localStorage.getItem('logindata')
     this.login_data = JSON.parse(this.login)
+  }
+
+  ngAfterViewInit() {
+    this._shared.client_data.subscribe(
+      (res: any) => {
+        this.get_city_up(res.State)
+        this.addClient.patchValue(res)
+        this.update_data = res
+        this.addClient.get('State')?.setValue(Number(res.State))
+        this.addClient.get('City')?.setValue(Number(res.City))
+      }
+    )
 
   }
+
+
 
 
 
   get_adr_data() {
     this._crud.get_state().subscribe(
       (res: any) => {
+        console.log(res);
         this.state_data = res
 
       }
     )
   }
 
-  get_city(data: any) {
-    this._crud.get_city_by_state_id(data.Id).subscribe(
+  get_city_up(id: any) {
+    console.log(id);
+
+    this._crud.get_city_by_state_id(id).subscribe(
       (res: any) => {
+        console.log(res);
+        this.city_data = res
+        console.log(this.update_data.City);
+      }
+    )
+  }
+
+  getCityData(data: any) {
+    console.log(data);
+    this.cityName = this.city_data.filter((c: any) => c.Id == data)
+    console.log(this.cityName);
+  }
+
+  get_city(data: any) {
+    this.stateName = this.state_data.filter((s: any) => s.Id == data)
+    console.log(this.stateName);
+
+    this._crud.get_city_by_state_id(data).subscribe(
+      (res: any) => {
+        console.log(res);
+
         this.city_data = res
       }
     )
   }
+
   onAdd() {
 
     const formdata = new FormData()
     formdata.append('Id', this.update_data.Id)
+    formdata.append('CompanyName', this.addClient.get('CompanyName')?.value)
     formdata.append('ContactPerson', this.addClient.get('ContactPerson')?.value)
     formdata.append('Designation', this.addClient.get('Designation')?.value)
     formdata.append('ContactNo', this.addClient.get('ContactNo')?.value)
@@ -90,13 +120,22 @@ export class ClientUpdateComponent implements OnInit, AfterViewInit {
     formdata.append('Pincode', this.addClient.get('Pincode')?.value)
     formdata.append('GSTNo', this.addClient.get('GSTNo')?.value)
     formdata.append('PanNo', this.addClient.get('PanNo')?.value)
-    formdata.append('StateName', this.addClient.get('State')?.value?.State_Name)
-    formdata.append('CityName', this.addClient.get('City')?.value?.City_Name)
     formdata.append('Address', this.addClient.get('Address')?.value)
     formdata.append('Statecode', this.addClient.get('Statecode')?.value)
-    formdata.append('State', this.addClient.get('State')?.value?.Id)
-    formdata.append('City', this.addClient.get('City')?.value?.Id)
 
+    if (!this.stateName) {
+      formdata.append('StateName', this.update_data.StateName)
+      formdata.append('CityName', this.update_data.CityName)
+      formdata.append('State', this.update_data.State)
+      formdata.append('City', this.update_data.City)
+
+    } else {
+      console.log(this.cityName[0]?.City_Name);
+      formdata.append('StateName', this.stateName[0]?.State_Name)
+      formdata.append('CityName', this.cityName[0]?.City_Name)
+      formdata.append('State', this.stateName[0]?.Id)
+      formdata.append('City', this.cityName[0]?.Id)
+    }
 
     if (this.addClient.valid) {
       this._crud.ClientAdd(formdata, this.login_data.LoginResponse.EmpId).subscribe(
@@ -104,7 +143,7 @@ export class ClientUpdateComponent implements OnInit, AfterViewInit {
           console.log(res);
           if (res == 'updated') {
             this._shared.tostSuccessTop('Update Successfully...')
-            this.onBack()
+            this._routing.navigate(['/admin/clientlist'])
           }
         },
         (error: any) => {
@@ -112,10 +151,12 @@ export class ClientUpdateComponent implements OnInit, AfterViewInit {
           this._shared.tostErrorTop('Not Update')
         }
       )
+    } else {
+      this._shared.tostErrorTop('Please fill all the required fields.')
     }
   }
 
   onBack() {
-    this._routing.navigate(['/admin/clientlist'])
+    this._routing.navigate(['/admin/clientview'])
   }
 }

@@ -5,14 +5,15 @@
 
 #up{
     width: 100%;
-    height: 310px;
+    height: 280px;
 }
 
 #down{
     width: 100%;
-    height: calc(100% - 310px);
+    height: calc(100% - 280px);
     overflow-x: auto;
 }
+
 mat-toolbar {
     height: 50px;
     display: flex;

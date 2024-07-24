@@ -38,9 +38,9 @@ export class ClientListComponent implements OnInit {
 
     this._crud.get_client(this.login_data.LoginResponse.Type, this.login_data.EmpId).subscribe(
       (res: any) => {
-        console.log(res);
-        this.client_data = res;
-        this.client_filter_data = res;
+        console.log(res.reverse());
+        this.client_data = res.reverse();
+        this.client_filter_data = res.reverse();
         this.ImagePath = res.ImagePath;
       }
     )
@@ -81,8 +81,9 @@ export class ClientListComponent implements OnInit {
 
   OnUpdate(data: any) {
     this._shared.client_data.next(data)
-    this._router.navigate(['/admin/clientupdate'])
+    this._router.navigate(['/admin/clientview'])
 
   }
 
+  
 }

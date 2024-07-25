@@ -1,55 +1,55 @@
-
-
 .manageContainer {
   h5 {
-      font-size: 16px;
-      font-weight: bold;
-      margin: 10px 0px 0px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0px 0px 10px;
   }
 
   .manage {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-      margin: 10px;
-      border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    margin: 10px;
+    border-radius: 10px;
 
-      .card {
-          padding: 10px;
-          border-radius: 8px;
-          cursor: pointer;
-          background-color: rgb(255, 255, 255);
-          margin-bottom: 15px;
-          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-          display: flex;
-          margin: 12px 10px;
-          justify-content: space-between;
-          align-items: center;
-          height: 80px;
+    .card {
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: rgb(255, 255, 255);
+      margin-bottom: 15px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      display: flex;
+      margin: 12px 10px;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
 
-          h3 {
-              margin: 0;
-              font-size: 14px;
-              color: black;
-              font-family: Arial, Helvetica, sans-serif;
-              font-weight: bold;
-          }
-
-          p {
-              margin: 5px 0 0;
-              font-weight: 600;
-
-              span {
-              position: relative;
-              left: -22px;
-                  top: 10px;
-                  font-size: 8px;
-              }
-          }
-
-          img {
-              align-items: center;
-          }
+      h3 {
+        margin: 0;
+        font-size: 14px;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
       }
+
+      p {
+        margin: 5px 0 0;
+        font-weight: 600;
+        color: white;
+
+        span {
+          position: relative;
+          left: -22px;
+          top: 10px;
+          font-size: 8px;
+        }
+      }
+
+      img {
+        align-items: center;
+        filter: drop-shadow(0px 4px 3px black);
+      }
+    }
 
   }
 }
@@ -58,135 +58,46 @@
   color: darkblue;
   font-size: x-large;
   font-weight: bold;
-  background: linear-gradient(to bottom right, #ffcccc, #ff99cc); /* Example gradient 1 */
+  background-image: linear-gradient(to right bottom, #f1c40f, #f3cd43, #f5d664, #f7df82, #f9e79f);
+  /* Example gradient 1 */
 }
 
 .card:nth-child(2) {
-  color: red;
-  font-size: x-large;
-  font-weight: bold;
-  background: linear-gradient(to bottom right, #cc99ffda, #9966ff8a); /* Example gradient 2 */
-}
-
-.card:nth-child(3) {
   color: darkgreen;
   font-size: x-large;
   font-weight: bold;
-  background: linear-gradient(to bottom right, #99ccff, #66b3ff); /* Example gradient 3 */
+  background-image: linear-gradient(to right bottom, #2ecc71, #48d180, #5dd68e, #70db9c, #82e0aa);
+  /* Example gradient 2 */
 }
+
+.card:nth-child(3) {
+  color: darkblue;
+  font-size: x-large;
+  font-weight: bold;
+  background-image: linear-gradient(to right bottom, #0778ff, #0088fc, #0096f5, #38a2ec, #5dade2);
+}
+
+
 .card:nth-child(4) {
   color: darkgreen;
   font-size: x-large;
   font-weight: bold;
-  background: linear-gradient(to bottom right, #99ccff, #85ff66); /* Example gradient 3 */
+  background-image: linear-gradient(to right bottom, #7d3c98, #8c51a5, #9c66b3, #ab7ac0, #bb8fce);
 }
+
 .card:nth-child(5) {
   color: darkgreen;
   font-size: x-large;
   font-weight: bold;
-  background: linear-gradient(to bottom right, #c7912c, #66ffb8); /* Example gradient 3 */
+  background: linear-gradient(to bottom right, #c7912c, #66ffb8);
+  /* Example gradient 3 */
 }
+
 .card:nth-child(6) {
   color: darkgreen;
   font-size: x-large;
   font-weight: bold;
-  background: linear-gradient(to bottom right, #99ccff, #66b3ff); /* Example gradient 3 */
+  background: linear-gradient(to bottom right, #a5c568, #4bb604);
+  /* Example gradient 3 */
 }
 
-.manageContainer {
-    h5 {
-        font-size: 16px;
-        font-weight: bold;
-        margin: 10px 0px 0px 10px;
-    }
-  
-    .manage {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-        margin: 10px;
-        border-radius: 10px;
-  
-        .card {
-            padding: 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            background-color: rgb(255, 255, 255);
-            margin-bottom: 15px;
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            display: flex;
-            margin: 10px;
-            justify-content: space-between;
-            align-items: center;
-  
-            h3 {
-                margin: 0;
-                font-size: 14px;
-                color: black;
-                font-family: Arial, Helvetica, sans-serif;
-                font-weight: bold;
-            }
-  
-            p {
-                margin: 5px 0 0;
-                font-weight: 600;
-  
-                span {
-                position: relative;
-                left: -22px;
-                    top: 10px;
-                    font-size: 8px;
-                }
-            }
-  
-            img {
-                align-items: center;
-            }
-        }
-  
-    }
-  }
-  
-  .card:nth-child(1) {
-    color: darkblue;
-    font-size: x-large;
-    font-weight: bold;
-    background: linear-gradient(to bottom right, #ffcccc, #ff99cc); /* Example gradient 1 */
-  }
-  
-  .card:nth-child(2) {
-    color: red;
-    font-size: x-large;
-    font-weight: bold;
-    background: linear-gradient(to bottom right, #cc99ffda, #9966ff8a); /* Example gradient 2 */
-  }
-  
-  .card:nth-child(3) {
-    color: darkgreen;
-    font-size: x-large;
-    font-weight: bold;
-    background: linear-gradient(to bottom right, #99ccff, #66b3ff); /* Example gradient 3 */
-  }
-  .card:nth-child(4) {
-    color: darkgreen;
-    font-size: x-large;
-    font-weight: bold;
-    background: linear-gradient(to bottom right, #99ccff, #85ff66); /* Example gradient 3 */
-  }
-  .card:nth-child(5) {
-    color: darkgreen;
-    font-size: x-large;
-    font-weight: bold;
-    background: linear-gradient(to bottom right, #c7912c, #66ffb8); /* Example gradient 3 */
-  }
-  .card:nth-child(6) {
-    color: darkgreen;
-    font-size: x-large;
-    font-weight: bold;
-    background: linear-gradient(to bottom right, #99ccff, #66b3ff); /* Example gradient 3 */
-  }
-  .card:nth-child(7) {
-    color: darkgreen;
-    font-size: x-large;
-    font-weight: bold;
-    background: linear-gradient(to bottom right, #ec994b, #66b3ff); /* Example gradient 3 */
-  }

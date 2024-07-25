@@ -2,14 +2,18 @@
 
     <div class="manage">
 
-        <div class="card" [routerLink]="['/employee/todayleadflow']">
-            <div>
-                <h3>Today Followup </h3>
-                <p>{{dashboard_data?.TodayFollowup}}</p>
+        <div *ngFor="let role of role_permission">
+            <div class="card" [routerLink]="['/employee/todayleadflow']"
+                *ngIf="role.PermissionName == 'Lead Management'">
+                <div>
+                    <h3>Today Followup </h3>
+                    <p>{{dashboard_data?.TodayFollowup}}</p>
+                </div>
+                <div>
+                    <img src="../../../assets/icons/approved.png" alt="" width="60px" height="60px">
+                </div>
             </div>
-            <div>
-                <img src="../../../assets/icons/user.png" alt="" width="30px">
-            </div>
+
         </div>
 
         <div class="card" [routerLink]="['/employee/levaeadd']">
@@ -18,8 +22,7 @@
                 <p>{{dashboard_data?.TotalLeave}}</p>
             </div>
             <div>
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACkUlEQVR4nGNgGAWjYBSMgkEJvgQGSv4MCJjyKyDgwq/AwNsgzDCUHP8rMPAMzOFDzgM/QSGP5vgh5YFfSMlmSHqAYfP1/9gwNk/REzOMeiBwNAZujyahwZyJX3sn3bvlUv7opH3Ps0++0XcHdSY+btP3fJbOsU/daje+1cq//FUg9fNfjuT//zD82S9qcHvgg2/s3XaVO9+RHQ3DJTJf/gx4MYotCRDriWbFxz8G1AP33QsfVsq9+73NfPFrfOp+Bgbdnqtz6GOl/JvfyB6YpHHxy4B54IZz5aNSmc9/QA7Jlfz3f5vZEqye+BkAcXwO1NFV8q/hnlikt+/DgHjgsmPjkyKZb3/Rk8RmsxVvMB1/EO54EJ6lffgTLDltNFn1hu4eOGPf9bRA6ge8JAGFPrIDNxivfoPL8XN1Dn0EicPyxEHraS/o6oGjNhOf50n9hju+Qvb9b1BS6lG79g3ZoWuN17+dp3MAq+N/IWXsxx45D+jmAVBo5Ur9gTu+Wv7Nr8ceuWAHfPGPvNOnduUrtqIS4vjDKI4nhKnugV3mC17lSiGSSoPC858vvNLuI6v55h96Z7L6uS+UOv4XtT2w3njNW2QHtSg9+PHGJ/EeNou/+ofdmaR+Hu6JOWQ4/he1PbDPauZLWEbtUrn5HZR28VkOiompmmc/k+v4X7RIQltNl73uV7v89Ytf5B1iHPDDP+QOuY7/RatM/CMgmGwH/RoMHqAnZhhRHpBZceLf4pLGt6/DIlGKRRjGVbZTE/8i1wMgxz+LisHq8CHhgcUljW8JReeg9sBrHMlmoDEDpUOLQ8YDv4OCpg5pD/wPDVXENrw+ZDwAAv9DQyV+BgVN+hUYeH5IemAUjIJRMApGwYgAAKpFPhqNzyuPAAAAAElFTkSuQmCC"
-                    width="30px">
+                <img src="../../../assets/icons/totalempleave.png" width="60px" height="60px">
             </div>
         </div>
 
@@ -29,7 +32,7 @@
                 <p>{{dashboard_data?.TotalAssignProject}}</p>
             </div>
             <div>
-                <img src="../../../assets/icons/user.png" alt="" width="30px">
+                <img src="../../../assets/icons/assigntask.png" alt="" width="60px" height="60px">
             </div>
         </div>
 
@@ -42,7 +45,7 @@
                 <p>{{dashboard_data?.TotalComplete}}</p>
             </div>
             <div>
-                <img src="../../../assets/icons/lead.png" alt="" width="30px">
+                <img src="../../../assets/icons/completedtask.png" alt="" width="60px" height="60px">
             </div>
         </div>
 
@@ -52,7 +55,7 @@
                 <p>{{dashboard_data?.TotalPenginTask}}</p>
             </div>
             <div>
-                <img src="../../../assets/icons/lead.png" alt="" width="30px">
+                <img src="../../../assets/icons/pendingtask.png" alt="" width="60px" height="60px">
             </div>
         </div>
 

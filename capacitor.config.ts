@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.macrellcms.app',
-  appName: 'MacreelCMS',
+  appId: 'com.macreel.app',
+  appName: 'Macreel CMS',
   webDir: 'www'
 };
 

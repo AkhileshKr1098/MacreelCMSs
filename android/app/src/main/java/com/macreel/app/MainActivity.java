@@ -1,4 +1,4 @@
-package com.macrellcms.app;
+package com.macreel.app;
 
 import com.getcapacitor.BridgeActivity;
 

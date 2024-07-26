@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">MacreelCMS</string>
-    <string name="title_activity_main">MacreelCMS</string>
-    <string name="package_name">com.macrellcms.app</string>
-    <string name="custom_url_scheme">com.macrellcms.app</string>
+    <string name="app_name">Macreel CMS</string>
+    <string name="title_activity_main">Macreel CMS</string>
+    <string name="package_name">com.macreel.app</string>
+    <string name="custom_url_scheme">com.macreel.app</string>
 </resources>
